@@ -339,7 +339,7 @@ function updateGlobalTimes() {
         'tokyo': 'Asia/Tokyo'
     };
 
-    timeElements.forEach(element => {
+    timeElements.forEach((element, index) => {
         const location = element.getAttribute('data-timezone');
         if (location && timezones[location]) {
             const now = new Date();
@@ -349,7 +349,11 @@ function updateGlobalTimes() {
                 minute: '2-digit',
                 hour12: true
             }).toLowerCase().replace(' ', '');
-            element.textContent = timeString;
+
+            // Add flashing colon for live clock effect with staggered delay
+            const delay = index * 0.12; // 0.12s delay between each location (wave completes in 0.6s)
+            const timeWithFlashingColon = timeString.replace(':', `<span class="time-colon" style="animation-delay: ${delay}s">:</span>`);
+            element.innerHTML = timeWithFlashingColon;
         }
     });
 }

@@ -983,6 +983,28 @@ h5 {
     color: #BABCC9;
 }
 
+.time-colon {
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 991px) {
     .global-reach-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1408,6 +1430,10 @@ h5 {
     .mega-menu-links li a:hover {
         color: var(--color-aqua);
         padding-left: 0.5rem;
+    }
+
+    .team-section .row {
+        align-items: center !important;
     }
 
     .hero-content {
