@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIP - Alternative Investment Partners</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header-section">
+        <div class="header-video-wrapper">
+            <video autoplay muted loop playsinline class="header-video">
+                <source src="mp4/hero.mp4" type="video/mp4">
+            </video>
+            <div class="header-overlay"></div>
+            <svg class="header-angled-overlay" xmlns="http://www.w3.org/2000/svg" width="597" height="1128" viewBox="0 0 597 1128" fill="none" preserveAspectRatio="none">
+                <path opacity="0.5" d="M596.5 0.5V1127.5H0.642578L286.898 0.5H596.5Z" fill="#00D2E3" fill-opacity="0.5" stroke="black"/>
+            </svg>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid navbar-container-full">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/logo-header.svg" alt="AIP Logo" class="header-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link" href="#" id="ourFirmDropdown">
+                                Our Firm <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="mega-menu" id="ourFirmMenu">
+                                <div class="container-custom">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <ul class="mega-menu-links">
+                                                <li><a href="#about">About Us</a></li>
+                                                <li><a href="#team">Our Team</a></li>
+                                                <li><a href="#sustainability">Sustainability</a></li>
+                                                <li><a href="#careers">Careers</a></li>
+                                                <li><a href="#community">Community</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img src="img/menu-placeholder.png" alt="Our Firm" class="mega-menu-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Our Team</a></li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link" href="#" id="strategiesDropdown">
+                                Strategies <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="mega-menu" id="strategiesMenu">
+                                <div class="container-custom">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <ul class="mega-menu-links">
+                                                <li><a href="#strategies-overview">Strategies Overview</a></li>
+                                                <li><a href="#real-assets">Real Assets</a></li>
+                                                <li><a href="#private-credit">Private Credit</a></li>
+                                                <li><a href="#strategic-partnerships">Strategic Partnerships & Control Investments</a></li>
+                                                <li><a href="#asset-management">Asset Management</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img src="img/menu-placeholder-2.png" alt="Strategies" class="mega-menu-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#news">News & Insights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-aqua" href="#login">Investor Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="container-custom">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h1 class="hero-title">Aligned interests.<br>Disciplined outcomes.</h1>
+                        <p class="hero-description mt-4">AIP Capital is a global multi-strategy investment manager focused on opportunities in asset-based finance. AlP, together with its affiliates, manages approximately $6 billion of assets on behalf of a diversified global investor base.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Our Firm Section -->
+    <section class="our-firm-section padding-section-large">
+        <div class="container-custom">
+            <div class="row align-items-start">
+                <div class="col-lg-6">
+                    <h2 class="our-firm-title">Our Firm</h2>
+                </div>
+                <div class="col-lg-6">
+                    <p class="our-firm-text">AIP Capital is a global alternative investment firm with deep expertise in real assets and private credit markets. We build long-term value through disciplined investment strategies and strategic partnerships.</p>
+                    <p class="our-firm-text">Our approach combines rigorous fundamental analysis with sector specialization, enabling us to identify compelling opportunities across market cycles.</p>
+                    <div class="our-firm-buttons">
+                        <a href="#about" class="btn btn-aqua-ghost">Find out more</a>
+                        <a href="#team" class="btn btn-text-white">Meet the team <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section padding-section-large">
+        <div class="container-custom">
+            <div class="row align-items-start">
+                <div class="col-lg-6">
+                    <h2 class="stats-title">Pre-Eminent Dedicated Asset-Based Finance Investor</h2>
+                    <p class="stats-description">AIP Capital ("AIP") is a multi-strategy investment manager focused on opportunities in asset-based finance. Through a differentiated investment strategy, deep industry relationships, and a hands-on approach, AIP seeks to generate attractive risk-adjusted returns for its clients across market cycles.</p>
+                    <p class="stats-description">Headquartered in Stamford with offices in New York City, Dublin, Tokyo, Seoul, and Singapore, AIP maintains a strong global footprint. The firm is supported by a fully integrated platform of more than 50 professionals spanning origination, finance, technical, legal, risk management, and underwriting, and wholly owns AIP Capital.</p>
+                    <div class="stats-buttons">
+                        <a href="#about" class="btn btn-white-ghost">Find out more</a>
+                        <a href="#team" class="btn btn-text-white">Meet the team <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="6.2">0</div>
+                            <div class="stat-label">Assets Under Management</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="123">0</div>
+                            <div class="stat-label">Assets Managed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="57">0</div>
+                            <div class="stat-label">Expert Professionals</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="6">0</div>
+                            <div class="stat-label">Global Offices</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Strategies Section -->
+    <section id="strategies" class="strategies-section py-5">
+        <div class="container-custom">
+            <h2 class="section-title text-center mb-5">Our Strategies</h2>
+
+            <ul class="nav nav-tabs custom-tabs justify-content-center mb-5" id="strategiesTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="real-assets-tab" data-bs-toggle="tab" data-bs-target="#real-assets" type="button" role="tab">
+                        Real Assets
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="private-credit-tab" data-bs-toggle="tab" data-bs-target="#private-credit" type="button" role="tab">
+                        Private Credit
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="partnerships-tab" data-bs-toggle="tab" data-bs-target="#partnerships" type="button" role="tab">
+                        Strategic Partnerships & Control Investments
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="asset-management-tab" data-bs-toggle="tab" data-bs-target="#asset-management" type="button" role="tab">
+                        Asset Management
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="strategiesTabContent">
+                <div class="tab-pane fade show active" id="real-assets" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-2">
+                            <h3 class="tab-content-title">Investing in tangible assets with lasting value</h3>
+                            <p class="tab-content-text">Our real assets strategy targets investments in infrastructure, real estate, and natural resources. We focus on assets that provide stable cash flows and inflation protection while contributing to sustainable development.</p>
+                            <p class="tab-content-text">With a disciplined approach and extensive operational expertise, we create value through active asset management and strategic improvements.</p>
+                            <a href="#real-assets-more" class="tab-learn-more">Find out more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                            <img src="img/jet-sample.png" alt="Real Assets" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="private-credit" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-2">
+                            <h3 class="tab-content-title">Flexible credit solutions for complex situations</h3>
+                            <p class="tab-content-text">Our credit platform provides customized financing solutions across the capital structure. We leverage deep industry expertise and relationships to deliver innovative structures that meet our partners' unique needs.</p>
+                            <p class="tab-content-text">From senior secured loans to structured credit products, we offer flexible capital solutions that create value for all stakeholders.</p>
+                            <a href="#private-credit-more" class="tab-learn-more">Find out more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                            <img src="img/jet-sample.png" alt="Private Credit" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="partnerships" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-2">
+                            <h3 class="tab-content-title">Strategic partnerships driving exceptional outcomes</h3>
+                            <p class="tab-content-text">We build long-term partnerships with high-quality businesses and management teams. Our control investments focus on companies where we can add significant value through operational expertise and strategic guidance.</p>
+                            <p class="tab-content-text">By combining capital with deep industry knowledge and a collaborative approach, we help our partners achieve sustainable growth and create lasting value.</p>
+                            <a href="#partnerships-more" class="tab-learn-more">Find out more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                            <img src="img/jet-sample.png" alt="Strategic Partnerships" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="asset-management" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-2">
+                            <h3 class="tab-content-title">Active management delivering superior returns</h3>
+                            <p class="tab-content-text">Our asset management approach combines rigorous fundamental analysis with active portfolio management. We focus on identifying undervalued opportunities and implementing strategies that maximize risk-adjusted returns.</p>
+                            <p class="tab-content-text">Through continuous monitoring and proactive management, we adapt to changing market conditions and optimize portfolio performance across all investment strategies.</p>
+                            <a href="#asset-management-more" class="tab-learn-more">Find out more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                            <img src="img/jet-sample.png" alt="Asset Management" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center strategies-overview-btn">
+                <div class="col-auto">
+                    <a href="#strategies-overview" class="btn btn-white-ghost">View Strategy Overview</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partnerships & Control Investments -->
+    <section id="investments" class="investments-section py-5">
+        <div class="container-custom">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h2 class="section-title section-title-with-accent">Strategic Partnerships & Control Investments</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-witt-lake.png" alt="Witt Lake Asset Management">
+                        </div>
+                        <h4 class="card-title">Witt Lake Asset Management</h4>
+                        <p class="card-text">Private credit platform specializing in middle-market corporate lending.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-hp.png" alt="Harbor Point Equipment Finance">
+                        </div>
+                        <h4 class="card-title">Harbor Point Equipment Finance</h4>
+                        <p class="card-text">Specialized equipment financing solutions across transportation, construction, and industrial sectors.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-pac.png" alt="Phoenix Aviation Capital">
+                        </div>
+                        <h4 class="card-title">Phoenix Aviation Capital</h4>
+                        <p class="card-text">Leading provider of aircraft financing and leasing services to the aviation industry.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-sankaty.png" alt="Sankaty Jet Capital">
+                        </div>
+                        <h4 class="card-title">Sankaty Jet Capital</h4>
+                        <p class="card-text">Leading provider of aircraft financing and leasing services to the aviation industry.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-aip.svg" alt="AIP Capital | Asia">
+                        </div>
+                        <h4 class="card-title">AIP Capital | Asia</h4>
+                        <p class="card-text">Real estate and infrastructure investment partnership delivering value-add strategies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-beyoke.png" alt="BeYoke Capital">
+                        </div>
+                        <h4 class="card-title">BeYoke Capital</h4>
+                        <p class="card-text">Investment platform focused on specialty finance and asset-based lending opportunities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investment-card">
+                        <div class="card-logo">
+                            <img src="img/logo-alliant.png" alt="Alliant Airfinance">
+                        </div>
+                        <h4 class="card-title">Alliant Airfinance</h4>
+                        <p class="card-text">Leading provider of aircraft financing and leasing services to the aviation industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section padding-section-large">
+        <div class="container-custom">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <h2 class="team-title team-title-with-accent">An Experienced<br class="d-none d-lg-block"> Investment Team</h2>
+                    <p class="team-description">AIP Capital's team is composed of seasoned investment professionals with deep expertise across asset-based finance. Drawing on diverse backgrounds in investing, structuring, technical analysis, legal, risk management, and underwriting, the team works collaboratively to identify, evaluate, and execute opportunities across market cycles.</p>
+                    <div class="team-buttons">
+                        <a href="#team-page" class="btn btn-aqua">Meet the Team</a>
+                        <a href="#careers" class="btn btn-white-ghost">Join Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News & Insights -->
+    <section id="news" class="news-section py-5">
+        <div class="container-custom">
+            <h2 class="news-section-title news-title-with-accent">Latest News & Insights</h2>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-8">
+                    <p class="news-section-description">Stay informed with our latest updates and market perspectives.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#all-news" class="news-view-all">View all <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="#news-1" class="news-card">
+                        <img src="img/news-1.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Market Outlook 2026: Opportunities in Alternative Investments</h5>
+                            <div class="news-date">December 15, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="#news-2" class="news-card">
+                        <img src="img/news-2.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">AIP Announces New Strategic Partnership in Technology Sector</h5>
+                            <div class="news-date">November 28, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="#news-3" class="news-card">
+                        <img src="img/news-3.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Sustainable Investing: Our Approach to ESG Integration</h5>
+                            <div class="news-date">November 10, 2025</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect With Us -->
+    <section id="connect" class="connect-section padding-section-large">
+        <div class="container-custom">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="connect-title">Connect With Us to Explore Lasting Opportunities</h2>
+                    <p class="connect-description">Contact us to learn more information about our firm's experience, investment strategies and opportunities.</p>
+                    <div class="connect-buttons">
+                        <a href="#contact" class="btn btn-aqua">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Global Reach -->
+    <section id="global-reach" class="global-reach-section padding-section-large">
+        <div class="container-custom">
+            <h2 class="global-reach-title global-reach-title-with-accent">Our Global Reach</h2>
+
+            <div class="global-reach-grid">
+                <div class="location-item">
+                    <div class="location-name">Stamford</div>
+                    <div class="location-time" data-timezone="stamford">09:31am</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">New York</div>
+                    <div class="location-time" data-timezone="new-york">09:31am</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Dublin</div>
+                    <div class="location-time" data-timezone="dublin">3:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Singapore</div>
+                    <div class="location-time" data-timezone="singapore">10:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Seoul</div>
+                    <div class="location-time" data-timezone="seoul">11:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Tokyo</div>
+                    <div class="location-time" data-timezone="tokyo">11:31pm</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container-custom">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <img src="assets/logo-footer.png" alt="AIP Logo" class="footer-logo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <p class="footer-description">A global alternative investment firm<br>specializing in real assets<br>and private credit.</p>
+                    <a href="https://www.linkedin.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h5 class="footer-heading">Our Firm</h5>
+                            <ul class="footer-links">
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#team">Our Team</a></li>
+                                <li><a href="#sustainability">Sustainability</a></li>
+                                <li><a href="#news">News & insights</a></li>
+                                <li><a href="#login">Investor login</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5 class="footer-heading">Strategies</h5>
+                            <ul class="footer-links">
+                                <li><a href="#overview">Overview</a></li>
+                                <li><a href="#real-assets">Real Assets</a></li>
+                                <li><a href="#asset-management">Asset Management</a></li>
+                                <li><a href="#private-credit">Private Credit</a></li>
+                                <li><a href="#partnerships-investments">Partnerships & Investments</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5 class="footer-heading">Partnerships</h5>
+                            <ul class="footer-links">
+                                <li><a href="#witt-lake">Witt Lake Asset Management</a></li>
+                                <li><a href="#phoenix-aviation">Phoenix Aviation Capital</a></li>
+                                <li><a href="#sankaty-jet">Sankaty Jet Capital</a></li>
+                                <li><a href="#alliant">Alliant Airfinance</a></li>
+                                <li><a href="#beyoke">BeYoke Capital</a></li>
+                                <li><a href="#dreamstone">Dreamstone partners</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="footer-disclaimer">AUM figures as of 30 September 2025. All other figures as of 30 July 2025, unless otherwise indicated.</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <p class="footer-copyright">Copyright &copy; 2026 AIP Capital Partners LLC</p>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="footer-legal-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#accessibility">Accessibility</a></li>
+                        <li><a href="#modern-slavery">Modern Slavery Statement</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookies">Cookies Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+AIP Brief
+
+Files
+--
+Homepage Design File: assets/pages/homepage.png
+
+Web Build
+--
+Use the latest SCSS compiler version of Bootstrap.
+Use their components/framework as a base for all components, e.g. where we use tabs, or cards use the Bootstrap version and style them.
+Create clean SCSS adding a custom scss file for our components
+All components should work in any order if swapped, excluding the header and footer.
+Use Bootstrap best practices
+
+General Settings
+--
+Contant Container Width: 1280px
+Elements backrounds should be full width while content is contained at Contant Container Width
+Stats should have a  countup, e.g. $6.2bn+ the 6.2 should count up.
+Cards should use the bootstrap block grid.
+For images not supplied in Source Files, use a placeholder.
+
+
+Source Files
+--
+Header Logo: assets/logo-header.svg
+Footer Logo: assets/logo-footer.png
+
+
+Font Settings
+--
+Font Source: Google Fonts
+Font Family: Mulish
+Nav font size: 16px / weight: 400
+H1 Font Size: 56px / weight: 300 / line-height: 1.2 (desktop)
+H2 Font Size: 48px / weight: 300 / line-height: 1.2 (desktop)
+Body Font Size: 18px / weight: 400 / line-height: 1.5
+Statistics Font Size: 70px / weight: 200 / line-height: 1.3 (desktop)
+Tabs Title Font Size: 24px / weight: 400 / line-height: 1.4
+Tabs Content Title Font Size: 40px / weight: 300 / line-height: 1.2
+Tabs Content paragraphs Font Size: 16px / weight: 400 / line-height: 1.5
+Strategic Partnerships & Control Investments cards Title Font Size: 24px / weight: 400 / line-height: 1.4
+Strategic Partnerships & Control Investments cards Body Font Size:16px / weight: 400
+
+Brand Colours
+--
+Aqua: #00D2E3 (e.g. Investor Login button background)
+White: FFFFFF; (e.g. Text)
+Neutral Darkest: #1A2332 (e.g. header background)
+Neutral Dark: ##00D2E3 (e.g. header)
+Lilac: #BABCC9 (e.g. Tabs inactive background)
+
+Design Elements
+--
+The header has a background mp4 video
+
+Header Angled overlay on right hand side:
+<svg xmlns="http://www.w3.org/2000/svg" width="597" height="1128" viewBox="0 0 597 1128" fill="none">
+<path opacity="0.5" d="M596.5 0.5V1127.5H0.642578L286.898 0.5H596.5Z" fill="#00D2E3" fill-opacity="0.5" stroke="black"/>
+</svg>
+
+fill: rgba(0, 210, 227, 0.50);
+stroke-width: 1px;
+stroke: #000;
+opacity: 0.5;
