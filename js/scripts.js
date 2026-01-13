@@ -28,7 +28,8 @@ function initCountUp() {
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const statNumbers = document.querySelectorAll('.stat-number');
+                // Only animate stats within the intersecting section
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
                 statNumbers.forEach(stat => {
                     const target = parseFloat(stat.getAttribute('data-count'));
                     if (target) {
@@ -43,6 +44,11 @@ function initCountUp() {
     const statsSection = document.querySelector('.stats-section');
     if (statsSection) {
         statsObserver.observe(statsSection);
+    }
+
+    const snapshotSection = document.querySelector('.platform-snapshot-section');
+    if (snapshotSection) {
+        statsObserver.observe(snapshotSection);
     }
 }
 

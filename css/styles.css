@@ -129,6 +129,13 @@ h5 {
     opacity: 0.4;
 }
 
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
 .header-overlay {
     position: absolute;
     top: 0;
@@ -148,6 +155,20 @@ h5 {
     width: auto;
     min-height: 100vh;
     z-index: 2;
+}
+
+/* About Page Header */
+.about-header {
+    min-height: 730px;
+    max-height: 730px;
+}
+
+.about-header .header-angled-overlay {
+    display: none;
+}
+
+.about-header .hero-content {
+    min-height: calc(730px - 88px);
 }
 
 /* Navbar */
@@ -909,6 +930,209 @@ h5 {
 }
 
 /* ===================================
+   Vision Section
+   =================================== */
+.vision-section {
+    background-color: #0C162C;
+    position: relative;
+}
+
+.vision-title {
+    color: var(--color-aqua);
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.vision-description {
+    color: var(--color-white);
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* ===================================
+   About Stats Section
+   =================================== */
+.about-stats-section {
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.about-stats-section .col-lg-6:first-child {
+    padding-right: 4rem;
+}
+
+.about-stats-title {
+    color: #1A2332;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.about-stats-title-with-accent {
+    position: relative;
+    padding-top: 24px;
+}
+
+.about-stats-title-with-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.about-stats-intro {
+    color: #1A2332;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.about-stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-stats-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.about-stats-item:last-child {
+    margin-bottom: 0;
+}
+
+.about-bullet-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.about-stats-item p {
+    color: #1A2332;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-stats-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.btn-text-dark {
+    background-color: transparent;
+    border: none;
+    color: #1A2332;
+    font-weight: 600;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.btn-text-dark:hover {
+    color: var(--color-aqua);
+}
+
+.btn-text-dark i {
+    font-size: 14px;
+}
+
+/* ===================================
+   Platform Snapshot Section
+   =================================== */
+.platform-snapshot-section {
+    background-color: #EEEEEE;
+    padding: 5rem 0;
+}
+
+.snapshot-title {
+    color: #1A2332;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.snapshot-title-with-accent {
+    position: relative;
+    padding-top: 24px;
+}
+
+.snapshot-title-with-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.snapshot-card {
+    background-color: var(--color-neutral-darkest);
+    color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 0;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.snapshot-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 210, 227, 0.3);
+}
+
+.snapshot-card-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.snapshot-card-stat {
+    font-size: 80px;
+    font-weight: 200;
+    line-height: 1.2;
+    color: var(--color-aqua);
+    margin: 0;
+}
+
+.snapshot-card-stat .stat-number {
+    color: var(--color-aqua);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.snapshot-card-stat .stat-number::after {
+    content: none;
+}
+
+.snapshot-card-stat .stat-number::before {
+    content: none;
+}
+
+/* ===================================
    Global Reach Section
    =================================== */
 .global-reach-section {
@@ -1441,6 +1665,15 @@ h5 {
         padding-bottom: 60px;
     }
 
+    .about-header {
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .about-header .hero-content {
+        min-height: calc(500px - 70px);
+    }
+
     .hero-title {
         font-size: 36px;
         margin-bottom: 1.5rem;
@@ -1459,6 +1692,41 @@ h5 {
     .py-5 {
         padding-top: 3rem !important;
         padding-bottom: 3rem !important;
+    }
+
+    .vision-title {
+        font-size: 28px;
+    }
+
+    .vision-description {
+        font-size: 32px;
+    }
+
+    .about-stats-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .about-stats-item {
+        gap: 0.75rem;
+    }
+
+    .about-bullet-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .about-stats-item p {
+        font-size: 16px;
+    }
+
+    .snapshot-card-stat {
+        font-size: 60px;
+    }
+
+    .snapshot-card {
+        min-height: 250px;
     }
 }
 
@@ -1481,6 +1749,15 @@ h5 {
         padding-top: 2rem;
         padding-bottom: 40px;
         min-height: 70vh;
+    }
+
+    .about-header {
+        min-height: 400px;
+        max-height: 400px;
+    }
+
+    .about-header .hero-content {
+        min-height: calc(400px - 60px);
     }
 
     .hero-title {
@@ -1506,6 +1783,51 @@ h5 {
 
     .btn-outline-light {
         padding: 0.5rem 1.5rem;
+    }
+
+    .vision-title {
+        font-size: 24px;
+    }
+
+    .vision-description {
+        font-size: 24px;
+    }
+
+    .about-stats-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .about-stats-item {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-bullet-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .about-stats-item p {
+        font-size: 15px;
+    }
+
+    .about-stats-intro {
+        font-size: 16px;
+    }
+
+    .snapshot-card-stat {
+        font-size: 48px;
+    }
+
+    .snapshot-card {
+        min-height: 200px;
+        padding: 1.25rem;
+    }
+
+    .snapshot-card-title {
+        font-size: 18px;
     }
 }
 
