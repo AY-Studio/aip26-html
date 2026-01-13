@@ -382,3 +382,188 @@ window.addEventListener('load', function() {
 // Prevent FOUC (Flash of Unstyled Content)
 // ===================================
 document.documentElement.style.visibility = 'visible';
+
+// ===================================
+// Global Offices Interactive Map
+// ===================================
+/**
+ * INTERACTIVE MAP COMPONENT
+ *
+ * Full documentation: See interactive-map.md
+ *
+ * This JavaScript powers the interactive office location map.
+ * It handles marker clicks and displays location details in a modal popup.
+ *
+ * PLUGIN CONVERSION NOTES:
+ * ------------------------
+ * For WordPress plugin development:
+ *
+ * 1. DATA STRUCTURE:
+ *    - Move officeData to PHP/database (custom post type)
+ *    - Use wp_localize_script() to pass data to JavaScript
+ *    - Each office needs: ID, name, address, phone, map position (x,y %)
+ *
+ * 2. ADMIN INTERFACE:
+ *    - Map upload field (image selection)
+ *    - Interactive map preview where admin clicks to place markers
+ *    - Drag markers to reposition
+ *    - Color picker for marker customization
+ *    - Enable/disable pulse animation toggle
+ *
+ * 3. SHORTCODE/GUTENBERG BLOCK:
+ *    - [interactive-map id="1"] for shortcode
+ *    - Gutenberg block with live preview
+ *    - Embed code generator for external sites
+ *
+ * 4. DYNAMIC GENERATION:
+ *    - PHP generates HTML markers from database
+ *    - Inline styles for marker positions and colors
+ *    - JSON data structure passed to this script
+ */
+
+/**
+ * Office Data Configuration
+ *
+ * STRUCTURE: Each office has a unique key (used in data-office attribute)
+ * FIELDS:
+ *   - name: Location title (shown in modal header)
+ *   - address: Multi-line address (use \n for line breaks)
+ *   - tel: Phone number with label
+ *
+ * PLUGIN NOTE: This will be replaced with wp_localize_script data:
+ * wp_localize_script('interactive-map', 'officeMapData', [
+ *     'offices' => $office_locations,
+ *     'colors' => $marker_colors
+ * ]);
+ */
+const officeData = {
+    stamford: {
+        name: "AIP Capital - Stamford",
+        address: "123 Main Street\nStamford, CT 06901\nUnited States",
+        tel: "Tel: +1 (203) 555-0100"
+    },
+    dublin: {
+        name: "AIP Capital - Dublin",
+        address: "45 St. Stephen's Green\nDublin 2\nIreland",
+        tel: "Tel: +353 1 555 0200"
+    },
+    singapore: {
+        name: "AIP Capital - Singapore",
+        address: "8 Marina Boulevard\nSingapore 018981",
+        tel: "Tel: +65 6555 0300"
+    },
+    seoul: {
+        name: "AIP Capital - Seoul",
+        address: "123 Teheran-ro\nGangnam-gu, Seoul 06234\nSouth Korea",
+        tel: "Tel: +82 2 555 0400"
+    },
+    tokyo: {
+        name: "AIP Capital - Tokyo",
+        address: "1-2-3 Marunouchi\nChiyoda-ku, Tokyo 100-0005\nJapan",
+        tel: "Tel: +81 3 5555 0500"
+    }
+};
+
+/**
+ * Initialize Interactive Map
+ *
+ * Sets up event listeners for:
+ * - Marker clicks (opens modal with location details)
+ * - Modal close button
+ * - Click outside modal (closes modal)
+ * - Escape key (closes modal)
+ * - Body scroll lock when modal is open
+ *
+ * PLUGIN NOTE: This function should be called after DOM is ready
+ * and can handle multiple maps on the same page by using unique IDs
+ */
+function initGlobalOfficesMap() {
+    // Get all DOM elements needed for the interactive map
+    const markers = document.querySelectorAll('.office-marker');
+    const modal = document.getElementById('officeModal');
+    const closeBtn = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalAddress = document.getElementById('modalAddress');
+    const modalTel = document.getElementById('modalTel');
+
+    // Exit if modal doesn't exist on page (allows script to run on all pages)
+    if (!modal) return;
+
+    /**
+     * MARKER CLICK HANDLER
+     *
+     * When a marker is clicked:
+     * 1. Gets the office ID from data-office attribute
+     * 2. Looks up office data from officeData object
+     * 3. Populates modal with office information
+     * 4. Shows modal with fade/slide animation
+     * 5. Locks body scroll to prevent background scrolling
+     *
+     * PLUGIN NOTE: Add analytics tracking here for click events
+     */
+    markers.forEach(marker => {
+        marker.addEventListener('click', function() {
+            const officeId = this.getAttribute('data-office');
+            const office = officeData[officeId];
+
+            if (office) {
+                // Populate modal content
+                modalTitle.textContent = office.name;
+                modalAddress.textContent = office.address; // \n preserved by white-space: pre-line
+                modalTel.textContent = office.tel;
+
+                // Show modal and prevent background scrolling
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // PLUGIN NOTE: Fire custom event for tracking
+                // document.dispatchEvent(new CustomEvent('officeMarkerClicked', { detail: office }));
+            }
+        });
+    });
+
+    /**
+     * CLOSE BUTTON HANDLER
+     * Closes modal and restores body scroll
+     */
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    /**
+     * CLICK OUTSIDE HANDLER
+     * Closes modal when clicking on the dark overlay (not the modal content)
+     */
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    /**
+     * ESCAPE KEY HANDLER
+     * Closes modal when user presses Escape key (accessibility)
+     */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+/**
+ * Initialize on DOM Ready
+ *
+ * PLUGIN NOTE: For multiple maps, loop through each map instance:
+ * document.querySelectorAll('.interactive-map').forEach(map => {
+ *     initInteractiveMap(map);
+ * });
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    initGlobalOfficesMap();
+});

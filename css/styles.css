@@ -412,7 +412,7 @@ h5 {
 
 .hero-title {
     color: var(--color-white);
-    margin-bottom: 2rem;
+    margin-bottom: 24px;
     position: relative;
     padding-top: 24px;
 }
@@ -930,7 +930,30 @@ h5 {
 }
 
 /* ===================================
-   Vision Section
+   Component: Vision Statement Block
+
+   A centered text block for vision/mission statements.
+
+   WordPress/CMS Settings to Configure:
+
+   1. Title (required):
+      - Text input for main heading
+      - Font: 32px, weight 300
+
+   2. Description (required):
+      - Large text area for vision statement
+      - Default: 40px, weight 300, line-height 1.2
+      - Light theme: 18px, weight 400, line-height 1.5
+
+   3. Theme (required):
+      - Default (dark): Background #0C162C, Title aqua, Description white
+      - Light (.vision-section--light): Background #EEEEEE, Title and description #1A2332
+
+   4. Layout (fixed):
+      - Centered content (col-lg-8)
+      - Large padding top/bottom (padding-section-large)
+
+   Example: See "AIP Capital Vision" sections on about page
    =================================== */
 .vision-section {
     background-color: #0C162C;
@@ -941,7 +964,7 @@ h5 {
     color: var(--color-aqua);
     font-size: 32px;
     font-weight: 300;
-    margin-bottom: 2rem;
+    margin-bottom: 24px;
     text-align: center;
 }
 
@@ -953,30 +976,222 @@ h5 {
     text-align: center;
 }
 
+/* Light Theme Modifier for Vision Section */
+.vision-section--light {
+    background-color: #EEEEEE;
+}
+
+.vision-section--light .vision-title,
+.vision-section--light .vision-description {
+    color: #1A2332;
+}
+
+.vision-section--light .vision-description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
 /* ===================================
-   About Stats Section
+   Component: Values Section with Icon Cards
+
+   A unified section combining a centered intro (title + description)
+   with icon-based cards below.
+
+   WordPress/CMS Settings to Configure:
+
+   1. Section Background:
+      - Default: #EEEEEE (light gray)
+
+   2. Title & Description:
+      - Title: Text input (48px, weight 300, line-height 1.2, color #1A2332)
+      - Description: Text area (18px, weight 400, line-height 1.5, color #1A2332)
+      - Centered: col-lg-7 (desktop), col-md-10 (tablet), full width (mobile)
+
+   3. Cards (repeatable, 1-6 recommended):
+      - Icon: Image upload (SVG/PNG recommended, 48px width)
+      - Title: Text input (h3, 32px, weight 300, line-height 1.4)
+      - Description: Text area (p, 16px, weight 400, line-height 1.5)
+
+   4. Layout:
+      - Centered intro at top
+      - 80px gap between description and cards
+      - Cards: 3 columns on desktop, 2 on tablet, 1 on mobile
+
+   Example: See "Our Values" section on about page
    =================================== */
-.about-stats-section {
-    background-color: #FFFFFF;
+.values-section {
+    background-color: #EEEEEE;
     position: relative;
 }
 
-.about-stats-section .col-lg-6:first-child {
+.values-section__title {
+    color: #1A2332;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.values-section__description {
+    color: #1A2332;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.values-section__cards {
+    margin-top: 80px;
+}
+
+.icon-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-card__icon {
+    width: 48px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    object-fit: contain;
+}
+
+.icon-card__title {
+    font-size: 32px;
+    font-weight: 300;
+    color: #1A2332;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.icon-card__description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1A2332;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mobile adjustments for values section and icon cards */
+@media (max-width: 991px) {
+    .values-section__cards {
+        margin-top: 60px;
+    }
+
+    .icon-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .icon-card__icon {
+        width: 40px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    .icon-card__title {
+        font-size: 24px;
+    }
+
+    .icon-card__description {
+        font-size: 15px;
+    }
+}
+
+/* ===================================
+   Text-Image Block Component (Unified)
+
+   This is a reusable component for text + image layouts.
+   Both sections use the same HTML structure with modifier classes.
+
+   WordPress/CMS Settings to Configure:
+
+   1. Theme (required):
+      - light: White background (#FFFFFF), dark text (#1A2332)
+      - dark: Dark blue background (#0C162C), white text
+      Classes: .text-image-block--light OR .text-image-block--dark
+
+   2. Layout (required):
+      - text-left: Text content on left, image on right (default)
+      - text-right: Text content on right, image on left
+
+      Implementation:
+      - text-left: Standard column order, 4rem padding-right on content
+      - text-right: Add .text-image-block--text-right class + use Bootstrap order classes
+                    (order-lg-2 on content, order-lg-1 on image)
+                    4rem padding-left on content (padding-right removed)
+      Default: text-left
+
+   3. Vertical Alignment (required):
+      - align-start: Content aligned to top (use align-items-start on row)
+      - align-center: Content vertically centered (use align-items-center on row)
+      Default: align-start
+
+   4. Content Type (required):
+      - paragraph: Single paragraph text (use .text-image-block__description)
+      - paragraph-intro: Intro + paragraph (use .text-image-block__intro)
+      - bullet-list: Intro + bullet list (use .text-image-block__list)
+
+   5. Accent Bar (optional):
+      - true: Show aqua accent bar above title (add .text-image-block__title--accent)
+      - false: No accent bar
+      Default: true
+
+   6. Image (required):
+      - Upload image file
+      - Alt text for accessibility
+
+   Example Usage:
+   - Light theme with bullet list (text-left): See "Pre-Eminent Dedicated Asset-Based Finance Investor"
+   - Dark theme with paragraph (text-left): See "Our Mission"
+
+   HTML Structure for text-right layout:
+   <section class="text-image-block text-image-block--dark text-image-block--text-right">
+       <div class="row align-items-center">
+           <div class="col-lg-6 order-lg-2 text-image-block__content">
+               <!-- Title, text content -->
+           </div>
+           <div class="col-lg-6 order-lg-1 text-image-block__image">
+               <!-- Image -->
+           </div>
+       </div>
+   </section>
+   =================================== */
+
+/* Base Component Styles */
+.text-image-block {
+    position: relative;
+}
+
+.text-image-block__content {
     padding-right: 4rem;
 }
 
-.about-stats-title {
-    color: #1A2332;
-    margin-bottom: 2rem;
-    text-align: left;
+/* Text Right Layout - Remove right padding, add left padding */
+.text-image-block--text-right .text-image-block__content {
+    padding-right: 0;
+    padding-left: 4rem;
 }
 
-.about-stats-title-with-accent {
+.text-image-block__title {
+    margin-bottom: 2rem;
+    text-align: left;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.text-image-block__title--accent {
     position: relative;
     padding-top: 24px;
 }
 
-.about-stats-title-with-accent::before {
+.text-image-block__title--accent::before {
     content: '';
     position: absolute;
     top: 0;
@@ -986,46 +1201,122 @@ h5 {
     background-color: #00D2E3;
 }
 
-.about-stats-intro {
-    color: #1A2332;
+.text-image-block__intro,
+.text-image-block__description {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
 
-.about-stats-list {
+.text-image-block__description {
+    margin-bottom: 0;
+}
+
+.text-image-block__list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.about-stats-item {
+.text-image-block__list-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.about-stats-item:last-child {
+.text-image-block__list-item:last-child {
     margin-bottom: 0;
 }
 
-.about-bullet-icon {
+.text-image-block__bullet-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
     margin-top: 0.25rem;
 }
 
-.about-stats-item p {
-    color: #1A2332;
+.text-image-block__list-item p {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
     margin: 0;
 }
 
+/* Light Theme (White background, Dark text) */
+.text-image-block--light {
+    background-color: #FFFFFF;
+}
+
+.text-image-block--light .text-image-block__title,
+.text-image-block--light .text-image-block__intro,
+.text-image-block--light .text-image-block__description,
+.text-image-block--light .text-image-block__list-item p {
+    color: #1A2332;
+}
+
+/* Dark Theme (Dark blue background, White text) */
+.text-image-block--dark {
+    background-color: #0C162C;
+}
+
+.text-image-block--dark .text-image-block__title,
+.text-image-block--dark .text-image-block__intro,
+.text-image-block--dark .text-image-block__description,
+.text-image-block--dark .text-image-block__list-item p {
+    color: var(--color-white);
+}
+
+/* Mobile styles - center everything and add spacing when stacked */
+@media (max-width: 991px) {
+    .text-image-block__content,
+    .text-image-block--text-right .text-image-block__content {
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-bottom: 3rem;
+        text-align: center;
+    }
+
+    .text-image-block__title {
+        text-align: center !important;
+    }
+
+    /* Center the accent bar on mobile */
+    .text-image-block__title--accent::before {
+        left: 50% !important;
+        transform: translateX(-50%);
+    }
+
+    /* Center intro and description text */
+    .text-image-block__intro,
+    .text-image-block__description {
+        text-align: center;
+    }
+
+    /* Center bullet list items on mobile */
+    .text-image-block__list {
+        text-align: center;
+    }
+
+    .text-image-block__list-item {
+        justify-content: center;
+        text-align: left; /* Keep text left-aligned within the bullet */
+    }
+
+    /* Center images on mobile and make full width */
+    .text-image-block__image {
+        text-align: center;
+    }
+
+    .text-image-block__image img {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Legacy class support for buttons */
 .about-stats-buttons {
     display: flex;
     gap: 1rem;
@@ -1055,7 +1346,42 @@ h5 {
 }
 
 /* ===================================
-   Platform Snapshot Section
+   Component: Stats Cards Grid
+
+   A grid of statistic cards with large numbers.
+
+   WordPress/CMS Settings to Configure:
+
+   1. Section Title (required):
+      - Text input for heading
+      - Accent bar: Yes (always shown)
+      - Font: 48px, weight 300, color #1A2332
+
+   2. Cards (repeatable, 1-6 recommended):
+      Each card has:
+      - Card Title: Text at top (20px, white)
+      - Stat Value: Large number at bottom (80px, weight 200, aqua)
+      - Can include text prefix/suffix ($, +, etc.)
+
+   3. Grid Layout:
+      - Desktop: 3 columns (col-lg-4)
+      - Tablet: 2 columns (col-md-6)
+      - Mobile: 1 column
+
+   4. Background (fixed):
+      - #EEEEEE (light gray)
+
+   5. Card Style (fixed):
+      - Dark background (#1A2332)
+      - Min height: 300px
+      - Padding: 1.5rem
+      - Hover: Lift effect with aqua shadow
+
+   6. Count-up Animation:
+      - Stats automatically count up when scrolled into view
+      - Use data-count attribute for target value
+
+   Example: See "Platform Snapshot" section
    =================================== */
 .platform-snapshot-section {
     background-color: #EEEEEE;
@@ -1306,16 +1632,10 @@ h5 {
     border-radius: 0;
     overflow: hidden;
     height: 100%;
-    transition: border 0.3s ease;
     display: block;
     text-decoration: none;
     cursor: pointer;
     position: relative;
-    border: 2px solid transparent;
-}
-
-.news-card:hover {
-    border: 2px solid var(--color-aqua);
 }
 
 .news-image {
@@ -1323,6 +1643,12 @@ h5 {
     height: 240px;
     object-fit: cover;
     display: block;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover .news-image {
+    filter: brightness(1.2);
+    transform: translateY(-5px);
 }
 
 .news-content {
@@ -1347,6 +1673,11 @@ h5 {
     color: #1A2332;
     margin-bottom: 1rem;
     line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.news-card:hover .news-title {
+    color: var(--color-aqua);
 }
 
 .news-link {
@@ -1358,6 +1689,424 @@ h5 {
 
 .news-link:hover {
     color: #00B8C7;
+}
+
+/* ===================================
+   Strategies Overview Section
+   =================================== */
+.strategies-overview-section {
+    background-color: #FAFAFA;
+    padding: 5rem 0;
+}
+
+.strategies-overview-title {
+    color: var(--color-neutral-darkest);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.strategies-title-with-accent {
+    position: relative;
+    padding-top: 24px;
+}
+
+.strategies-title-with-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.strategies-overview-description {
+    color: var(--color-neutral-darkest);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.strategy-card {
+    background-color: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.strategy-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover .strategy-image {
+    filter: brightness(1.2);
+    transform: translateY(-5px);
+}
+
+.strategy-content {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.strategy-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A2332;
+    margin-bottom: 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.strategy-card:hover .strategy-title {
+    color: var(--color-aqua);
+}
+
+.strategies-actions {
+    margin-top: 80px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.btn-black-ghost {
+    background-color: transparent;
+    border: 2px solid #1A2332;
+    color: #1A2332;
+    padding: 0.75rem 2rem;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-black-ghost:hover {
+    background-color: #1A2332;
+    color: var(--color-white);
+}
+
+.strategies-contact-link {
+    color: #1A2332;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.strategies-contact-link:hover {
+    color: var(--color-aqua);
+}
+
+.strategies-contact-link i {
+    font-size: 12px;
+}
+
+/* ===================================
+   Global Offices Section - Interactive Map Component
+
+   PLUGIN READY - See interactive-map.md for full plugin specification
+
+   This component creates an interactive map with clickable location markers.
+   When clicked, markers display detailed information in a modal popup.
+
+   Key Features:
+   - Customizable map image
+   - Configurable marker positions (top/left percentages)
+   - Customizable marker colors
+   - Modal popup with location details
+   - Pulsing animation on markers
+   - Fully responsive design
+   - Mobile optimized with larger touch targets
+
+   =================================== */
+.global-offices-section {
+    background-color: #EEEEEE;
+    position: relative;
+}
+
+.global-offices-title {
+    color: #1A2332;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.global-offices-title-with-accent {
+    position: relative;
+    padding-top: 24px;
+    display: inline-block;
+}
+
+.global-offices-title-with-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.global-offices-description {
+    color: #1A2332;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.global-offices-map-row {
+    margin-top: 80px;
+}
+
+/* Map Container - Relative positioning allows absolute marker placement */
+.global-offices-map-wrapper {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+/* Base Map Image - Full width, maintains aspect ratio */
+.global-offices-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===================================
+   Office Markers
+
+   Markers are positioned using top/left percentages (0-100%)
+   This allows them to scale with the map image
+
+   PLUGIN NOTE: These positions should be configurable in admin
+   =================================== */
+.office-marker {
+    position: absolute;
+    transform: translate(-50%, -50%); /* Centers the dot on the exact coordinates */
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Marker Dot - The visible circular indicator
+   PLUGIN NOTE: Colors should be customizable */
+.office-marker-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-aqua); /* PLUGIN: Make this customizable */
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 210, 227, 0.4); /* PLUGIN: Shadow should match dot color */
+}
+
+/* Hover Effect - Enlarges and changes shade */
+.office-marker:hover .office-marker-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #00B8C7; /* PLUGIN: Hover color should be configurable */
+    box-shadow: 0 4px 12px rgba(0, 210, 227, 0.6);
+}
+
+/* Pulsing Animation - Creates expanding ring effect for visibility
+   PLUGIN NOTE: Animation should be optional/disableable */
+.office-marker-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color-aqua); /* PLUGIN: Should match marker color */
+    opacity: 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* ===================================
+   Office Details Modal
+
+   Modal displays when a marker is clicked
+   Shows: Location name, address, phone number
+
+   PLUGIN NOTE: Modal fields should be customizable
+   =================================== */
+.office-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+    animation: fadeIn 0.3s ease;
+}
+
+/* Active state shows modal centered on screen */
+.office-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content Box - White card with rounded corners */
+.office-modal-content {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    border-radius: 8px; /* Rounded edges for premium look */
+}
+
+/* Fade in animation for modal background */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide up animation for modal content */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button - X in top right corner */
+.office-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 32px;
+    font-weight: 300;
+    color: #1A2332;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    transition: color 0.3s ease;
+}
+
+.office-modal-close:hover {
+    color: var(--color-aqua); /* Changes to brand color on hover */
+}
+
+/* Modal Title - Bold heading with tighter spacing */
+.office-modal-title {
+    font-size: 28px;
+    font-weight: 600; /* Bold for emphasis */
+    color: #1A2332;
+    margin-bottom: 1.5rem; /* Tighter spacing */
+    line-height: 1.2;
+}
+
+.office-modal-body {
+    color: #1A2332;
+}
+
+/* Address Text - Normal weight, multi-line support */
+.office-modal-address {
+    font-size: 16px;
+    font-weight: 400; /* Normal weight */
+    line-height: 1.5; /* Tighter line height */
+    margin-bottom: 0.75rem; /* Reduced spacing */
+    white-space: pre-line; /* Preserves line breaks from \n */
+}
+
+/* Phone Number - Aqua color for visibility */
+.office-modal-tel {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-aqua);
+    margin-bottom: 0;
+}
+
+.global-offices-cta {
+    margin-top: 60px;
+}
+
+/* ===================================
+   Mobile Responsive Adjustments
+
+   Optimizes the interactive map for mobile devices:
+   - Larger touch targets (bigger dots)
+   - Adjusted modal sizing
+   - Better text readability
+   =================================== */
+@media (max-width: 575px) {
+    /* Modal adjustments for mobile */
+    .office-modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%; /* More screen space on mobile */
+    }
+
+    .office-modal-title {
+        font-size: 24px;
+        margin-bottom: 1.25rem;
+        padding-right: 2rem; /* Prevents overlap with close button */
+    }
+
+    .office-modal-address {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .office-modal-tel {
+        font-size: 15px;
+    }
+
+    /* Larger markers for better mobile touch targets */
+    .office-marker-dot {
+        width: 20px;
+        height: 20px;
+        border: 4px solid #FFFFFF;
+    }
+
+    .office-marker:hover .office-marker-dot {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 /* ===================================
@@ -1708,16 +2457,25 @@ h5 {
         gap: 1rem;
     }
 
-    .about-stats-item {
+    .text-image-block__list-item {
         gap: 0.75rem;
     }
 
-    .about-bullet-icon {
+    .text-image-block__bullet-icon {
         width: 20px;
         height: 20px;
     }
 
-    .about-stats-item p {
+    .text-image-block__list-item p,
+    .text-image-block__intro {
+        font-size: 16px;
+    }
+
+    .text-image-block__title {
+        font-size: 36px;
+    }
+
+    .text-image-block__description {
         font-size: 16px;
     }
 
@@ -1799,22 +2557,31 @@ h5 {
         gap: 1rem;
     }
 
-    .about-stats-item {
+    .text-image-block__list-item {
         gap: 0.75rem;
         margin-bottom: 1.5rem;
     }
 
-    .about-bullet-icon {
+    .text-image-block__bullet-icon {
         width: 18px;
         height: 18px;
     }
 
-    .about-stats-item p {
+    .text-image-block__list-item p {
         font-size: 15px;
     }
 
-    .about-stats-intro {
+    .text-image-block__intro {
         font-size: 16px;
+    }
+
+    .text-image-block__title {
+        font-size: 28px;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-image-block__description {
+        font-size: 15px;
     }
 
     .snapshot-card-stat {

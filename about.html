@@ -21,6 +21,42 @@
 </head>
 <body>
 
+    <!--
+    ==============================================
+    ABOUT PAGE - COMPONENT REFERENCE
+    ==============================================
+
+    This page uses the following reusable components:
+
+    1. Page Hero
+       - Fixed height hero with image background
+       - Class: .about-header .page-hero
+
+    2. Vision Statement Block
+       - Centered text block for vision/mission
+       - Class: .vision-section
+       - CSS: Line 932
+
+    3. Text-Image Block (UNIFIED COMPONENT)
+       - Reusable text + image layout
+       - Two instances on this page:
+         a) Light theme with bullet list
+         b) Dark theme with paragraph
+       - Base class: .text-image-block
+       - Modifiers: --light, --dark
+       - CSS: Line 1028
+       - Full documentation in CSS file
+
+    4. Stats Cards Grid
+       - Grid of statistic cards with count-up animation
+       - Class: .platform-snapshot-section
+       - CSS: Line 1150
+
+    All components have detailed WordPress/CMS
+    configuration notes in the CSS file.
+    ==============================================
+    -->
+
     <!-- Header -->
     <header class="header-section about-header page-hero">
         <div class="header-video-wrapper">
@@ -107,7 +143,15 @@
         </div>
     </header>
 
-    <!-- AIP Capital Vision Section -->
+    <!-- Component: Vision Statement Block -->
+    <!--
+        Settings for WordPress:
+        - Title: Text input
+        - Description: Large text area
+        - Background: Dark blue (fixed)
+        - Text Colors: Title aqua, description white (fixed)
+        - Layout: Centered (fixed)
+    -->
     <section class="vision-section padding-section-large">
         <div class="container-custom">
             <div class="row justify-content-center">
@@ -120,35 +164,54 @@
     </section>
 
     <!-- About Stats Section -->
-    <section class="about-stats-section padding-section-large">
+    <!--
+        Text-Image Block Component - Light Theme
+        Settings for WordPress:
+        - Theme: Light (white background, dark text)
+        - Layout: Text Left, Image Right
+        - Text Alignment: Start (top)
+        - Content Type: Bullet List
+        - Accent Bar: Yes
+    -->
+    <section class="text-image-block text-image-block--light padding-section-large">
         <div class="container-custom">
             <div class="row align-items-start">
-                <div class="col-lg-6">
-                    <h2 class="about-stats-title about-stats-title-with-accent">Pre-Eminent Dedicated Asset-Based Finance Investor</h2>
-                    <p class="about-stats-intro">AIP Capital ("AIP") is a multi-strategy investment manager focused on opportunities in asset-based finance.</p>
-                    <ul class="about-stats-list">
-                        <li class="about-stats-item">
-                            <img src="img/asset-bullet.svg" alt="" class="about-bullet-icon">
+                <div class="col-lg-6 text-image-block__content">
+                    <h2 class="text-image-block__title text-image-block__title--accent">Pre-Eminent Dedicated Asset-Based Finance Investor</h2>
+                    <p class="text-image-block__intro">AIP Capital ("AIP") is a multi-strategy investment manager focused on opportunities in asset-based finance.</p>
+                    <ul class="text-image-block__list">
+                        <li class="text-image-block__list-item">
+                            <img src="img/asset-bullet.svg" alt="" class="text-image-block__bullet-icon">
                             <p>AIP believes its unique investment strategy, relationships, and hands-on approach enable it to execute its mission of generating attractive risk-adjusted returns for its clients across market cycles.</p>
                         </li>
-                        <li class="about-stats-item">
-                            <img src="img/asset-bullet.svg" alt="" class="about-bullet-icon">
+                        <li class="text-image-block__list-item">
+                            <img src="img/asset-bullet.svg" alt="" class="text-image-block__bullet-icon">
                             <p>With offices in Stamford, New York City, Dublin, Tokyo, Seoul and Singapore, AIP maintains a global footprint and is backed by a full platform of over 50 professionals across origination, finance, technical, legal, risk management and underwriting (1)</p>
                         </li>
-                        <li class="about-stats-item">
-                            <img src="img/asset-bullet.svg" alt="" class="about-bullet-icon">
+                        <li class="text-image-block__list-item">
+                            <img src="img/asset-bullet.svg" alt="" class="text-image-block__bullet-icon">
                             <p>AIP wholly owns AIP Capital Advisors which is an SEC registered investment advisor with $5Bn of total platform AUM (2)</p>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 text-image-block__image">
                     <img src="img/about-img-1.png" alt="AIP Capital" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platform Snapshot -->
+    <!-- Component: Stats Cards Grid -->
+    <!--
+        Settings for WordPress:
+        - Section Title: Text input with accent bar
+        - Cards: Repeatable (1-6 cards recommended)
+          - Card Title: Text input (top of card)
+          - Stat Value: Number input with optional prefix/suffix
+          - Count-up: Enable/disable animation
+        - Grid: 3 columns on desktop, 2 on tablet, 1 on mobile
+        - Background: Light gray (fixed)
+    -->
     <section class="platform-snapshot-section py-5">
         <div class="container-custom">
             <h2 class="snapshot-title snapshot-title-with-accent">Platform Snapshot</h2>
@@ -189,6 +252,257 @@
                         <h4 class="snapshot-card-title">Investment Strategies</h4>
                         <div class="snapshot-card-stat"><span class="stat-number" data-count="4">0</span></div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <!--
+        Text-Image Block Component - Dark Theme
+        Settings for WordPress:
+        - Theme: Dark (dark blue background, white text)
+        - Layout: Text Left, Image Right (or Text Right, Image Left - reversible!)
+        - Text Alignment: Center (middle)
+        - Content Type: Paragraph
+        - Accent Bar: Yes
+
+        To reverse layout (image left, text right):
+        1. Add class: text-image-block--text-right
+        2. Add order-lg-2 to content column
+        3. Add order-lg-1 to image column
+        This automatically adjusts padding (left instead of right)
+    -->
+    <section class="text-image-block text-image-block--dark padding-section-large">
+        <div class="container-custom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-image-block__content">
+                    <h2 class="text-image-block__title text-image-block__title--accent">Our Mission</h2>
+                    <p class="text-image-block__description">Our mission is to provide our clients with unique solutions and generate attractive risk adjusted returns through our collaborative, transparent, and efficient approach to aviation asset management and investing.</p>
+                </div>
+                <div class="col-lg-6 text-image-block__image">
+                    <img src="img/img-our-mission.png" alt="Our Mission" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component: Our Values Section with Icon Cards -->
+    <!--
+        Settings for WordPress:
+        - Title: Text input
+        - Description: Large text area
+        - Background: Light gray (#EEEEEE)
+        - Text Colors: Title and description dark (#1A2332)
+        - Cards: Repeatable (1-6 cards recommended)
+          - Icon: Image upload (SVG/PNG, 48px width)
+          - Title: Text input
+          - Description: Text area
+        - Layout: Centered intro with icon cards below (80px gap)
+    -->
+    <section class="values-section padding-section-large">
+        <div class="container-custom">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-10 text-center">
+                    <h2 class="values-section__title">Our Values</h2>
+                    <p class="values-section__description">At AIP Capital, our culture is the foundation of everything we do. We believe that long-term success is built on clarity of purpose, disciplined execution, and the strength of the relationships we cultivate. These values guide our decisions, shape our partnerships, and define how we operate as a firm.</p>
+                </div>
+            </div>
+            <div class="row g-4 values-section__cards justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-card">
+                        <img src="img/ico-plus-with-border.png" alt="Icon 1" class="icon-card__icon">
+                        <h3 class="icon-card__title">We are Committed</h3>
+                        <p class="icon-card__description">We are a tightly knit team dedicated to delivering exceptional outcomes and building a resilient, high-performing business. Our commitment extends to our shareholders, customers, investors, and partners—ensuring we approach every opportunity with the focus, integrity, and determination needed to achieve their long-term objectives. We take ownership of our work and hold ourselves accountable to the highest standards.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-card">
+                        <img src="img/ico-collaborate.png" alt="Icon 2" class="icon-card__icon">
+                        <h3 class="icon-card__title">We are Collaborative</h3>
+                        <p class="icon-card__description">We operate as one team, valuing diverse perspectives and encouraging open dialogue. By sharing insights and constructively challenging each other, we uncover creative solutions that better serve our clients and investors. Our collaborative approach enables us to innovate, adapt, and consistently exceed expectations across all aspects of our business.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-card">
+                        <img src="img/ico-connect.png" alt="Icon 3" class="icon-card__icon">
+                        <h3 class="icon-card__title">We are Connected</h3>
+                        <p class="icon-card__description">We operate as one team, valuing diverse perspectives and encouraging open dialogue. By sharing insights and constructively challenging each other, we uncover creative solutions that better serve our clients and investors. Our collaborative approach enables us to innovate, adapt, and consistently exceed expectations across all aspects of our business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section padding-section-large">
+        <div class="container-custom">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <h2 class="team-title team-title-with-accent">An Experienced<br class="d-none d-lg-block"> Investment Team</h2>
+                    <p class="team-description">AIP Capital's team is composed of seasoned investment professionals with deep expertise across asset-based finance. Drawing on diverse backgrounds in investing, structuring, technical analysis, legal, risk management, and underwriting, the team works collaboratively to identify, evaluate, and execute opportunities across market cycles.</p>
+                    <div class="team-buttons">
+                        <a href="#team-page" class="btn btn-aqua">Meet the Team</a>
+                        <a href="#careers" class="btn btn-white-ghost">Join Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Strategies -->
+    <section class="strategies-overview-section py-5">
+        <div class="container-custom">
+            <h2 class="strategies-overview-title strategies-title-with-accent">Our Strategies</h2>
+
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <p class="strategies-overview-description">We deploy capital across specialized strategies that leverage our deep sector expertise and operational capabilities.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <a href="#real-assets" class="strategy-card">
+                        <img src="img/strategies-real-assets.png" alt="Real Assets" class="strategy-image">
+                        <div class="strategy-content">
+                            <h5 class="strategy-title">Real Assets</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="#private-credit" class="strategy-card">
+                        <img src="img/strategies-private-credit.png" alt="Private Credit" class="strategy-image">
+                        <div class="strategy-content">
+                            <h5 class="strategy-title">Private Credit</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="#asset-management" class="strategy-card">
+                        <img src="img/strategies-asset-managment.png" alt="Asset Management" class="strategy-image">
+                        <div class="strategy-content">
+                            <h5 class="strategy-title">Asset Management</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="#strategic-partnerships" class="strategy-card">
+                        <img src="img/strategies-strategic-partnerships.png" alt="Strategic Partnerships" class="strategy-image">
+                        <div class="strategy-content">
+                            <h5 class="strategy-title">Strategic Partnerships & Investments</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="strategies-actions">
+                <a href="#strategies-overview" class="btn btn-black-ghost">Strategies Overview</a>
+                <a href="#contact" class="strategies-contact-link">Contact us <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Offices -->
+    <section class="global-offices-section padding-section-large">
+        <div class="container-custom">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="global-offices-title global-offices-title-with-accent">Global Offices</h2>
+                    <p class="global-offices-description">We deploy capital across specialized strategies that leverage our deep sector expertise and operational capabilities.</p>
+                </div>
+            </div>
+            <!--
+                INTERACTIVE OFFICE MAP - PLUGIN READY
+
+                WordPress Plugin Conversion Guide:
+                1. Create custom post type "offices" with fields:
+                   - Office Name (text)
+                   - Address (textarea)
+                   - Phone (text)
+                   - Map Position X (number, 0-100%)
+                   - Map Position Y (number, 0-100%)
+
+                2. Admin interface allows:
+                   - Add/edit offices
+                   - Click on map to set marker position
+                   - Reorder offices
+
+                3. Frontend renders markers dynamically from database
+                4. Office data in js/scripts.js matches post data
+            -->
+            <div class="row justify-content-center global-offices-map-row">
+                <div class="col-12">
+                    <div class="global-offices-map-wrapper">
+                        <img src="img/office-map.png" alt="Global Offices Map" class="global-offices-map">
+                        <!-- Office Location Markers - data-office must match officeData keys in scripts.js -->
+                        <div class="office-marker" data-office="stamford" style="top: 35%; left: 22%;">
+                            <div class="office-marker-dot"></div>
+                        </div>
+                        <div class="office-marker" data-office="dublin" style="top: 32%; left: 48%;">
+                            <div class="office-marker-dot"></div>
+                        </div>
+                        <div class="office-marker" data-office="singapore" style="top: 68%; left: 79%;">
+                            <div class="office-marker-dot"></div>
+                        </div>
+                        <div class="office-marker" data-office="seoul" style="top: 42%; left: 85%;">
+                            <div class="office-marker-dot"></div>
+                        </div>
+                        <div class="office-marker" data-office="tokyo" style="top: 40%; left: 88%;">
+                            <div class="office-marker-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center global-offices-cta">
+                    <a href="#contact" class="btn btn-black-ghost">Contact us</a>
+                </div>
+            </div>
+
+            <!-- Office Details Modal -->
+            <div class="office-modal" id="officeModal">
+                <div class="office-modal-content">
+                    <button class="office-modal-close" id="closeModal">&times;</button>
+                    <h3 class="office-modal-title" id="modalTitle"></h3>
+                    <div class="office-modal-body">
+                        <p class="office-modal-address" id="modalAddress"></p>
+                        <p class="office-modal-tel" id="modalTel"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Global Reach -->
+    <section id="global-reach" class="global-reach-section padding-section-large">
+        <div class="container-custom">
+            <h2 class="global-reach-title global-reach-title-with-accent">Our Global Reach</h2>
+
+            <div class="global-reach-grid">
+                <div class="location-item">
+                    <div class="location-name">Stamford</div>
+                    <div class="location-time" data-timezone="stamford">09:31am</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">New York</div>
+                    <div class="location-time" data-timezone="new-york">09:31am</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Dublin</div>
+                    <div class="location-time" data-timezone="dublin">3:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Singapore</div>
+                    <div class="location-time" data-timezone="singapore">10:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Seoul</div>
+                    <div class="location-time" data-timezone="seoul">11:31pm</div>
+                </div>
+                <div class="location-item">
+                    <div class="location-name">Tokyo</div>
+                    <div class="location-time" data-timezone="tokyo">11:31pm</div>
                 </div>
             </div>
         </div>
