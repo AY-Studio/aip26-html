@@ -85,7 +85,8 @@ html/
 1. **Theme** (required):
    - `light`: White background (#FFFFFF), dark text (#1A2332)
    - `dark`: Dark blue background (#0C162C), white text
-   - Classes: `.text-image-block--light` OR `.text-image-block--dark`
+   - `grey`: Grey background (#EEEEEE), dark text (#364153)
+   - Classes: `.text-image-block--light` OR `.text-image-block--dark` OR `.text-image-block--grey`
 
 2. **Layout** (required):
    - `text-left`: Text on left, image on right (default)
@@ -117,6 +118,7 @@ html/
 .text-image-block                    /* Base component */
 .text-image-block--light             /* Theme modifier */
 .text-image-block--dark              /* Theme modifier */
+.text-image-block--grey              /* Theme modifier */
 .text-image-block--text-right        /* Layout modifier */
 .text-image-block__content           /* Content wrapper */
 .text-image-block__title             /* Title element */
@@ -132,6 +134,7 @@ html/
 **Examples**:
 - Light theme with bullets: "Pre-Eminent Dedicated Asset-Based Finance Investor"
 - Dark theme with paragraph: "Our Mission"
+- Grey theme with image left: "Empowering People to Grow, Lead, and Succeed"
 
 ---
 
@@ -403,6 +406,18 @@ Footer also includes:
 5. Text-Image Block - Dark (paragraph text)
 6. Footer
 
+### Sustainability Page (sustainability.html)
+1. Page Hero (image background, 730px fixed height)
+2. Text-Image Block - Dark (Our Commitment to ESG)
+3. ESG Pillars Section (3 dark cards with images)
+4. Key Initiatives Section (6 items with left-aligned content)
+5. Stats Section (Our Impact - 4 sustainability metrics)
+6. Text-Image Block - Grey (Empowering People to Grow, Lead, and Succeed)
+7. News Section (Latest Sustainability News)
+8. Connect With Us
+9. Global Reach
+10. Footer
+
 ## Key Design Patterns
 
 ### Accent Bars
@@ -423,6 +438,8 @@ Footer also includes:
 - **Investment Cards**: Logo top, title, description, hover lift effect
 - **News Cards**: Full-width image top, title, date bottom, entire card clickable
 - **Stat Cards**: Title top, large number bottom, flexbox space-between
+- **ESG Pillar Cards**: Dark background (#1A2332), image top (240px), white text, title 32px/300, description 16px/400
+- **Key Initiative Stats**: Left-aligned with aqua left border, white background, title 24px/600, description 16px/400, text color #364153
 
 ### Spacing System
 - Section padding: `padding-section-large` (8rem/100px/80px)
@@ -548,7 +565,10 @@ Footer also includes:
         <div class="row align-items-center">
             <div class="col-lg-6 text-image-block__content">
                 <h2 class="text-image-block__title text-image-block__title--accent">Title</h2>
-                <p class="text-image-block__description">Text content here.</p>
+                <div class="text-image-block__description">
+                    <p>Text content here. You can have multiple paragraphs.</p>
+                    <p>Second paragraph if needed.</p>
+                </div>
             </div>
             <div class="col-lg-6 text-image-block__image">
                 <img src="img/your-image.png" alt="Alt text" class="img-fluid">
@@ -576,6 +596,107 @@ Add these modifications:
 </div>
 ```
 
+### Adding ESG Pillars Section
+```html
+<section class="esg-pillars-section padding-section-large">
+    <div class="container-custom">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-10 text-center">
+                <h2 class="esg-pillars-section__title">Our ESG Pillars</h2>
+                <p class="esg-pillars-section__description">Description text here...</p>
+            </div>
+        </div>
+        <div class="row g-4 esg-pillars-section__cards justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="esg-pillar-card">
+                    <img src="img/pillar-environmental.png" alt="Environmental" class="esg-pillar-card__icon">
+                    <div class="esg-pillar-card__content">
+                        <h3 class="esg-pillar-card__title">Environmental</h3>
+                        <p class="esg-pillar-card__description">Description text...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="esg-pillar-card">
+                    <img src="img/pillar-social.png" alt="Social" class="esg-pillar-card__icon">
+                    <div class="esg-pillar-card__content">
+                        <h3 class="esg-pillar-card__title">Social</h3>
+                        <p class="esg-pillar-card__description">Description text...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="esg-pillar-card">
+                    <img src="img/pillar-governance.png" alt="Governance" class="esg-pillar-card__icon">
+                    <div class="esg-pillar-card__content">
+                        <h3 class="esg-pillar-card__title">Governance</h3>
+                        <p class="esg-pillar-card__description">Description text...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+**Component Features:**
+- Light gray background (#EEEEEE)
+- Centered title and description intro
+- 3 equal-width cards with dark background (#1A2332)
+- White text on dark cards
+- Image top (240px height, full width)
+- Title: 32px, weight 300, Mulish font
+- Description: 16px, weight 400, line-height 1.5
+- 80px gap between intro and cards
+- Fully responsive (adjusts font sizes and spacing on mobile)
+
+### Adding Key Initiatives Section
+```html
+<section class="key-initiatives-section padding-section-large">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="key-initiatives-section__title key-initiatives-section__title--accent">Key Initiatives</h2>
+                <p class="key-initiatives-section__description">We are committed to concrete actions that drive sustainable outcomes across our business.</p>
+            </div>
+        </div>
+        <div class="row g-5 key-initiatives-section__stats">
+            <div class="col-lg-4 col-md-6">
+                <div class="key-initiative-stat">
+                    <h3 class="key-initiative-stat__title">Carbon Neutrality Goals</h3>
+                    <p class="key-initiative-stat__description">Committed to achieving carbon neutrality across our operations and investment portfolio.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="key-initiative-stat">
+                    <h3 class="key-initiative-stat__title">Diversity & Inclusion</h3>
+                    <p class="key-initiative-stat__description">Building diverse teams and fostering an inclusive workplace culture across all levels.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="key-initiative-stat">
+                    <h3 class="key-initiative-stat__title">Sustainable Financing</h3>
+                    <p class="key-initiative-stat__description">Integrating ESG criteria into investment decisions and financing structures.</p>
+                </div>
+            </div>
+            <!-- Add 3 more items as needed -->
+        </div>
+    </div>
+</section>
+```
+
+**Component Features:**
+- White background (#FFFFFF)
+- Left-aligned title with aqua accent bar (left side)
+- Left-aligned description
+- 6 items in 3 columns (responsive: 2 columns on tablet, 1 column on mobile)
+- Text color: #364153
+- Aqua left border on each item
+- Title: 24px, weight 600, Mulish font
+- Description: 16px, weight 400
+- 80px gap between intro and items
+- Fully responsive (adjusts font sizes and spacing on mobile)
+
 ## Known Issues & Limitations
 - None currently identified
 
@@ -595,5 +716,17 @@ Add these modifications:
 
 ---
 
-**Last Updated**: 2026-01-13
+**Last Updated**: 2026-01-14
 **Developer Notes**: All components documented for WordPress/CMS migration. Use BEM naming conventions and mobile-first approach for any new development.
+
+## Recent Updates
+- Added grey theme option to text-image-block component (#EEEEEE background, #364153 text)
+- Added accent bar to stats-section title (homepage and sustainability page)
+- Fixed p tag classes in stats-section (wrapped in div with class)
+- Added custom stat formatting for sustainability page (100%, 45%, $50m, 2030)
+- Updated sustainability page stats section with ESG metrics
+- Added "Empowering People" text-image block to sustainability page
+- Updated sustainability news section title to "Latest Sustainability News"
+- Updated Key Initiatives Section with 6 items and left-aligned layout
+- Added ESG Pillars Section component (independent from Values section)
+- Created Sustainability page with ESG-focused content

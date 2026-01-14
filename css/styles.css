@@ -493,6 +493,18 @@ h5 {
     color: var(--color-white);
     margin-bottom: 2rem;
     text-align: left;
+    position: relative;
+    padding-top: 24px;
+}
+
+.stats-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
 }
 
 .stats-description {
@@ -500,11 +512,15 @@ h5 {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
     text-align: left;
+    margin-bottom: 1.5rem;
 }
 
-.stats-description:last-of-type {
+.stats-description p {
+    margin-bottom: 1.5rem;
+}
+
+.stats-description p:last-of-type {
     margin-bottom: 0;
 }
 
@@ -538,6 +554,46 @@ h5 {
 
 .stat-item:first-child .stat-number::before {
     content: '$';
+}
+
+/* Sustainability page stats - custom formatting */
+body[data-page="sustainability"] .stats-section .stat-number::after,
+.sustainability-stats .stat-number::after {
+    content: none; /* Remove default + */
+}
+
+body[data-page="sustainability"] .stats-section .stat-item:first-child .stat-number::before,
+.sustainability-stats .stat-item:first-child .stat-number::before {
+    content: none; /* Remove default $ from first item */
+}
+
+/* Sustainability stats - Item 1: 100% */
+body[data-page="sustainability"] .stats-section .stat-item:nth-child(1) .stat-number::after,
+.sustainability-stats .stat-item:nth-child(1) .stat-number::after {
+    content: '%';
+}
+
+/* Sustainability stats - Item 2: 45% */
+body[data-page="sustainability"] .stats-section .stat-item:nth-child(2) .stat-number::after,
+.sustainability-stats .stat-item:nth-child(2) .stat-number::after {
+    content: '%';
+}
+
+/* Sustainability stats - Item 3: $50m */
+body[data-page="sustainability"] .stats-section .stat-item:nth-child(3) .stat-number::before,
+.sustainability-stats .stat-item:nth-child(3) .stat-number::before {
+    content: '$';
+}
+
+body[data-page="sustainability"] .stats-section .stat-item:nth-child(3) .stat-number::after,
+.sustainability-stats .stat-item:nth-child(3) .stat-number::after {
+    content: 'm';
+}
+
+/* Sustainability stats - Item 4: 2030 (no formatting) */
+body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-number::after,
+.sustainability-stats .stat-item:nth-child(4) .stat-number::after {
+    content: none;
 }
 
 .stat-label {
@@ -1627,9 +1683,15 @@ h5 {
       Default: align-start
 
    4. Content Type (required):
-      - paragraph: Single paragraph text (use .text-image-block__description)
+      - paragraph: One or more paragraphs (wrap <p> tags in .text-image-block__description div)
       - paragraph-intro: Intro + paragraph (use .text-image-block__intro)
       - bullet-list: Intro + bullet list (use .text-image-block__list)
+
+      IMPORTANT: For paragraph content, always use a div wrapper:
+      <div class="text-image-block__description">
+          <p>First paragraph...</p>
+          <p>Second paragraph if needed...</p>
+      </div>
 
    5. Accent Bar (optional):
       - true: Show aqua accent bar above title (add .text-image-block__title--accent)
@@ -1695,14 +1757,30 @@ h5 {
 }
 
 .text-image-block__intro,
-.text-image-block__description {
+.text-image-block__description,
+.text-image-block__intro p,
+.text-image-block__description p {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
+}
+
+.text-image-block__intro,
+.text-image-block__description {
     margin-bottom: 2rem;
 }
 
 .text-image-block__description {
+    margin-bottom: 0;
+}
+
+.text-image-block__intro p,
+.text-image-block__description p {
+    margin-bottom: 1rem;
+}
+
+.text-image-block__intro p:last-child,
+.text-image-block__description p:last-child {
     margin-bottom: 0;
 }
 
@@ -1711,7 +1789,7 @@ h5 {
     display: flex;
     gap: 2rem;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .text-image-block__list {
@@ -1767,6 +1845,18 @@ h5 {
 .text-image-block--dark .text-image-block__description,
 .text-image-block--dark .text-image-block__list-item p {
     color: var(--color-white);
+}
+
+/* Grey Theme (Grey background, Dark text) */
+.text-image-block--grey {
+    background-color: #EEEEEE;
+}
+
+.text-image-block--grey .text-image-block__title,
+.text-image-block--grey .text-image-block__intro,
+.text-image-block--grey .text-image-block__description,
+.text-image-block--grey .text-image-block__list-item p {
+    color: #364153;
 }
 
 /* Mobile styles - center everything and add spacing when stacked */
@@ -2116,6 +2206,16 @@ h5 {
     margin-bottom: 0;
 }
 
+.news-section-description p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+    .news-section-description {
+        margin-bottom: 1.5rem;
+    }
+}
+
 .news-view-all {
     color: var(--color-aqua);
     font-weight: 600;
@@ -2191,6 +2291,184 @@ h5 {
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
+}
+
+/* ===================================
+   Key Initiatives Section
+   =================================== */
+/*
+   Component: Key Initiatives Section
+
+   Used on: Sustainability page
+
+   A left-aligned section with title, description, and 6 initiative items.
+   Similar to stats section but with white background and text content.
+
+   Settings for WordPress:
+   - Title: Text input for section title
+   - Description: Text area for intro paragraph
+   - Background: White (#FFFFFF)
+   - Text Color: #364153
+   - Accent Bar: Yes (aqua, left-aligned)
+   - Items: Repeatable (6 recommended)
+     - Title: Text input (e.g., "Carbon Neutrality Goals")
+     - Description: Text area
+
+   Layout: Left-aligned intro (8 cols) with 6 items in 3 columns below
+*/
+
+.key-initiatives-section {
+    background-color: #FFFFFF;
+}
+
+.key-initiatives-section__title {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #364153;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-top: 24px;
+}
+
+.key-initiatives-section__title--accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.key-initiatives-section__description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #364153;
+    margin-bottom: 0;
+}
+
+.key-initiatives-section__stats {
+    margin-top: 80px;
+}
+
+/* Key Initiative Stat Items */
+.key-initiative-stat {
+    text-align: left;
+    border-left: 1px solid var(--color-aqua);
+    padding-left: 30px;
+}
+
+.key-initiative-stat__title {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #364153;
+    margin-bottom: 1rem;
+}
+
+.key-initiative-stat__description {
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #364153;
+    margin-bottom: 0;
+}
+
+/* ===================================
+   ESG Pillars Section
+   =================================== */
+/*
+   Component: ESG Pillars Section
+
+   Used on: Sustainability page
+
+   A card-based layout displaying three ESG pillars (Environmental, Social, Governance)
+   with images and descriptions. Cards have dark background (#1A2332) with white text.
+
+   Settings for WordPress:
+   - Title: Text input for section title
+   - Description: Text area for intro paragraph
+   - Background: Light gray (#EEEEEE)
+   - Cards: 3 cards (fixed)
+     - Image: Upload (recommended 800x480px)
+     - Title: Text input (Environmental, Social, Governance)
+     - Description: Text area
+
+   Layout: Centered intro with 3 equal-width cards below
+*/
+
+.esg-pillars-section {
+    background-color: #EEEEEE;
+}
+
+.esg-pillars-section__title {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-bottom: 1.5rem;
+}
+
+.esg-pillars-section__description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #1A2332;
+    margin-bottom: 0;
+}
+
+.esg-pillars-section__cards {
+    margin-top: 80px;
+}
+
+/* ESG Pillar Cards */
+.esg-pillar-card {
+    background-color: #1A2332;
+    border-radius: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.esg-pillar-card__icon {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.esg-pillar-card__content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.esg-pillar-card__title {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.esg-pillar-card__description {
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-white);
+    margin-bottom: 0;
 }
 
 .news-link:hover {
@@ -3271,6 +3549,46 @@ html {
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
+    .key-initiatives-section__title {
+        font-size: 36px;
+    }
+
+    .key-initiatives-section__description {
+        font-size: 16px;
+    }
+
+    .key-initiatives-section__stats {
+        margin-top: 60px;
+    }
+
+    .key-initiative-stat__title {
+        font-size: 28px;
+    }
+
+    .key-initiative-stat__description {
+        font-size: 15px;
+    }
+
+    .esg-pillars-section__title {
+        font-size: 36px;
+    }
+
+    .esg-pillars-section__description {
+        font-size: 16px;
+    }
+
+    .esg-pillars-section__cards {
+        margin-top: 60px;
+    }
+
+    .esg-pillar-card__title {
+        font-size: 28px;
+    }
+
+    .esg-pillar-card__description {
+        font-size: 15px;
+    }
+
     .team-member-hero {
         height: auto !important;
         min-height: auto !important;
@@ -3336,6 +3654,50 @@ html {
 }
 
 @media (max-width: 767px) {
+    .key-initiatives-section__title {
+        font-size: 28px;
+    }
+
+    .key-initiatives-section__description {
+        font-size: 15px;
+    }
+
+    .key-initiatives-section__stats {
+        margin-top: 40px;
+    }
+
+    .key-initiative-stat__title {
+        font-size: 24px;
+    }
+
+    .key-initiative-stat__description {
+        font-size: 14px;
+    }
+
+    .esg-pillars-section__title {
+        font-size: 28px;
+    }
+
+    .esg-pillars-section__description {
+        font-size: 15px;
+    }
+
+    .esg-pillars-section__cards {
+        margin-top: 40px;
+    }
+
+    .esg-pillar-card__title {
+        font-size: 24px;
+    }
+
+    .esg-pillar-card__description {
+        font-size: 14px;
+    }
+
+    .esg-pillar-card__content {
+        padding: 1.5rem;
+    }
+
     .team-member-hero .hero-title {
         font-size: 28px;
     }
