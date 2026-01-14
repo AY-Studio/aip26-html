@@ -1952,6 +1952,20 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-bottom: 0;
 }
 
+/* Dark variant - navy cards with white text */
+.value-framework-section--dark .value-framework-card {
+    background-color: #1A2332;
+    border-left-color: #00D2E3;
+}
+
+.value-framework-section--dark .value-framework-card__title {
+    color: var(--color-white);
+}
+
+.value-framework-section--dark .value-framework-card__description {
+    color: var(--color-white);
+}
+
 @media (max-width: 991px) {
     .value-framework-section__title {
         font-size: 36px;
@@ -1993,6 +2007,125 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
     .value-framework-card__description {
         font-size: 14px;
+    }
+}
+
+/* ===================================
+   Product Offerings Section
+   =================================== */
+.product-offerings-section {
+    background-color: #0C162C;
+}
+
+.product-offerings-section .section-title {
+    font-family: Mulish;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-white);
+}
+
+.product-card {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.product-card__icon {
+    font-size: 48px;
+    color: #00D2E3;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card__icon i {
+    width: 48px;
+    height: 48px;
+}
+
+.product-card__icon img {
+    width: 125px;
+    height: auto;
+}
+
+.product-card__title {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .product-card {
+        padding: 30px 15px;
+    }
+
+    .product-card__icon {
+        font-size: 36px;
+    }
+
+    .product-card__title {
+        font-size: 18px;
+    }
+}
+
+/* ===================================
+   Asset Types Section
+   =================================== */
+.asset-types-section {
+    background-color: #FFFFFF;
+}
+
+.asset-type-card {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.asset-type-card__icon {
+    font-size: 125px;
+    color: #00D2E3;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.asset-type-card__icon i {
+    width: 125px;
+    height: 125px;
+}
+
+.asset-type-card__icon img {
+    width: 125px;
+    height: auto;
+}
+
+.asset-type-card__title {
+    font-family: Mulish;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #364153;
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .asset-type-card {
+        padding: 20px 10px;
+    }
+
+    .asset-type-card__icon {
+        font-size: 32px;
+    }
+
+    .asset-type-card__title {
+        font-size: 16px;
     }
 }
 
