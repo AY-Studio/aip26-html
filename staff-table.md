@@ -15,6 +15,8 @@ The Staff Table component is a filterable, sortable, searchable directory table 
 - ✅ **Real-time Search** - Search across all fields (name, title, company, location)
 - ✅ **Company Filter** - Dropdown to filter by company
 - ✅ **Sortable Columns** - Click any column header to sort ascending/descending
+- ✅ **Pagination** - 10, 20, 50, 100 rows per page, or show all (default: 20)
+- ✅ **Clickable Rows** - Each row links to individual team member page
 - ✅ **Smooth Animations** - Fade in/out when filtering
 - ✅ **Responsive Design** - Mobile-friendly with touch-optimized controls
 - ✅ **No Results State** - Displays "No results found" when no matches
@@ -324,7 +326,7 @@ function staff_table_shortcode($atts) {
                             <tbody>
                                 <?php if ($team_query->have_posts()): ?>
                                     <?php while ($team_query->have_posts()): $team_query->the_post(); ?>
-                                        <tr>
+                                        <tr data-href="<?php echo esc_url(get_permalink()); ?>">
                                             <td><?php echo esc_html(get_post_meta(get_the_ID(), 'name', true)); ?></td>
                                             <td><?php echo esc_html(get_post_meta(get_the_ID(), 'title', true)); ?></td>
                                             <td><?php echo esc_html(get_post_meta(get_the_ID(), 'company', true)); ?></td>

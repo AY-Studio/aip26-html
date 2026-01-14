@@ -141,16 +141,16 @@
                 <!-- Row 1 - 2 Members -->
                 <div class="team-member-grid">
                     <div class="team-member-card-wrapper">
-                        <a href="#bio-1" class="team-member-card">
-                            <img src="img/team-jared.png" alt="Jared Ailstock" class="team-member-card__image">
+                        <a href="team-member.html?id=jared-ailstock" class="team-member-card">
+                            <img src="img/team-jared.jpg" alt="Jared Ailstock" class="team-member-card__image">
                             <h3 class="team-member-card__name">Jared Ailstock</h3>
                             <p class="team-member-card__role">Managing Partner</p>
                             <span class="team-member-card__link">View Bio <i class="fas fa-chevron-right"></i></span>
                         </a>
                     </div>
                     <div class="team-member-card-wrapper">
-                        <a href="#bio-2" class="team-member-card">
-                            <img src="img/team-jared.png" alt="Mathew Adamo" class="team-member-card__image">
+                        <a href="team-member.html?id=mathew-adamo" class="team-member-card">
+                            <img src="img/team-jared.jpg" alt="Mathew Adamo" class="team-member-card__image">
                             <h3 class="team-member-card__name">Mathew Adamo</h3>
                             <p class="team-member-card__role">Managing Partner</p>
                             <span class="team-member-card__link">View Bio <i class="fas fa-chevron-right"></i></span>
@@ -161,24 +161,24 @@
                 <!-- Row 2 - 3 Members -->
                 <div class="team-member-grid team-member-row">
                     <div class="team-member-card-wrapper">
-                        <a href="#bio-3" class="team-member-card">
-                            <img src="img/team-jared.png" alt="Sinead O'Donnell" class="team-member-card__image">
+                        <a href="team-member.html?id=sinead-odonnell" class="team-member-card">
+                            <img src="img/team-jared.jpg" alt="Sinead O'Donnell" class="team-member-card__image">
                             <h3 class="team-member-card__name">Sinead O'Donnell</h3>
                             <p class="team-member-card__role">Chief Financial Officer</p>
                             <span class="team-member-card__link">View Bio <i class="fas fa-chevron-right"></i></span>
                         </a>
                     </div>
                     <div class="team-member-card-wrapper">
-                        <a href="#bio-4" class="team-member-card">
-                            <img src="img/team-jared.png" alt="Neil O'Donnell" class="team-member-card__image">
+                        <a href="team-member.html?id=neil-odonnell" class="team-member-card">
+                            <img src="img/team-jared.jpg" alt="Neil O'Donnell" class="team-member-card__image">
                             <h3 class="team-member-card__name">Neil O'Donnell</h3>
                             <p class="team-member-card__role">General Counsel</p>
                             <span class="team-member-card__link">View Bio <i class="fas fa-chevron-right"></i></span>
                         </a>
                     </div>
                     <div class="team-member-card-wrapper">
-                        <a href="#bio-5" class="team-member-card">
-                            <img src="img/team-jared.png" alt="Dinnaga Padmaperuma" class="team-member-card__image">
+                        <a href="team-member.html?id=dinnaga-padmaperuma" class="team-member-card">
+                            <img src="img/team-jared.jpg" alt="Dinnaga Padmaperuma" class="team-member-card__image">
                             <h3 class="team-member-card__name">Dinnaga Padmaperuma</h3>
                             <p class="team-member-card__role">Chief Technical Officer</p>
                             <span class="team-member-card__link">View Bio <i class="fas fa-chevron-right"></i></span>
@@ -302,207 +302,208 @@
                             </thead>
                             <tbody>
                                 <!-- WordPress: Loop through team posts here -->
+                                <!-- WordPress: Add data-href="<?php echo get_permalink($post->ID); ?>" to each <tr> -->
                                 <!-- Leadership Team - Display First -->
-                                <tr>
+                                <tr data-href="team-member.html?id=jared-ailstock">
                                     <td>Jared Ailstock</td>
                                     <td>Managing Partner</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=mathew-adamo">
                                     <td>Mathew Adamo</td>
                                     <td>Managing Partner</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=sinead-odonnell">
                                     <td>Sinead O'Donnell</td>
                                     <td>Chief Financial Officer</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=neil-odonnell">
                                     <td>Neil O'Donnell</td>
                                     <td>General Counsel</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=dinnaga-padmaperuma">
                                     <td>Dinnaga Padmaperuma</td>
                                     <td>Chief Technical Officer</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
                                 <!-- Rest of Team -->
-                                <tr>
+                                <tr data-href="team-member.html?id=chris-oscannlain">
                                     <td>Chris O'Scannlain</td>
                                     <td>Chief Risk Officer</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=scott-debano">
                                     <td>Scott Debano</td>
                                     <td>Managing Director – Head of Distribution</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=ryan-klose">
                                     <td>Ryan Klose</td>
                                     <td>Senior Associate – Aviation Investing</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=kevin-mcgeary">
                                     <td>Kevin McGeary</td>
                                     <td>Vice President – Business Development & Capital Markets</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=kevin-markus">
                                     <td>Kevin Markus</td>
                                     <td>Vice President – Aviation Investing</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=umega-seneviratne">
                                     <td>Umega Seneviratne</td>
                                     <td>Assistant Vice President – Technical</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=geoffrey-bayers">
                                     <td>Geoffrey Bayers</td>
                                     <td>Vice President – Capital Formation</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=colm-daly">
                                     <td>Colm Daly</td>
                                     <td>Director – Private Credit</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=trish-smith">
                                     <td>Trish Smith</td>
                                     <td>Senior Contracts Manager</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=sean-dunne">
                                     <td>Sean Dunne</td>
                                     <td>Technical Analyst</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=marta-tarach">
                                     <td>Marta Tarach</td>
                                     <td>Accounts Assistant</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=roisin-kelly">
                                     <td>Róisín Kelly</td>
                                     <td>VP Treasury Operations</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=vikas-sharma">
                                     <td>Vikas Sharma</td>
                                     <td>Chief Compliance Officer</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=hashem-jaradat">
                                     <td>Hashem Jaradat</td>
                                     <td>Senior Technical Manager</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=gareth-dunne">
                                     <td>Gareth Dunne</td>
                                     <td>Vice President – Legal</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=laura-lopez">
                                     <td>Laura Lopez</td>
                                     <td>Executive Business Partner & Office Manager</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=reece-edwards">
                                     <td>Reece Edwards</td>
                                     <td>Technical Analyst</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=dimuth-fernando">
                                     <td>Dimuth Fernando</td>
                                     <td>Managing Director – Asia Pacific</td>
                                     <td>AIP Capital</td>
                                     <td>Singapore</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=andrew-kenny">
                                     <td>Andrew Kenny</td>
                                     <td>Senior Financial Analyst</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=yiping-ke">
                                     <td>Yiping Ke</td>
                                     <td>Managing Director – China</td>
                                     <td>AIP Capital</td>
                                     <td>Singapore</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=owen-fitzpatrick">
                                     <td>Owen Fitzpatrick</td>
                                     <td>Assistant Vice President – Legal</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=jacob-schaffer">
                                     <td>Jacob Schaffer</td>
                                     <td>Analyst – Business Development & Capital Markets</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=james-hunt">
                                     <td>James Hunt</td>
                                     <td>Financial Controller</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=paul-hamill">
                                     <td>Paul Hamill</td>
                                     <td>Assistant Vice President – Powerplant</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=gerard-madigan">
                                     <td>Gerard Madigan</td>
                                     <td>Technical Analyst</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=gareth-mccarthy">
                                     <td>Gareth McCarthy</td>
                                     <td>Vice President – Operations</td>
                                     <td>AIP Capital</td>
                                     <td>Dublin</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=craig-fuller">
                                     <td>Craig Fuller</td>
                                     <td>Managing Director – Head of Business Development & Capital Markets</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=stefan-guignet">
                                     <td>Stefan Guignet</td>
                                     <td>Managing Director – Aviation Investing</td>
                                     <td>AIP Capital</td>
                                     <td>Stamford</td>
                                 </tr>
-                                <tr>
+                                <tr data-href="team-member.html?id=gavin-odonovan">
                                     <td>Gavin O'Donovan</td>
                                     <td>Finance Manager</td>
                                     <td>AIP Capital</td>
@@ -514,6 +515,47 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <!--
+                WORDPRESS NOTE: Pagination is handled entirely by JavaScript.
+                No PHP changes needed. The JavaScript automatically:
+                - Counts total visible rows (after filtering)
+                - Generates page numbers dynamically
+                - Updates "showing X to Y of Z entries" text
+                - Resets to page 1 when searching/filtering
+                - Maintains current page when sorting
+            -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="table-pagination">
+                        <div class="pagination-info">
+                            <span class="pagination-text">Showing <span id="paginationStart">1</span> to <span id="paginationEnd">20</span> of <span id="paginationTotal">34</span> entries</span>
+                            <div class="pagination-rows-per-page">
+                                <label for="rowsPerPage">Rows per page:</label>
+                                <select id="rowsPerPage" class="form-select">
+                                    <option value="10">10</option>
+                                    <option value="20" selected>20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pagination-controls">
+                            <button class="btn-pagination" id="prevPage" disabled>
+                                <i class="bi bi-chevron-left"></i> Previous
+                            </button>
+                            <div class="pagination-numbers" id="paginationNumbers">
+                                <!-- Page numbers will be generated by JavaScript -->
+                            </div>
+                            <button class="btn-pagination" id="nextPage">
+                                Next <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
