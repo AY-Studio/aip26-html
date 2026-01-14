@@ -418,6 +418,14 @@ Footer also includes:
 9. Global Reach
 10. Footer
 
+### Community Page (community.html)
+1. Page Hero (image background, 730px fixed height)
+2. Text-Image Block - Light (People-First. Community-Focused.)
+3. Community Logos Section (5 partner organization logos)
+4. Charities Section (5 charity cards in 3-column grid)
+5. Connect With Us
+6. Footer
+
 ## Key Design Patterns
 
 ### Accent Bars
@@ -697,6 +705,128 @@ Add these modifications:
 - 80px gap between intro and items
 - Fully responsive (adjusts font sizes and spacing on mobile)
 
+---
+
+### 8. Community Logos Section
+**Location**: community.html
+
+**Class**: `.community-logos-section`
+
+**Purpose**: Display partner organization logos in a flexible, centered grid
+
+**WordPress/CMS Settings**:
+1. **Logos** (repeatable field, 1-6 logos):
+   - Image upload
+   - Alt text (required for accessibility)
+
+2. **Layout**:
+   - Max 6 logos per row
+   - Centered horizontally when fewer than 6
+   - Automatic wrapping for mobile
+
+**BEM Class Structure**:
+```css
+.community-logos-section         /* Base component */
+.community-logos-grid            /* Flexbox container */
+.community-logo-item             /* Individual logo wrapper */
+.community-logo                  /* Logo image */
+```
+
+**Example HTML**:
+```html
+<section class="community-logos-section padding-section-large">
+    <div class="container-custom">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="community-logos-grid">
+                    <div class="community-logo-item">
+                        <img src="img/badge-1.png" alt="Partner Organization" class="community-logo">
+                    </div>
+                    <!-- Repeat for additional logos -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+**Component Features:**
+- White background (#FFFFFF)
+- Flexbox layout with centered alignment
+- Max image dimensions: 134px × 134px
+- 3rem gap between logos (2rem on mobile)
+- Maintains aspect ratio (object-fit: contain)
+- Responsive: Scales down to 100px × 100px on mobile
+- Supports 1-6 logos with automatic centering
+
+---
+
+### 9. Charities Section
+**Location**: community.html
+
+**Class**: `.charities-section`
+
+**Purpose**: Display charity partner cards in a grid layout with hover effects
+
+**WordPress/CMS Settings**:
+1. **Section Title**: Text input (with accent bar)
+2. **Section Description**: Text area
+3. **Charity Cards** (repeatable field, 1-6 cards):
+   - Image upload (240px height)
+   - Title text
+   - Link URL
+
+**BEM Class Structure**:
+```css
+.charities-section                    /* Base component */
+.charities-section__title             /* Section title */
+.charities-section__title--accent     /* Title with accent bar */
+.charities-section__description       /* Description wrapper */
+.charity-card                         /* Individual card (link) */
+.charity-card__image                  /* Card image */
+.charity-card__content                /* Card content wrapper */
+.charity-card__title                  /* Card title */
+```
+
+**Example HTML**:
+```html
+<section class="charities-section padding-section-large">
+    <div class="container-custom">
+        <h2 class="charities-section__title charities-section__title--accent">Charities we support</h2>
+        <div class="row mb-5">
+            <div class="col-lg-8">
+                <div class="charities-section__description">
+                    <p>Description text...</p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <a href="#charity-1" class="charity-card">
+                    <img src="img/charity-1.png" alt="Charity Name" class="charity-card__image">
+                    <div class="charity-card__content">
+                        <h5 class="charity-card__title">Charity Name</h5>
+                    </div>
+                </a>
+            </div>
+            <!-- Repeat for additional charities -->
+        </div>
+    </div>
+</section>
+```
+
+**Component Features:**
+- Grey background (#EEEEEE)
+- Title with aqua accent bar (64px × 4px)
+- 3 columns per row on desktop (col-lg-4)
+- 2 columns on tablet (col-md-6)
+- 1 column on mobile
+- Card image height: 240px fixed
+- Card title: 32px, Mulish, weight 300, line-height 140%
+- Hover effects: Image brightness + translateY, title color to aqua
+- Fully responsive typography
+- Maximum 5 cards shown (example uses 5 items)
+
 ## Known Issues & Limitations
 - None currently identified
 
@@ -720,6 +850,19 @@ Add these modifications:
 **Developer Notes**: All components documented for WordPress/CMS migration. Use BEM naming conventions and mobile-first approach for any new development.
 
 ## Recent Updates
+- Added Charities Section component (5 cards, 3-column grid, grey background)
+- Charities cards: 240px height, 32px title (weight 300), hover effects
+- Added Community Logos Section component (5 partner logos, centered, max 134px height)
+- Adjusted logo grid spacing (6rem gap, 5 logos per row max)
+- Updated community page text-image-block with "People-First. Community-Focused." content
+- Added responsive line break to community page title (desktop only)
+- Created Community page (community.html) with hero, text-image-block (light), and Connect With Us
+- Updated all navigation menus to link to community.html
+- Fixed p tag classes in news-section-description (wrapped in div with class)
+- Added mobile spacing to news-section-description for all news components
+- Fixed p tag classes in text-image-block__intro (wrapped in div with class)
+- Updated text-image-block__buttons margin-top to 40px
+- Reordered sustainability page sections (Empowering People before News)
 - Added grey theme option to text-image-block component (#EEEEEE background, #364153 text)
 - Added accent bar to stats-section title (homepage and sustainability page)
 - Fixed p tag classes in stats-section (wrapped in div with class)

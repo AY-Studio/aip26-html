@@ -2476,6 +2476,167 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 /* ===================================
+   COMMUNITY LOGOS SECTION
+   ===================================
+   WordPress/CMS Component: Community Partner Logos
+
+   FEATURES:
+   - Flexible grid layout supporting 1-6 logos per row
+   - Centered alignment when fewer than 6 logos
+   - Max image height: 134px
+   - Responsive: 3 columns on tablet, 2 on mobile
+   - Maintains aspect ratio
+
+   WORDPRESS SETTINGS:
+   - Repeatable logo field (1-6 logos)
+   - Each logo: Image upload, Alt text
+   - Background: White (default)
+
+   PHP IMPLEMENTATION:
+   - Loop through logo array
+   - Output image with community-logo class
+   - Grid auto-adjusts based on number of items
+*/
+
+.community-logos-section {
+    background-color: #FFFFFF;
+}
+
+.community-logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.community-logo-item {
+    flex: 0 0 auto;
+    max-width: 134px;
+    min-width: 134px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.community-logo {
+    width: auto;
+    height: auto;
+    max-width: 134px;
+    max-height: 134px;
+    object-fit: contain;
+}
+
+/* ===================================
+   CHARITIES SECTION
+   ===================================
+   WordPress/CMS Component: Charities We Support
+
+   FEATURES:
+   - Grey background (#EEEEEE)
+   - Title with aqua accent bar
+   - 3 columns per row (5 cards total)
+   - Card height: 240px
+   - Large title text: 32px, weight 300
+   - Hover effects on images
+
+   WORDPRESS SETTINGS:
+   - Section Title: Text input
+   - Section Description: Text area
+   - Repeatable charity card field (1-6 cards)
+   - Each card: Image upload, Title, Link URL
+
+   PHP IMPLEMENTATION:
+   - Loop through charity cards array
+   - Output cards with charity-card class
+   - Grid auto-adjusts: 3 per row on desktop, 2 on tablet, 1 on mobile
+*/
+
+.charities-section {
+    background-color: #EEEEEE;
+}
+
+.charities-section__title {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-top: 24px;
+}
+
+.charities-section__title--accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.charities-section__description {
+    margin-bottom: 0;
+}
+
+.charities-section__description p {
+    font-family: Mulish;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1A2332;
+    margin-bottom: 0;
+}
+
+.charity-card {
+    background-color: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.charity-card__image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.charity-card:hover .charity-card__image {
+    filter: brightness(1.2);
+    transform: translateY(-5px);
+}
+
+.charity-card__content {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.charity-card__title {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 140%;
+    color: #1A2332;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.charity-card:hover .charity-card__title {
+    color: var(--color-aqua);
+}
+
+/* ===================================
    Strategies Overview Section
    =================================== */
 .strategies-overview-section {
@@ -3589,6 +3750,18 @@ html {
         font-size: 15px;
     }
 
+    .charities-section__title {
+        font-size: 36px;
+    }
+
+    .charities-section__description {
+        font-size: 16px;
+    }
+
+    .charity-card__title {
+        font-size: 28px;
+    }
+
     .team-member-hero {
         height: auto !important;
         min-height: auto !important;
@@ -3696,6 +3869,32 @@ html {
 
     .esg-pillar-card__content {
         padding: 1.5rem;
+    }
+
+    .charities-section__title {
+        font-size: 28px;
+    }
+
+    .charities-section__description {
+        font-size: 15px;
+    }
+
+    .charity-card__title {
+        font-size: 24px;
+    }
+
+    .community-logos-grid {
+        gap: 2rem;
+    }
+
+    .community-logo-item {
+        max-width: 100px;
+        min-width: 100px;
+    }
+
+    .community-logo {
+        max-width: 100px;
+        max-height: 100px;
     }
 
     .team-member-hero .hero-title {
