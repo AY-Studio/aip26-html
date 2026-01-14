@@ -564,6 +564,192 @@ function initGlobalOfficesMap() {
  *     initInteractiveMap(map);
  * });
  */
+/**
+ * ================================================
+ * STAFF TABLE COMPONENT - TABLE SORTING
+ * ================================================
+ *
+ * Full documentation: staff-table.md
+ *
+ * Adds click-to-sort functionality for team directory table
+ *
+ * FEATURES:
+ * - Click column header to sort ascending
+ * - Click again to sort descending
+ * - Bootstrap Icons toggle between up/down arrows
+ * - Active sort highlighted in aqua
+ * - Only one column sorted at a time
+ *
+ * WORDPRESS NOTE:
+ * This function works with any table structure. No changes needed
+ * for WordPress integration - just ensure table has .team-directory-table
+ * class and headers have .sortable class.
+ */
+function initTableSorting() {
+    const table = document.querySelector('.team-directory-table');
+    if (!table) return;
+
+    const headers = table.querySelectorAll('th.sortable');
+
+    headers.forEach((header, columnIndex) => {
+        header.addEventListener('click', function() {
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const currentSort = this.classList.contains('asc') ? 'asc' :
+                               this.classList.contains('desc') ? 'desc' : 'none';
+
+            // Remove sort classes and reset icons for all headers
+            headers.forEach(h => {
+                h.classList.remove('asc', 'desc');
+                const icon = h.querySelector('.sort-icon');
+                if (icon) {
+                    icon.classList.remove('bi-caret-up-fill');
+                    icon.classList.add('bi-caret-down-fill');
+                }
+            });
+
+            // Determine new sort direction
+            let newSort = 'asc';
+            if (currentSort === 'asc') {
+                newSort = 'desc';
+            }
+
+            // Add sort class to current header
+            this.classList.add(newSort);
+
+            // Update icon for current header
+            const icon = this.querySelector('.sort-icon');
+            if (icon) {
+                if (newSort === 'asc') {
+                    icon.classList.remove('bi-caret-down-fill');
+                    icon.classList.add('bi-caret-up-fill');
+                } else {
+                    icon.classList.remove('bi-caret-up-fill');
+                    icon.classList.add('bi-caret-down-fill');
+                }
+            }
+
+            // Sort rows
+            const sortedRows = rows.sort((a, b) => {
+                const aValue = a.cells[columnIndex].textContent.trim();
+                const bValue = b.cells[columnIndex].textContent.trim();
+
+                if (newSort === 'asc') {
+                    return aValue.localeCompare(bValue);
+                } else {
+                    return bValue.localeCompare(aValue);
+                }
+            });
+
+            // Re-append sorted rows
+            sortedRows.forEach(row => tbody.appendChild(row));
+        });
+    });
+}
+
+/**
+ * ================================================
+ * STAFF TABLE COMPONENT - SEARCH AND FILTER
+ * ================================================
+ *
+ * Full documentation: staff-table.md
+ *
+ * Adds real-time search and company filter for team directory table
+ *
+ * FEATURES:
+ * - Search: Real-time search across all table columns
+ * - Filter: Dropdown to filter by company
+ * - Smooth fade animations when hiding/showing rows
+ * - Maintains striped table pattern for visible rows only
+ * - Shows "No results found" when no matches
+ *
+ * WORDPRESS NOTE:
+ * No JavaScript changes needed for WordPress integration.
+ * Ensure company filter dropdown is populated with unique company values
+ * from the database (see staff-table.md for PHP code).
+ */
+function initTableFilters() {
+    const searchInput = document.getElementById('teamSearch');
+    const companyFilter = document.getElementById('companyFilter');
+    const table = document.querySelector('.team-directory-table');
+
+    if (!searchInput || !companyFilter || !table) return;
+
+    const tbody = table.querySelector('tbody');
+    const allRows = Array.from(tbody.querySelectorAll('tr:not(.no-results-row)'));
+    const noResultsRow = tbody.querySelector('.no-results-row');
+
+    function applyStriping() {
+        const visibleRows = allRows.filter(row => !row.classList.contains('hidden') && row.style.display !== 'none');
+
+        // Remove all striping classes
+        allRows.forEach(row => row.classList.remove('table-stripe-odd', 'table-stripe-even'));
+
+        // Apply striping to visible rows
+        visibleRows.forEach((row, index) => {
+            if (index % 2 === 0) {
+                row.classList.add('table-stripe-even');
+            } else {
+                row.classList.add('table-stripe-odd');
+            }
+        });
+
+        // Show/hide no results row
+        if (noResultsRow) {
+            if (visibleRows.length === 0) {
+                noResultsRow.style.display = '';
+            } else {
+                noResultsRow.style.display = 'none';
+            }
+        }
+    }
+
+    function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCompany = companyFilter.value;
+
+        allRows.forEach(row => {
+            const cells = Array.from(row.cells);
+            const rowText = cells.map(cell => cell.textContent.toLowerCase()).join(' ');
+            const companyCell = cells[2].textContent; // Company is 3rd column (index 2)
+
+            // Check search match
+            const matchesSearch = searchTerm === '' || rowText.includes(searchTerm);
+
+            // Check company filter match
+            const matchesCompany = selectedCompany === '' || companyCell === selectedCompany;
+
+            // Show or hide row with smooth animation
+            if (matchesSearch && matchesCompany) {
+                row.classList.remove('hidden');
+                row.style.display = '';
+            } else {
+                row.classList.add('hidden');
+                // Delay display: none to allow fade animation
+                setTimeout(() => {
+                    if (row.classList.contains('hidden')) {
+                        row.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+
+        // Reapply striping after animation
+        setTimeout(() => {
+            applyStriping();
+        }, 50);
+    }
+
+    // Apply initial striping on load
+    applyStriping();
+
+    // Add event listeners
+    searchInput.addEventListener('keyup', filterTable);
+    companyFilter.addEventListener('change', filterTable);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     initGlobalOfficesMap();
+    initTableSorting();
+    initTableFilters();
 });

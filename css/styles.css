@@ -586,7 +586,8 @@ h5 {
     }
 
     .stats-buttons,
-    .team-buttons {
+    .team-buttons,
+    .text-image-block__buttons {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
@@ -1079,6 +1080,285 @@ h5 {
     margin: 0;
 }
 
+/* Team Member Cards */
+.team-member-card {
+    text-align: left;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.team-member-card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.team-member-card__name {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    color: #1A2332;
+    margin-bottom: 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.team-member-card__role {
+    font-family: Mulish;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: #1A2332;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.team-member-card__link {
+    color: #AAA;
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.team-member-card__link i {
+    margin-left: 0.25rem;
+    font-size: 12px;
+}
+
+/* Hover effects - matching strategy cards */
+.team-member-card:hover .team-member-card__image {
+    filter: brightness(1.2);
+    transform: translateY(-5px);
+}
+
+.team-member-card:hover .team-member-card__name {
+    color: var(--color-aqua);
+}
+
+/* ===================================
+   STAFF TABLE COMPONENT - WORDPRESS READY
+   ===================================
+
+   Full documentation: staff-table.md
+
+   This section styles the filterable, sortable staff directory table.
+
+   WORDPRESS CUSTOMIZATION POINTS:
+   - Background color: .team-directory-section background-color
+   - Title/Description: .team-directory-title, .team-directory-description
+   - Table colors: thead background, sort icon colors
+   - Column widths: .team-directory-table thead th:nth-child(n) width
+   - Hover effects: .team-directory-table tbody tr:hover
+
+   All styles use BEM methodology for easy maintenance.
+   =================================== */
+
+/* Section Background */
+.team-directory-section {
+    background-color: #EEEEEE;
+}
+
+.team-directory-title {
+    font-size: 48px;
+    font-weight: 300;
+    color: #1A2332;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.team-directory-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1A2332;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.team-directory-table {
+    font-family: Mulish;
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #DEE2E6;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.team-directory-table thead {
+    background-color: #1A2332 !important;
+}
+
+.team-directory-table thead th {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    color: #FFFFFF !important;
+    background-color: #1A2332 !important;
+}
+
+.team-directory-table thead th:nth-child(1) {
+    width: 20%;
+}
+
+.team-directory-table thead th:nth-child(2) {
+    width: 30%;
+}
+
+.team-directory-table thead th:nth-child(3) {
+    width: 30%;
+}
+
+.team-directory-table thead th:nth-child(4) {
+    width: 20%;
+}
+
+.team-directory-table thead th.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.team-directory-table thead th.sortable:hover {
+    background-color: #2A3342 !important;
+}
+
+.sort-icon {
+    margin-left: 0.5rem;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.team-directory-table thead th.sortable.asc .sort-icon {
+    color: var(--color-aqua);
+}
+
+.team-directory-table thead th.sortable.desc .sort-icon {
+    color: var(--color-aqua);
+}
+
+.team-directory-table tbody td {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 1rem;
+    color: #1A2332;
+    vertical-align: middle;
+    border: none;
+}
+
+.team-directory-table tbody tr {
+    opacity: 1;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 200px;
+}
+
+.team-directory-table tbody tr.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.team-directory-table tbody tr:hover {
+    background-color: #F5F5F5;
+}
+
+/* Override Bootstrap's default striping */
+.team-directory-table.table-striped tbody tr {
+    background-color: transparent !important;
+}
+
+/* Manual striping for filtered rows */
+.team-directory-table tbody tr.table-stripe-odd {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.team-directory-table tbody tr.table-stripe-even {
+    background-color: transparent !important;
+}
+
+/* No results row */
+.team-directory-table tbody tr.no-results-row td {
+    padding: 2rem 1rem;
+    font-size: 18px;
+    color: #888;
+    font-style: italic;
+}
+
+.team-directory-table tbody tr.no-results-row {
+    background-color: transparent !important;
+}
+
+/* Table Controls - Search and Filter */
+.table-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.table-search {
+    flex: 1;
+    max-width: 250px;
+}
+
+.table-filter {
+    flex: 1;
+    max-width: 250px;
+}
+
+.table-search .form-control,
+.table-filter .form-select {
+    font-family: Mulish;
+    font-size: 16px;
+    padding: 0.625rem 1rem;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+}
+
+.table-search .form-control:focus,
+.table-filter .form-select:focus {
+    border-color: var(--color-aqua);
+    box-shadow: 0 0 0 0.2rem rgba(0, 210, 227, 0.25);
+}
+
+/* Team member container - Centers all rows */
+.team-member-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Team member grid - Flexbox layout with specific widths */
+.team-member-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 48px;
+    justify-content: center;
+}
+
+.team-member-card-wrapper {
+    width: 394px;
+    flex-shrink: 0;
+}
+
+/* Spacing between team member rows */
+.team-member-row {
+    margin-top: 64px;
+}
+
 /* Mobile adjustments for values section and icon cards */
 @media (max-width: 991px) {
     .values-section__cards {
@@ -1101,6 +1381,56 @@ h5 {
 
     .icon-card__description {
         font-size: 15px;
+    }
+
+    .team-member-card__name {
+        font-size: 24px;
+    }
+
+    .team-member-card__role {
+        font-size: 16px;
+    }
+
+    .team-member-card__link {
+        font-size: 15px;
+    }
+
+    .team-member-card-wrapper {
+        width: 100%;
+        max-width: 394px;
+    }
+
+    .team-member-grid {
+        flex-wrap: wrap;
+        row-gap: 48px;
+        column-gap: 32px;
+    }
+
+    .team-member-row {
+        margin-top: 48px;
+    }
+
+    .team-directory-title {
+        font-size: 36px;
+    }
+
+    .team-directory-description {
+        font-size: 16px;
+    }
+
+    .team-directory-table thead th,
+    .team-directory-table tbody td {
+        font-size: 14px;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .table-controls {
+        flex-direction: column;
+    }
+
+    .table-search,
+    .table-filter {
+        max-width: 100%;
     }
 }
 
@@ -1213,6 +1543,14 @@ h5 {
     margin-bottom: 0;
 }
 
+/* Buttons container (optional) - matches team-buttons styling */
+.text-image-block__buttons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 60px;
+}
+
 .text-image-block__list {
     list-style: none;
     padding: 0;
@@ -1302,6 +1640,11 @@ h5 {
     .text-image-block__list-item {
         justify-content: center;
         text-align: left; /* Keep text left-aligned within the bullet */
+    }
+
+    /* Center buttons on mobile */
+    .text-image-block__buttons {
+        justify-content: center;
     }
 
     /* Center images on mobile and make full width */
@@ -2236,6 +2579,10 @@ h5 {
 .padding-section-large {
     padding-top: 160px !important;
     padding-bottom: 145px !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
 }
 
 .py-5 {
