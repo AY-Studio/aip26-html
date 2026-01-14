@@ -566,6 +566,42 @@ function initGlobalOfficesMap() {
  */
 /**
  * ================================================
+ * STAFF TABLE COMPONENT - APPLY STRIPING
+ * ================================================
+ *
+ * Shared function to apply alternating row colors to visible rows only
+ */
+function applyTableStriping(table) {
+    const tbody = table.querySelector('tbody');
+    const allRows = Array.from(tbody.querySelectorAll('tr:not(.no-results-row)'));
+    const noResultsRow = tbody.querySelector('.no-results-row');
+
+    const visibleRows = allRows.filter(row => !row.classList.contains('hidden') && row.style.display !== 'none');
+
+    // Remove all striping classes
+    allRows.forEach(row => row.classList.remove('table-stripe-odd', 'table-stripe-even'));
+
+    // Apply striping to visible rows
+    visibleRows.forEach((row, index) => {
+        if (index % 2 === 0) {
+            row.classList.add('table-stripe-even');
+        } else {
+            row.classList.add('table-stripe-odd');
+        }
+    });
+
+    // Show/hide no results row
+    if (noResultsRow) {
+        if (visibleRows.length === 0) {
+            noResultsRow.style.display = '';
+        } else {
+            noResultsRow.style.display = 'none';
+        }
+    }
+}
+
+/**
+ * ================================================
  * STAFF TABLE COMPONENT - TABLE SORTING
  * ================================================
  *
@@ -594,7 +630,7 @@ function initTableSorting() {
     headers.forEach((header, columnIndex) => {
         header.addEventListener('click', function() {
             const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const rows = Array.from(tbody.querySelectorAll('tr:not(.no-results-row)'));
             const currentSort = this.classList.contains('asc') ? 'asc' :
                                this.classList.contains('desc') ? 'desc' : 'none';
 
@@ -643,6 +679,9 @@ function initTableSorting() {
 
             // Re-append sorted rows
             sortedRows.forEach(row => tbody.appendChild(row));
+
+            // Reapply striping after sort
+            applyTableStriping(table);
         });
     });
 }
@@ -677,32 +716,6 @@ function initTableFilters() {
 
     const tbody = table.querySelector('tbody');
     const allRows = Array.from(tbody.querySelectorAll('tr:not(.no-results-row)'));
-    const noResultsRow = tbody.querySelector('.no-results-row');
-
-    function applyStriping() {
-        const visibleRows = allRows.filter(row => !row.classList.contains('hidden') && row.style.display !== 'none');
-
-        // Remove all striping classes
-        allRows.forEach(row => row.classList.remove('table-stripe-odd', 'table-stripe-even'));
-
-        // Apply striping to visible rows
-        visibleRows.forEach((row, index) => {
-            if (index % 2 === 0) {
-                row.classList.add('table-stripe-even');
-            } else {
-                row.classList.add('table-stripe-odd');
-            }
-        });
-
-        // Show/hide no results row
-        if (noResultsRow) {
-            if (visibleRows.length === 0) {
-                noResultsRow.style.display = '';
-            } else {
-                noResultsRow.style.display = 'none';
-            }
-        }
-    }
 
     function filterTable() {
         const searchTerm = searchInput.value.toLowerCase();
@@ -736,12 +749,12 @@ function initTableFilters() {
 
         // Reapply striping after animation
         setTimeout(() => {
-            applyStriping();
+            applyTableStriping(table);
         }, 50);
     }
 
     // Apply initial striping on load
-    applyStriping();
+    applyTableStriping(table);
 
     // Add event listeners
     searchInput.addEventListener('keyup', filterTable);
