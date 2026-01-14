@@ -426,6 +426,12 @@ Footer also includes:
 5. Connect With Us
 6. Footer
 
+### Strategies Page (strategies.html)
+1. Page Hero (image background, 730px fixed height)
+2. Text-Image Block - Dark (Our Commitment to ESG)
+3. Connect With Us
+4. Footer
+
 ## Key Design Patterns
 
 ### Accent Bars
@@ -850,6 +856,11 @@ Add these modifications:
 **Developer Notes**: All components documented for WordPress/CMS migration. Use BEM naming conventions and mobile-first approach for any new development.
 
 ## Recent Updates
+- Created Strategies overview page (strategies.html) with hero, ESG commitment block, and Connect With Us
+- Added "Our Commitment to ESG" text-image block to strategies page
+- Updated all navigation menus to link to strategies.html for Overview
+- Added charity names to community page cards
+- Updated charities section description typography
 - Added Charities Section component (5 cards, 3-column grid, grey background)
 - Charities cards: 240px height, 32px title (weight 300), hover effects
 - Added Community Logos Section component (5 partner logos, centered, max 134px height)
