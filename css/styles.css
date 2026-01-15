@@ -556,6 +556,20 @@ h5 {
     content: '$';
 }
 
+/* Hero accent bar */
+.accent-bar {
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+    margin-bottom: 1.5rem;
+}
+
+/* Hero stats - disable default formatting since we use data-prefix/suffix */
+.hero-stats-grid .stat-number::before,
+.hero-stats-grid .stat-number::after {
+    content: none !important;
+}
+
 /* Sustainability page stats - custom formatting */
 body[data-page="sustainability"] .stats-section .stat-number::after,
 .sustainability-stats .stat-number::after {

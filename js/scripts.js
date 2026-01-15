@@ -11,14 +11,16 @@ function animateCountUp(element, target, duration = 2000) {
     const increment = target / (duration / 16); // 60fps
     let current = start;
     const decimals = target % 1 !== 0 ? 1 : 0; // Use 1 decimal if not a whole number
+    const prefix = element.getAttribute('data-prefix') || '';
+    const suffix = element.getAttribute('data-suffix') || '';
 
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = decimals === 1 ? target.toFixed(1) : Math.round(target);
+            element.textContent = prefix + (decimals === 1 ? target.toFixed(1) : Math.round(target)) + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = decimals === 1 ? current.toFixed(1) : Math.round(current);
+            element.textContent = prefix + (decimals === 1 ? current.toFixed(1) : Math.round(current)) + suffix;
         }
     }, 16);
 }
@@ -49,6 +51,11 @@ function initCountUp() {
     const snapshotSection = document.querySelector('.platform-snapshot-section');
     if (snapshotSection) {
         statsObserver.observe(snapshotSection);
+    }
+
+    const headerSection = document.querySelector('.header-section');
+    if (headerSection) {
+        statsObserver.observe(headerSection);
     }
 }
 
