@@ -1072,11 +1072,42 @@ function initClickableTableRows() {
     });
 }
 
+// ===================================
+// Back to Top Button
+// ===================================
+/**
+ * Shows/hides back to top button based on scroll position
+ * Smooth scrolls to top when clicked
+ */
+function initBackToTop() {
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    // Scroll to top on click
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     initGlobalOfficesMap();
     initTableSorting();
     initTableFilters();
     initClickableTableRows();
+    initBackToTop();
 
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();
