@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asset Management - Alternative Investment Partners</title>
+    <title>Contact Us - Alternative Investment Partners</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="asset-management">
+<body data-page="contact">
 
     <!-- Header -->
     <header class="header-section about-header page-hero">
         <div class="header-video-wrapper">
-            <img src="img/hero-asset-managment.jpg" alt="Asset Management" class="header-image">
+            <img src="img/hero-contact.jpg" alt="Contact Us" class="header-image">
             <div class="header-overlay"></div>
         </div>
 
@@ -74,7 +74,7 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <ul class="mega-menu-links">
-                                                <li><a href="#strategies-overview">Strategies Overview</a></li>
+                                                <li><a href="strategies.html">Strategies Overview</a></li>
                                                 <li><a href="real-assets.html">Real Assets</a></li>
                                                 <li><a href="private-credit.html">Private Credit</a></li>
                                                 <li><a href="strategic-partnerships.html">Strategic Partnerships & Control Investments</a></li>
@@ -89,7 +89,7 @@
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="news.html">News & Insights</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         <li class="nav-item">
                             <a class="btn btn-aqua" href="#login">Investor Login</a>
                         </li>
@@ -102,51 +102,197 @@
             <div class="container-custom">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="hero-title">Asset Management</h1>
+                        <h1 class="hero-title">Contact Us</h1>
+                        <p class="hero-description">Contact us for more information about our firm and opportunities to partner with us.</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Featured Platform - Witt Lake Asset Management -->
-    <section class="featured-platform-block">
+    <!-- Contact Form Section -->
+    <section class="contact-form-section padding-section-large">
         <div class="container-custom">
             <div class="row align-items-center">
-                <div class="col-lg-6 featured-platform-block__image">
-                    <img src="img/img-witt-lake.png" alt="Witt Lake Asset Management" class="img-fluid">
-                </div>
-                <div class="col-lg-6 featured-platform-block__content">
-                    <img src="img/logo-witt-lake.png" alt="Witt Lake Asset Management" class="featured-platform-block__logo">
-                    <div class="featured-platform-block__label">FEATURED PLATFORM</div>
-                    <h2 class="featured-platform-block__title">Witt Lake Asset Management</h2>
-                    <div class="featured-platform-block__description">
-                        <p>Witt Lake Asset Management (WLAM) is an asset management firm focused on providing investment management services to investment funds, separately managed accounts and other vehicles managed by WLAM. WLAM provides advisory services to privately offered investment funds, single investor funds, co-investment vehicles, pooled investment vehicles and other similar types of investment entities  focused on sourcing, buying, trading, and managing investments and securities, on both a discretionary and non-discretionary basis.</p>
-                        <p>WLAM currently has approximately $1.5 Billion of assets under management with the majority of these assets being aviation private credit instruments managed on behalf of insurance clients.</p>
-                    </div>
-                    <div class="featured-platform-block__stats">
-                        <div class="stat-item">
-                            <div class="stat-number">$1.5B+</div>
-                            <div class="stat-label">Assets Under Management</div>
+                <div class="col-lg-6">
+                    <h2 class="contact-form-section__title">Get in touch</h2>
+                    <p class="contact-form-section__description">If you have a question or a query about AIP Capital you can use the form below to send us a message.</p>
+
+                    <!-- Static form for demo - Replace with Gravity Forms in WordPress -->
+                    <!-- WordPress: [gravityform id="X" title="false" description="false" ajax="true"] -->
+                    <!--
+                    Configure Gravity Form with these fields:
+                    1. First Name (text, half width, left)
+                    2. Last Name (text, half width, right)
+                    3. Email (email, full width)
+                    4. Phone Number (phone, full width)
+                    5. Choose a topic (dropdown, full width) - Options: General Inquiry, Investment Opportunities, Partnership Opportunities, Media Inquiry, Other
+                    6. Message (textarea, full width, rows: 6)
+                    7. Terms checkbox (checkbox, full width) - Label: "I agree to the Terms and Conditions"
+                    8. Submit button (text: "Submit")
+
+                    Custom CSS classes will be applied automatically via .contact-form-section
+                    -->
+
+                    <form class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name" required>
+                            </div>
                         </div>
+                        <div class="row g-3">
+                            <div class="col-12 gfield_error">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                                <div class="validation_message">Please enter a valid email address.</div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <select class="form-control" required>
+                                    <option value="">Choose a topic</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="investment">Investment Opportunities</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="media">Media Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <textarea class="form-control" rows="6" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#terms">Terms and Conditions</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-white-ghost">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Success Message Example -->
+                    <div class="contact-form-message contact-form-message--success">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you for your message. We'll get back to you shortly.</p>
                     </div>
-                    <div class="featured-platform-block__buttons">
-                        <a href="#witt-lake" class="btn btn-aqua-ghost">Learn More About Witt Lake</a>
+
+                    <!-- Error Message Example -->
+                    <div class="contact-form-message contact-form-message--error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>There was an error submitting your form. Please try again.</p>
                     </div>
+
+                    <!-- Gravity Forms will replace the form with messages like these:
+                    Success: <div class="gform_confirmation_wrapper">
+                    Error: <div class="validation_error"> -->
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/img-contact-form.png" alt="Contact Us" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Connect With Us -->
-    <section id="connect" class="connect-section padding-section-large">
+    <!-- Global Offices Cards Section -->
+    <section class="global-offices-cards-section">
         <div class="container-custom">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="connect-title">Connect With Us to Explore Lasting Opportunities</h2>
-                    <p class="connect-description">Contact us to learn more information about our firm's experience, investment strategies and opportunities.</p>
-                    <div class="connect-buttons">
-                        <a href="#contact" class="btn btn-aqua">Contact us</a>
+            <h2 class="global-offices-cards-title global-offices-cards-title-with-accent">Our Global Offices</h2>
+            <p class="global-offices-cards-description">For all inquiries please contact AIP at: <a href="mailto:info@aipcapital.com">info@aipcapital.com</a></p>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Stamford Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="Stamford Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">Stamford</h3>
+                            <div class="office-card__address">750 Washington Blvd.
+Suite 600
+Stamford, CT 06901</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New York Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="New York Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">New York</h3>
+                            <div class="office-card__address">375 Park Avenue
+Suite 3607
+New York, NY 10152</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dublin Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="Dublin Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">Dublin</h3>
+                            <div class="office-card__address">Riverside One
+Sir John Rogerson's Quay
+Dublin 2, Ireland</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Singapore Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="Singapore Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">Singapore</h3>
+                            <div class="office-card__address">6 Battery Road
+#10-01
+Singapore 049909</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seoul Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="Seoul Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">Seoul</h3>
+                            <div class="office-card__address">33 Jong-ro
+Jongno-gu
+Seoul 03159, South Korea</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tokyo Office -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="office-card">
+                        <img src="img/office-stamford.jpg" alt="Tokyo Office" class="office-card__image">
+                        <div class="office-card__content">
+                            <h3 class="office-card__name">Tokyo</h3>
+                            <div class="office-card__address">3-2-3 Marunouchi
+Chiyoda-ku
+Tokyo 100-0005, Japan</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -221,7 +367,7 @@
                                 <li><a href="real-assets.html">Real Assets</a></li>
                                 <li><a href="private-credit.html">Private Credit</a></li>
                                 <li><a href="asset-management.html">Asset Management</a></li>
-                                <li><a href="#partnerships-investments">Partnerships & Investments</a></li>
+                                <li><a href="strategic-partnerships.html">Partnerships & Investments</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 mb-4">

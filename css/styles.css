@@ -178,6 +178,19 @@ h5 {
     min-height: calc(730px - 88px);
 }
 
+.news-header {
+    min-height: 500px;
+    max-height: 500px;
+}
+
+.news-header .header-angled-overlay {
+    display: none;
+}
+
+.news-header .hero-content {
+    min-height: calc(500px - 88px);
+}
+
 /* Navbar */
 .navbar {
     position: relative;
@@ -422,6 +435,18 @@ h5 {
     padding-top: 4rem;
 }
 
+.hero-category {
+    display: inline-block;
+    background-color: #00D2E3;
+    color: #0C162C;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+}
+
 .hero-title {
     color: var(--color-white);
     margin-bottom: 24px;
@@ -437,6 +462,18 @@ h5 {
     width: 64px;
     height: 4px;
     background-color: #00D2E3;
+}
+
+/* Remove accent bar and padding when hero-category is present */
+.hero-category ~ .hero-title {
+    padding-top: 0;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.hero-category ~ .hero-title::before {
+    display: none;
 }
 
 .hero-description {
@@ -2555,6 +2592,1697 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 /* ===================================
+   Featured Post Section
+   =================================== */
+.featured-post-section {
+    background-color: #0C162C;
+}
+
+.featured-post-section-title {
+    color: #FFFFFF;
+    font-family: Mulish;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-top: 24px;
+}
+
+.featured-post-section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+.featured-post-card {
+    background-color: #EEEEEE;
+    overflow: hidden;
+    border-radius: 0;
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.featured-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.featured-post-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #00D2E3;
+    color: #0C162C;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.featured-post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 400px;
+    transition: all 0.3s ease;
+}
+
+.featured-post-card:hover .featured-post-image {
+    filter: brightness(1.2);
+    transform: translateY(-5px);
+}
+
+.featured-post-content {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.featured-post-title {
+    font-family: Mulish;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #364153;
+    margin-bottom: 1.5rem;
+}
+
+.featured-post-excerpt {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #364153;
+    margin-bottom: auto;
+}
+
+.featured-post-date {
+    font-size: 14px;
+    font-weight: 400;
+    color: #AAAAAA;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+@media (max-width: 991px) {
+    .featured-post-image {
+        min-height: 300px;
+    }
+
+    .featured-post-content {
+        padding: 40px;
+        min-height: auto;
+    }
+
+    .featured-post-title {
+        font-size: 28px;
+    }
+
+    .featured-post-excerpt {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .featured-post-content {
+        padding: 30px;
+    }
+
+    .featured-post-title {
+        font-size: 24px;
+    }
+}
+
+/* ===================================
+   News Filter Section
+   =================================== */
+.news-filter-section {
+    background-color: #FFFFFF;
+    padding: 40px 0;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.news-filter-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.news-filter-categories {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
+    gap: 12px;
+    max-width: calc(100% - 300px);
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid #CCCCCC;
+    color: #364153;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.filter-btn:hover {
+    border-color: #00D2E3;
+    color: #00D2E3;
+}
+
+.filter-btn.active {
+    background-color: #00D2E3;
+    border-color: #00D2E3;
+    color: #FFFFFF;
+}
+
+.news-filter-search {
+    position: relative;
+    min-width: 280px;
+}
+
+.filter-search-input {
+    width: 100%;
+    padding: 10px 40px 10px 16px;
+    border: 1px solid #CCCCCC;
+    font-size: 14px;
+    color: #364153;
+    border-radius: 0;
+}
+
+.filter-search-input:focus {
+    outline: none;
+    border-color: #00D2E3;
+}
+
+.filter-search-input::placeholder {
+    color: #999999;
+}
+
+.news-filter-search i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    pointer-events: none;
+}
+
+@media (max-width: 991px) {
+    .news-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .news-filter-categories {
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .news-filter-search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .news-filter-categories {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .filter-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .news-filter-section {
+        padding: 30px 0;
+    }
+}
+
+/* ===================================
+   News Section & Pagination
+   =================================== */
+.news-section {
+    background-color: #FFFFFF;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-item {
+    display: block;
+}
+
+.page-link {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #364153;
+    background-color: transparent;
+    border: 1px solid #CCCCCC;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #00D2E3;
+    color: #FFFFFF;
+    border-color: #00D2E3;
+}
+
+.page-item.active .page-link {
+    background-color: #00D2E3;
+    color: #FFFFFF;
+    border-color: #00D2E3;
+}
+
+@media (max-width: 767px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .page-link {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* ===================================
+   Newsletter Signup Component
+
+   USAGE:
+   - Full-width white section containing centered navy signup box
+   - Email-only signup with subscribe button
+   - Desktop: horizontal layout (email + button side-by-side)
+   - Mobile/Tablet: vertical layout (stacked)
+
+   STRUCTURE:
+   <section class="newsletter-signup">
+       <div class="container-custom">
+           <div class="newsletter-signup__box">
+               <h2 class="newsletter-signup__title">
+                   Title text<br class="newsletter-signup__title-break"> More text
+               </h2>
+               <p class="newsletter-signup__description">Description text</p>
+               <form class="newsletter-signup__form">
+                   <div class="newsletter-signup__inputs">
+                       <input type="email" class="newsletter-signup__input" placeholder="Email">
+                       <button type="submit" class="btn btn-aqua">Subscribe</button>
+                   </div>
+               </form>
+               <p class="newsletter-signup__terms">
+                   Text with <a href="#">link</a>.
+               </p>
+           </div>
+       </div>
+   </section>
+
+   NOTES:
+   - .newsletter-signup__title-break: Line break hidden on mobile for natural text flow
+   - Button uses global .btn .btn-aqua classes
+   - Terms link automatically styled with underline
+   - All content centered within navy box
+
+   GRAVITY FORMS INTEGRATION:
+   - Component includes styles for Gravity Forms with Mailchimp addon
+   - Gravity Forms fields automatically match design system
+   - Form markup can be replaced with [gravityform] shortcode
+   - Submit button inherits aqua button styling
+   - Hidden labels for cleaner appearance
+   =================================== */
+
+/* Section wrapper */
+.newsletter-signup {
+    background-color: #FAFAFA;
+}
+
+/* Navy container box */
+.newsletter-signup__box {
+    background-color: #0C162C;
+    padding: 100px 60px;
+    text-align: center;
+}
+
+/* Title styling */
+.newsletter-signup__title {
+    font-family: Mulish;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+/* Description text */
+.newsletter-signup__description {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #FFFFFF;
+    margin-bottom: 2.5rem;
+}
+
+/* Form wrapper */
+.newsletter-signup__form {
+    margin-bottom: 1.5rem;
+}
+
+/* Input and button container */
+.newsletter-signup__inputs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Email input field */
+.newsletter-signup__input {
+    flex: 1;
+    max-width: 400px;
+    padding: 14px 20px;
+    font-size: 16px;
+    color: #364153;
+    border: 1px solid #CCCCCC;
+    border-radius: 0;
+    background-color: #FFFFFF;
+}
+
+.newsletter-signup__input:focus {
+    outline: none;
+    border-color: #00D2E3;
+}
+
+.newsletter-signup__input::placeholder {
+    color: #999999;
+}
+
+/* Terms and conditions text */
+.newsletter-signup__terms {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Terms link styling */
+.newsletter-signup__terms a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.newsletter-signup__terms a:hover {
+    opacity: 0.8;
+}
+
+/* Gravity Forms integration */
+.newsletter-signup .gform_wrapper {
+    margin: 0 !important;
+}
+
+.newsletter-signup .gform_body {
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-signup .gform_fields {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.newsletter-signup .gfield {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hide Gravity Forms labels (use placeholders instead) */
+.newsletter-signup .gfield_label {
+    display: none;
+}
+
+.newsletter-signup .ginput_container {
+    margin: 0 !important;
+}
+
+/* Style Gravity Forms email input */
+.newsletter-signup input[type="email"],
+.newsletter-signup input[type="text"] {
+    width: 100% !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    color: #364153 !important;
+    border: 1px solid #CCCCCC !important;
+    border-radius: 0 !important;
+    background-color: #FFFFFF !important;
+    box-sizing: border-box;
+}
+
+.newsletter-signup input[type="email"]:focus,
+.newsletter-signup input[type="text"]:focus {
+    outline: none !important;
+    border-color: #00D2E3 !important;
+}
+
+.newsletter-signup input::placeholder {
+    color: #999999 !important;
+}
+
+/* Style Gravity Forms submit button */
+.newsletter-signup .gform_footer {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.newsletter-signup .gform_button,
+.newsletter-signup input[type="submit"] {
+    background-color: #00D2E3 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 14px 40px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    border-radius: 0 !important;
+}
+
+.newsletter-signup .gform_button:hover,
+.newsletter-signup input[type="submit"]:hover {
+    background-color: #00B8C7 !important;
+}
+
+/* Hide Gravity Forms validation messages in this context */
+.newsletter-signup .gfield_description,
+.newsletter-signup .validation_message {
+    display: none;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 991px) {
+    .newsletter-signup__box {
+        padding: 80px 40px;
+    }
+
+    .newsletter-signup__title {
+        font-size: 36px;
+    }
+
+    .newsletter-signup__inputs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter-signup__input {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Gravity Forms responsive */
+    .newsletter-signup .gform_fields {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter-signup .gfield {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 767px) {
+    .newsletter-signup__box {
+        padding: 60px 30px;
+    }
+
+    .newsletter-signup__title {
+        font-size: 32px;
+    }
+
+    /* Hide line break on mobile for natural text flow */
+    .newsletter-signup__title-break {
+        display: none;
+    }
+
+    .newsletter-signup__description {
+        font-size: 16px;
+    }
+}
+
+/* ===================================
+   Article Content (News Single Page)
+   =================================== */
+
+/* Article container */
+.article-content {
+    background-color: #FFFFFF;
+}
+
+/* Article header */
+.article-header {
+    margin-bottom: 3rem;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-category {
+    display: inline-block;
+    background-color: #00D2E3;
+    color: #0C162C;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.article-date {
+    font-size: 14px;
+    color: #AAAAAA;
+    font-weight: 400;
+}
+
+.article-title {
+    font-family: Mulish;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin: 0;
+}
+
+/* Featured image */
+.article-featured-image {
+    margin-bottom: 3rem;
+}
+
+.article-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Article body typography - All styles target clean HTML from WordPress WYSIWYG */
+.article-body {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #364153;
+}
+
+/* First paragraph with strong tag acts as lead/intro */
+.article-body > p:first-child strong {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #1A2332;
+}
+
+.article-body > p:first-child {
+    margin-bottom: 2rem;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-body h1 {
+    font-family: Mulish;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.article-body h2 {
+    font-family: Mulish;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #1A2332;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-body h3 {
+    font-family: Mulish;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1A2332;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-body h4 {
+    font-family: Mulish;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1A2332;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.article-body h5 {
+    font-family: Mulish;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1A2332;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-body h6 {
+    font-family: Mulish;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1A2332;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-body a {
+    color: #00D2E3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-body a:hover {
+    color: #00B8C7;
+    text-decoration: underline;
+}
+
+.article-body strong {
+    font-weight: 600;
+    color: #1A2332;
+}
+
+.article-body em {
+    font-style: italic;
+}
+
+/* Lists */
+.article-body ul,
+.article-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.article-body ul {
+    list-style-type: disc;
+}
+
+.article-body ol {
+    list-style-type: decimal;
+}
+
+.article-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.article-body ul ul,
+.article-body ol ol,
+.article-body ul ol,
+.article-body ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Blockquote styling */
+.article-body blockquote {
+    background-color: #F5F5F5;
+    border-left: 4px solid #00D2E3;
+    padding: 2rem 2.5rem;
+    margin: 3rem 0;
+}
+
+.article-body blockquote p {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+    color: #1A2332;
+    margin-bottom: 1rem;
+}
+
+.article-body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.article-body blockquote cite {
+    display: block;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    color: #364153;
+    margin-top: 1rem;
+}
+
+/* Images and figures */
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem 0;
+}
+
+.article-body figure {
+    margin: 3rem 0;
+    background-color: #F5F5F5;
+    padding: 0;
+}
+
+.article-body figure img {
+    margin: 0;
+    width: 100%;
+    display: block;
+}
+
+.article-body figcaption {
+    font-size: 14px;
+    font-style: italic;
+    color: #666666;
+    padding: 1rem 1.5rem;
+    line-height: 1.5;
+    background-color: #F5F5F5;
+}
+
+/* WordPress image alignment classes */
+.article-body .alignleft {
+    float: left;
+    margin: 0.5rem 2rem 1.5rem 0;
+    max-width: 50%;
+}
+
+.article-body .alignright {
+    float: right;
+    margin: 0.5rem 0 1.5rem 2rem;
+    max-width: 50%;
+}
+
+.article-body .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Ensure figures with alignment classes don't have excessive margin */
+.article-body figure.alignleft,
+.article-body figure.alignright {
+    margin-top: 0.5rem;
+}
+
+.article-body figure.alignleft {
+    margin-left: 0;
+}
+
+.article-body figure.alignright {
+    margin-right: 0;
+}
+
+/* Clear floats after aligned images */
+.article-body::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Horizontal rule */
+.article-body hr {
+    border: 0;
+    border-top: 1px solid #E5E5E5;
+    margin: 3rem 0;
+}
+
+/* Disclaimer/notice boxes - using nested div */
+.article-body > div {
+    background-color: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.article-body > div p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 0.75rem;
+}
+
+.article-body > div p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tables */
+.article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 16px;
+}
+
+.article-body table th,
+.article-body table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.article-body table th {
+    background-color: #F5F5F5;
+    font-weight: 600;
+    color: #1A2332;
+    border-bottom: 2px solid #CCCCCC;
+}
+
+.article-body table td {
+    color: #364153;
+}
+
+.article-body table tbody tr:hover {
+    background-color: #FAFAFA;
+}
+
+.article-body table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive table - horizontal scroll on small screens */
+@media (max-width: 767px) {
+    .article-body table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 14px;
+    }
+
+    .article-body table th,
+    .article-body table td {
+        padding: 10px 12px;
+        white-space: nowrap;
+    }
+}
+
+/* Article footer */
+.article-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 1px solid #E5E5E5;
+}
+
+.article-share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article-share-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #364153;
+}
+
+.article-share-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #F5F5F5;
+    color: #364153;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.article-share-link:hover {
+    background-color: #00D2E3;
+    color: #FFFFFF;
+}
+
+.article-back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    color: #00D2E3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-back-link:hover {
+    color: #00B8C7;
+}
+
+/* Responsive article styles */
+@media (max-width: 991px) {
+    .article-title {
+        font-size: 36px;
+    }
+
+    .article-body {
+        font-size: 16px;
+    }
+
+    .article-body > p:first-child strong {
+        font-size: 20px;
+    }
+
+    .article-body h1 {
+        font-size: 32px;
+    }
+
+    .article-body h2 {
+        font-size: 28px;
+    }
+
+    .article-body h3 {
+        font-size: 22px;
+    }
+
+    .article-body h4 {
+        font-size: 18px;
+    }
+
+    .article-body h5 {
+        font-size: 16px;
+    }
+
+    .article-body h6 {
+        font-size: 14px;
+    }
+
+    .article-body blockquote p {
+        font-size: 18px;
+    }
+
+    .article-body blockquote {
+        padding: 1.5rem 2rem;
+    }
+
+    .article-body .alignleft,
+    .article-body .alignright {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 767px) {
+    .article-title {
+        font-size: 28px;
+    }
+
+    .article-header {
+        margin-bottom: 2rem;
+    }
+
+    .article-featured-image {
+        margin-bottom: 2rem;
+    }
+
+    .article-meta {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .article-footer {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .article-body blockquote {
+        padding: 1.5rem;
+    }
+
+    .article-body ul,
+    .article-body ol {
+        padding-left: 1.5rem;
+    }
+
+    .article-body h1 {
+        font-size: 28px;
+    }
+
+    .article-body h2 {
+        font-size: 24px;
+    }
+
+    .article-body h3 {
+        font-size: 20px;
+    }
+
+    .article-body h4 {
+        font-size: 18px;
+    }
+
+    /* Remove float on mobile for better readability */
+    .article-body .alignleft,
+    .article-body .alignright {
+        float: none;
+        margin: 2rem 0;
+        max-width: 100%;
+    }
+
+    .article-body figure.alignleft,
+    .article-body figure.alignright {
+        margin: 2rem 0;
+    }
+
+    .article-body figcaption {
+        padding: 0.75rem 1rem;
+        font-size: 13px;
+    }
+}
+
+/* ===================================
+   Related Articles Section
+   =================================== */
+.related-articles {
+    background-color: #FFFFFF;
+}
+
+.related-articles-title {
+    font-family: Mulish;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 991px) {
+    .related-articles-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .related-articles-title {
+        font-size: 28px;
+    }
+}
+
+/* ===================================
+   Contact Form Section
+   =================================== */
+.contact-form-section {
+    background-color: #1A2332;
+}
+
+.contact-form-section__title {
+    font-family: Mulish;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-section__description {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #FFFFFF;
+    margin-bottom: 3rem;
+}
+
+/* Left column with padding */
+.contact-form-section .col-lg-6:first-child {
+    padding-right: 60px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    margin-bottom: 2rem;
+}
+
+.contact-form .row {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .row:last-child {
+    margin-bottom: 0;
+}
+
+.contact-form .form-control {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 14px 20px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    background-color: transparent;
+    border-color: #00D2E3;
+    color: #FFFFFF;
+    box-shadow: none;
+    outline: none;
+}
+
+.contact-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Select dropdown */
+.contact-form select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23FFFFFF' d='M1.41 0L6 4.59 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+}
+
+.contact-form select.form-control option {
+    background-color: #1A2332;
+    color: #FFFFFF;
+}
+
+/* Textarea */
+.contact-form textarea.form-control {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Checkbox */
+.contact-form .form-check {
+    padding-left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-form .form-check-input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    background-color: transparent;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.contact-form .form-check-input:checked {
+    background-color: #00D2E3;
+    border-color: #00D2E3;
+}
+
+.contact-form .form-check-input:focus {
+    box-shadow: none;
+    border-color: #00D2E3;
+}
+
+.contact-form .form-check-label {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.contact-form .form-check-label a {
+    color: #00D2E3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-form .form-check-label a:hover {
+    color: #FFFFFF;
+}
+
+/* Submit Button */
+.btn-white-ghost {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-white-ghost:hover {
+    background-color: #FFFFFF;
+    color: #1A2332;
+}
+
+/* Field-level error styling for static form */
+.contact-form .gfield_error .validation_message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.contact-form .gfield_error input,
+.contact-form .gfield_error select,
+.contact-form .gfield_error textarea {
+    border-color: #dc3545;
+}
+
+/* Success and Error Messages */
+.contact-form-message {
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-form-message i {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.contact-form-message p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.contact-form-message--success {
+    background-color: rgba(40, 167, 69, 0.15);
+    border: 1px solid #28a745;
+    color: #28a745;
+}
+
+.contact-form-message--error {
+    background-color: rgba(220, 53, 69, 0.15);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+/* Gravity Forms Compatibility */
+.contact-form-section .gform_wrapper {
+    margin: 0;
+}
+
+.contact-form-section .gform_wrapper .gform_body {
+    margin-bottom: 0;
+}
+
+.contact-form-section .gform_wrapper .gfield {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-section .gform_wrapper .gfield_label {
+    display: none;
+}
+
+.contact-form-section .gform_wrapper input[type="text"],
+.contact-form-section .gform_wrapper input[type="email"],
+.contact-form-section .gform_wrapper input[type="tel"],
+.contact-form-section .gform_wrapper select,
+.contact-form-section .gform_wrapper textarea {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 14px 20px;
+    width: 100%;
+}
+
+.contact-form-section .gform_wrapper input[type="text"]:focus,
+.contact-form-section .gform_wrapper input[type="email"]:focus,
+.contact-form-section .gform_wrapper input[type="tel"]:focus,
+.contact-form-section .gform_wrapper select:focus,
+.contact-form-section .gform_wrapper textarea:focus {
+    border-color: #00D2E3;
+    box-shadow: none;
+}
+
+.contact-form-section .gform_wrapper .gform_button {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-form-section .gform_wrapper .gform_button:hover {
+    background-color: #FFFFFF;
+    color: #1A2332;
+}
+
+/* Gravity Forms Success Message */
+.contact-form-section .gform_confirmation_wrapper,
+.contact-form-section .gform_confirmation_message {
+    padding: 20px 24px;
+    border-radius: 4px;
+    background-color: rgba(40, 167, 69, 0.15);
+    border: 1px solid #28a745;
+    color: #28a745;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 2rem;
+}
+
+/* Gravity Forms Error Messages */
+.contact-form-section .gform_wrapper .validation_error {
+    padding: 20px 24px;
+    border-radius: 4px;
+    background-color: rgba(220, 53, 69, 0.15);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* Field-specific error messages */
+.contact-form-section .gform_wrapper .gfield_error .validation_message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.contact-form-section .gform_wrapper .gfield_error input,
+.contact-form-section .gform_wrapper .gfield_error select,
+.contact-form-section .gform_wrapper .gfield_error textarea {
+    border-color: #dc3545;
+}
+
+
+/* Responsive */
+@media (max-width: 991px) {
+    .contact-form-section__title {
+        font-size: 32px;
+    }
+
+    .contact-form-section__description {
+        font-size: 16px;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-form-section__title {
+        font-size: 28px;
+    }
+
+    .contact-form-section__description {
+        font-size: 16px;
+    }
+
+    .contact-form-section .col-lg-6:first-child {
+        padding-right: 15px;
+    }
+
+    .contact-form .form-control {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .btn-white-ghost {
+        width: 100%;
+        padding: 14px 30px;
+    }
+}
+
+/* ===================================
+   Global Offices Cards Section
+   ===================================
+
+   OVERVIEW:
+   Card-based layout displaying global office locations with addresses.
+   Similar structure to Our Strategies section but adapted for office information.
+
+   STRUCTURE:
+   - Section title with accent bar (BEM: global-offices-cards-section)
+   - Description with email contact
+   - Grid of office cards (3 per row, 6 total)
+   - Each card contains office name and address
+
+   WORDPRESS NOTES:
+   - Can be converted to ACF Repeater field for office locations
+   - Office name, address lines stored as custom fields
+   - Easy to add/remove offices via admin panel
+
+   RESPONSIVE:
+   - Desktop: 3 cards per row (col-lg-4)
+   - Tablet: 2 cards per row (col-md-6)
+   - Mobile: 1 card per row (full width)
+
+   =================================== */
+
+.global-offices-cards-section {
+    background-color: #FFFFFF;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Section Title */
+.global-offices-cards-title {
+    font-family: Mulish;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Title with accent bar */
+.global-offices-cards-title-with-accent {
+    position: relative;
+    padding-top: 2rem;
+}
+
+.global-offices-cards-title-with-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    background-color: #00D2E3;
+}
+
+/* Description */
+.global-offices-cards-description {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #364153;
+    text-align: left;
+    margin-bottom: 4rem;
+}
+
+.global-offices-cards-description a {
+    color: #4A5568;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.global-offices-cards-description a:hover {
+    color: #00D2E3;
+}
+
+/* Office Card */
+.office-card {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.office-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Office Image */
+.office-card__image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Office Content */
+.office-card__content {
+    padding: 24px 30px 30px 30px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Office Name (City) */
+.office-card__name {
+    font-family: Mulish;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1A2332;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* Office Address */
+.office-card__address {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.44;
+    color: #364153;
+    white-space: pre-line;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .global-offices-cards-title {
+        font-size: 32px;
+    }
+
+    .global-offices-cards-description {
+        font-size: 16px;
+        margin-bottom: 3rem;
+    }
+
+    .office-card__image {
+        height: 240px;
+    }
+
+    .office-card__content {
+        padding: 20px 24px 24px 24px;
+    }
+
+    .office-card__name {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .office-card__address {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .global-offices-cards-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .global-offices-cards-title {
+        font-size: 28px;
+    }
+
+    .global-offices-cards-description {
+        font-size: 16px;
+    }
+
+    .office-card__image {
+        height: 200px;
+    }
+
+    .office-card__content {
+        padding: 16px 20px 20px 20px;
+    }
+
+    .office-card__name {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .office-card__address {
+        font-size: 16px;
+    }
+}
+
+/* ===================================
    Global Reach Section
    =================================== */
 .global-reach-section {
@@ -2744,6 +4472,20 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     position: relative;
 }
 
+.news-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #00D2E3;
+    color: #0C162C;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
 .news-image {
     width: 100%;
     height: 240px;
@@ -2774,11 +4516,13 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 .news-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-family: Mulish;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
     color: #1A2332;
     margin-bottom: 1rem;
-    line-height: 1.4;
     transition: color 0.3s ease;
 }
 
@@ -3679,7 +5423,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
    Utilities
    =================================== */
 .padding-section-large {
-    padding-top: 160px;
+    padding-top: 80px;
     padding-bottom: 145px;
 }
 
@@ -3876,9 +5620,29 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
         min-height: calc(500px - 70px);
     }
 
+    .news-header {
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    .news-header .hero-content {
+        min-height: calc(250px - 70px);
+    }
+
     .hero-title {
         font-size: 36px;
         margin-bottom: 1.5rem;
+    }
+
+    .hero-category {
+        font-size: 13px;
+        padding: 7px 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-category ~ .hero-title {
+        font-size: 34px;
+        font-weight: 300;
     }
 
     .hero-description {
@@ -3971,6 +5735,15 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
         min-height: calc(400px - 60px);
     }
 
+    .news-header {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    .news-header .hero-content {
+        min-height: calc(200px - 60px);
+    }
+
     .hero-title {
         font-size: 28px;
         line-height: 1.3;
@@ -3981,6 +5754,17 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     .hero-title::before {
         width: 48px;
         height: 3px;
+    }
+
+    .hero-category {
+        font-size: 11px;
+        padding: 5px 14px;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-category ~ .hero-title {
+        font-size: 26px;
+        font-weight: 300;
     }
 
     .hero-description {

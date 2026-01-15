@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asset Management - Alternative Investment Partners</title>
+    <title>News & Insights - Alternative Investment Partners</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="asset-management">
+<body data-page="news">
 
     <!-- Header -->
-    <header class="header-section about-header page-hero">
+    <header class="header-section news-header page-hero">
         <div class="header-video-wrapper">
-            <img src="img/hero-asset-managment.jpg" alt="Asset Management" class="header-image">
+            <img src="img/hero-news-insights.jpg" alt="News & Insights" class="header-image">
             <div class="header-overlay"></div>
         </div>
 
@@ -102,38 +102,226 @@
             <div class="container-custom">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="hero-title">Asset Management</h1>
+                        <h1 class="hero-title">News & Insights</h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Featured Platform - Witt Lake Asset Management -->
-    <section class="featured-platform-block">
+    <!-- Featured Post -->
+    <section class="featured-post-section padding-section-large" style="background-color: #0C162C;">
         <div class="container-custom">
-            <div class="row align-items-center">
-                <div class="col-lg-6 featured-platform-block__image">
-                    <img src="img/img-witt-lake.png" alt="Witt Lake Asset Management" class="img-fluid">
-                </div>
-                <div class="col-lg-6 featured-platform-block__content">
-                    <img src="img/logo-witt-lake.png" alt="Witt Lake Asset Management" class="featured-platform-block__logo">
-                    <div class="featured-platform-block__label">FEATURED PLATFORM</div>
-                    <h2 class="featured-platform-block__title">Witt Lake Asset Management</h2>
-                    <div class="featured-platform-block__description">
-                        <p>Witt Lake Asset Management (WLAM) is an asset management firm focused on providing investment management services to investment funds, separately managed accounts and other vehicles managed by WLAM. WLAM provides advisory services to privately offered investment funds, single investor funds, co-investment vehicles, pooled investment vehicles and other similar types of investment entities  focused on sourcing, buying, trading, and managing investments and securities, on both a discretionary and non-discretionary basis.</p>
-                        <p>WLAM currently has approximately $1.5 Billion of assets under management with the majority of these assets being aviation private credit instruments managed on behalf of insurance clients.</p>
+            <h2 class="featured-post-section-title">Featured Post</h2>
+            <a href="news-single.html" class="featured-post-card">
+                <div class="featured-post-tag">Featured</div>
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <img src="img/news-2.png" alt="Featured Post" class="featured-post-image">
                     </div>
-                    <div class="featured-platform-block__stats">
-                        <div class="stat-item">
-                            <div class="stat-number">$1.5B+</div>
-                            <div class="stat-label">Assets Under Management</div>
+                    <div class="col-lg-6">
+                        <div class="featured-post-content">
+                            <h2 class="featured-post-title">Phoenix Aviation Capital and AIP Capital Announce Closing of Inaugural $550 Million Senior Unsecured Notes Offering</h2>
+                            <div class="featured-post-date">15th Jan, 2026</div>
                         </div>
                     </div>
-                    <div class="featured-platform-block__buttons">
-                        <a href="#witt-lake" class="btn btn-aqua-ghost">Learn More About Witt Lake</a>
-                    </div>
                 </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="news-filter-section">
+        <div class="container-custom">
+            <div class="news-filter-bar">
+                <div class="news-filter-categories">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="esg">ESG & Sustainability</button>
+                    <button class="filter-btn" data-category="market">Market Insights</button>
+                    <button class="filter-btn" data-category="partnerships">Partnerships</button>
+                    <button class="filter-btn" data-category="aviation">Aviation</button>
+                    <button class="filter-btn" data-category="finance">Private Credit</button>
+                    <button class="filter-btn" data-category="infrastructure">Infrastructure</button>
+                    <button class="filter-btn" data-category="real-estate">Real Estate</button>
+                    <button class="filter-btn" data-category="team">Team & Culture</button>
+                    <button class="filter-btn" data-category="regulatory">Regulatory</button>
+                    <button class="filter-btn" data-category="portfolio">Portfolio Updates</button>
+                    <button class="filter-btn" data-category="strategy">Investment Strategy</button>
+                </div>
+                <div class="news-filter-search">
+                    <input type="text" class="filter-search-input" placeholder="Search news...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news-section padding-section-large">
+        <div class="container-custom">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#1" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-1.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">2025 ESG Report: Progress Toward Net-Zero Targets</h5>
+                            <div class="news-date">15th Dec, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#2" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-2.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Integrating ESG in Aviation Finance: Best Practices</h5>
+                            <div class="news-date">28th Nov, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#3" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-3.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Building a Diverse and Inclusive Investment Team</h5>
+                            <div class="news-date">10th Nov, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#4" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-1.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Market Outlook: Aviation Finance in 2026</h5>
+                            <div class="news-date">22nd Oct, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#5" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-2.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">New Partnership Announcement: BeYoke Capital</h5>
+                            <div class="news-date">8th Oct, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#6" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-3.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Q3 2025 Market Commentary</h5>
+                            <div class="news-date">30th Sep, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#7" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-1.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Infrastructure Investment Opportunities in APAC</h5>
+                            <div class="news-date">15th Sep, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#8" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-2.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Private Credit Market Trends</h5>
+                            <div class="news-date">28th Aug, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#9" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-3.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Aircraft Leasing: An Investor's Guide</h5>
+                            <div class="news-date">10th Aug, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#10" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-1.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Sustainable Aviation: Future of Flight</h5>
+                            <div class="news-date">25th Jul, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#11" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-2.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Equipment Finance Platform Launch</h5>
+                            <div class="news-date">12th Jul, 2025</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="news-single.html#12" class="news-card">
+                        <div class="news-tag">Category</div>
+                        <img src="img/news-3.png" alt="News" class="news-image">
+                        <div class="news-content">
+                            <h5 class="news-title">Mid-Year Investment Review 2025</h5>
+                            <div class="news-date">30th Jun, 2025</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper">
+                <nav aria-label="News pagination">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#page-1" aria-label="Previous">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#page-1">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#page-2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#page-3">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#page-4">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#page-5">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#page-3" aria-label="Next">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-signup padding-section-large">
+        <div class="container-custom">
+            <div class="newsletter-signup__box">
+                <h2 class="newsletter-signup__title">Stay Informed.<br class="newsletter-signup__title-break"> Subscribe to the AIP Newsletter</h2>
+                <p class="newsletter-signup__description">Stay Informed. Subscribe to the AIP Newsletter</p>
+
+                <!-- Static form for demo - Replace with Gravity Forms in WordPress -->
+                <!-- WordPress: [gravityform id="X" title="false" description="false" ajax="true"] -->
+                <!-- Configure form with: 1 Email field (placeholder: "Email"), 1 Submit button (text: "Subscribe") -->
+                <!-- Enable Mailchimp addon and map email field to Mailchimp -->
+                <form class="newsletter-signup__form">
+                    <div class="newsletter-signup__inputs">
+                        <input type="email" class="newsletter-signup__input" placeholder="Email" required>
+                        <button type="submit" class="btn btn-aqua">Subscribe</button>
+                    </div>
+                </form>
+
+                <p class="newsletter-signup__terms">By clicking Sign Up you're confirming that you agree with our <a href="#terms">Terms and Conditions</a>.</p>
             </div>
         </div>
     </section>
@@ -221,7 +409,7 @@
                                 <li><a href="real-assets.html">Real Assets</a></li>
                                 <li><a href="private-credit.html">Private Credit</a></li>
                                 <li><a href="asset-management.html">Asset Management</a></li>
-                                <li><a href="#partnerships-investments">Partnerships & Investments</a></li>
+                                <li><a href="strategic-partnerships.html">Partnerships & Investments</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 mb-4">
