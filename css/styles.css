@@ -5751,6 +5751,22 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     }
 }
 
+/* Navigation Tightening - Before Mobile Breakpoint */
+@media (max-width: 1195px) {
+    .navbar-nav {
+        gap: 18px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 15px;
+    }
+
+    .btn-aqua {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 991px) {
     .navbar {
         min-height: 70px;
