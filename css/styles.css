@@ -157,6 +157,13 @@ h5 {
     z-index: 2;
 }
 
+/* Hide angled overlay on mobile */
+@media (max-width: 991px) {
+    .header-section .header-angled-overlay {
+        display: none;
+    }
+}
+
 /* About Page Header */
 .about-header {
     min-height: 730px;
@@ -180,6 +187,11 @@ h5 {
     display: flex;
     align-items: center;
     background-color: var(--color-neutral-darkest);
+}
+
+/* Hide mobile close button on desktop */
+.mobile-nav-close {
+    display: none;
 }
 
 .navbar-container-full {
@@ -2145,10 +2157,32 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 /* ===================================
    Featured Platform Block
+
+   USAGE:
+   - Default background: #0C162C (dark navy)
+   - Alternative backgrounds:
+     * .featured-platform-block--bg-alt: #1A2332 (lighter navy)
+     * Or use inline style: style="background-color: #1A2332;"
+
+   LAYOUT OPTIONS:
+   - Normal: Image left, content right
+   - Reversed: Use Bootstrap order classes on columns:
+     * Content: order-lg-1 order-2
+     * Image: order-lg-2 order-1
+
+   EXAMPLE:
+   <section class="featured-platform-block">...</section>
+   <section class="featured-platform-block featured-platform-block--bg-alt">...</section>
+   <section class="featured-platform-block" style="background-color: #1A2332;">...</section>
    =================================== */
 .featured-platform-block {
     background-color: #0C162C;
     padding: 80px 0;
+}
+
+/* Alternative background color */
+.featured-platform-block--bg-alt {
+    background-color: #1A2332;
 }
 
 .featured-platform-block__logo {
@@ -2188,6 +2222,25 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 .featured-platform-block__description p:last-child {
+    margin-bottom: 0;
+}
+
+.featured-platform-block__description ol,
+.featured-platform-block__description ul {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.featured-platform-block__description li {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.featured-platform-block__description li:last-child {
     margin-bottom: 0;
 }
 
@@ -2289,7 +2342,9 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
         font-size: 36px;
     }
 
-    .featured-platform-block__description p {
+    .featured-platform-block__description p,
+    .featured-platform-block__description ol,
+    .featured-platform-block__description ul {
         font-size: 16px;
     }
 
@@ -3666,14 +3721,14 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
     .navbar-collapse {
         background-color: var(--color-neutral-darkest);
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
         width: 100%;
-        max-height: calc(100vh - 70px);
+        height: calc(100vh - 60px);
         overflow-y: auto;
-        padding: 1.5rem 20px;
+        padding: 1.5rem 20px 2rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         z-index: 1000;
         -webkit-overflow-scrolling: touch;
