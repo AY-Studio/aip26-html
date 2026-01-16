@@ -899,7 +899,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 16px;
     font-weight: 300;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: #FFFFFF;
     margin-bottom: 1rem;
 }
 
@@ -907,7 +907,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 16px;
     font-weight: 300;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: #FFFFFF;
     margin-bottom: 1rem;
     padding-left: 1.5rem;
 }
@@ -916,12 +916,34 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-bottom: 0.5rem;
 }
 
+.tab-content-list ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.tab-content-list ul li {
+    margin-bottom: 0.25rem;
+}
+
+.tab-content-list ol[type="A"] {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    list-style-type: upper-alpha;
+}
+
+.tab-content-list ol[type="A"] li {
+    margin-bottom: 0.25rem;
+}
+
 .tab-learn-more {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--color-aqua);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     margin-top: 1rem;
@@ -6011,10 +6033,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 16px;
     line-height: 1.2;
     transition: color 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: var(--color-aqua);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
 }
 
 .footer-links a:hover {
     color: var(--color-aqua);
+}
+
+.footer-links a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 .footer-divider {
@@ -6056,10 +6098,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 14px;
     transition: color 0.3s ease;
     white-space: nowrap;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-legal-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: var(--color-aqua);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
 }
 
 .footer-legal-links a:hover {
     color: var(--color-aqua);
+}
+
+.footer-legal-links a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 @media (max-width: 991px) {
