@@ -504,7 +504,6 @@ h5 {
     padding: 8px 20px;
     font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 2rem;
 }
@@ -2388,7 +2387,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
     color: #00D2E3;
     margin-bottom: 1.5rem;
 }
@@ -2799,7 +2797,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     padding: 8px 16px;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     z-index: 10;
 }
@@ -3365,7 +3362,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     padding: 6px 16px;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
@@ -3475,7 +3471,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-weight: 600;
     line-height: 1.4;
     color: #1A2332;
-    text-transform: uppercase;
     letter-spacing: 0.75px;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
@@ -4700,7 +4695,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     padding: 8px 16px;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     z-index: 10;
 }
@@ -5022,7 +5016,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #6B7280;
     margin-bottom: 8px;
