@@ -208,6 +208,8 @@ h5 {
 
 .news-header .hero-content {
     min-height: calc(500px - 88px);
+    padding-top: 180px;
+    padding-bottom: 20px;
 }
 
 /* Navbar */
@@ -6213,6 +6215,8 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
     .news-header .hero-content {
         min-height: calc(300px - 70px);
+        padding-top: 140px;
+        padding-bottom: 20px;
     }
 
     .hero-title {
@@ -6328,7 +6332,8 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
     .news-header .hero-content {
         min-height: calc(280px - 60px);
-        padding-bottom: 30px;
+        padding-top: 130px;
+        padding-bottom: 15px;
     }
 
     .hero-title {
