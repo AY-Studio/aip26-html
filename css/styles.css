@@ -24,7 +24,7 @@
 body {
     font-family: var(--font-family);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: var(--color-neutral-darkest);
     background-color: #F5F5F5;
@@ -332,7 +332,7 @@ h5 {
 .mega-menu-links li a {
     color: var(--color-neutral-darkest);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -528,7 +528,7 @@ h5 {
 .hero-description {
     color: var(--color-white);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     max-width: 600px;
 }
@@ -559,7 +559,7 @@ h5 {
 .our-firm-text {
     color: var(--color-white);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -608,7 +608,7 @@ h5 {
 .stats-description {
     color: var(--color-white);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     text-align: left;
     margin-bottom: 1.5rem;
@@ -849,7 +849,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .tab-content-text {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
@@ -857,7 +857,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .tab-content-list {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
@@ -997,7 +997,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .card-text {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #99A1AF;
 }
@@ -1057,7 +1057,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .team-description {
     color: var(--color-white);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     text-align: left;
@@ -1106,7 +1106,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .connect-description {
     color: var(--color-white);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -1177,7 +1177,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .vision-section--light .vision-description {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
 }
 
@@ -1226,7 +1226,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .values-section__description {
     color: #1A2332;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     text-align: center;
     margin-bottom: 0;
@@ -1262,7 +1262,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .icon-card__description {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1A2332;
     line-height: 1.5;
     margin: 0;
@@ -1305,7 +1305,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     color: #1A2332;
     line-height: 1.5;
     margin-bottom: 1rem;
@@ -1316,7 +1316,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     text-decoration: none;
 }
@@ -1369,7 +1369,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .team-directory-description {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1A2332;
     line-height: 1.5;
     margin-bottom: 0;
@@ -1440,7 +1440,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .team-directory-table tbody td {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     padding: 1rem;
     color: #1A2332;
     vertical-align: middle;
@@ -1893,7 +1893,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .text-image-block__intro p,
 .text-image-block__description p {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
 }
 
@@ -1922,7 +1922,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-left: 0;
     list-style-position: outside;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -1976,7 +1976,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .text-image-block__list-item p {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin: 0;
 }
@@ -2046,7 +2046,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .value-framework-section__description {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #364153;
     margin-bottom: 0;
@@ -2078,7 +2078,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #364153;
     margin-bottom: 0;
@@ -2321,7 +2321,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .featured-platform-block__description p {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: var(--color-white);
     margin-bottom: 1rem;
@@ -2334,7 +2334,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .featured-platform-block__description ol,
 .featured-platform-block__description ul {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: var(--color-white);
     margin-bottom: 1rem;
@@ -2752,7 +2752,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .featured-post-excerpt {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #364153;
     margin-bottom: auto;
@@ -2760,7 +2760,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .featured-post-date {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     color: #AAAAAA;
     margin-top: auto;
     padding-top: 1rem;
@@ -3039,7 +3039,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .newsletter-signup__description {
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #FFFFFF;
     margin-bottom: 2.5rem;
@@ -3083,7 +3083,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .newsletter-signup__terms {
     font-size: 12px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 150%;
     color: #FFFFFF;
     margin: 0;
@@ -3286,7 +3286,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .article-date {
     font-size: 14px;
     color: #AAAAAA;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .article-title {
@@ -3320,7 +3320,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 /* First paragraph with strong tag acts as lead/intro */
 .article-body > p:first-child strong {
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #1A2332;
 }
@@ -3863,7 +3863,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .contact-form-section__description {
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #FFFFFF;
     margin-bottom: 3rem;
@@ -3961,7 +3961,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .contact-form .form-check-label {
     color: #FFFFFF;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     margin: 0;
 }
@@ -4027,7 +4027,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .contact-form-message p {
     margin: 0;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
 }
 
@@ -4108,7 +4108,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     border: 1px solid #28a745;
     color: #28a745;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     margin-top: 2rem;
 }
@@ -4121,7 +4121,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     border: 1px solid #dc3545;
     color: #dc3545;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     margin-bottom: 2rem;
 }
@@ -4243,7 +4243,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .global-offices-cards-description {
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #364153;
     text-align: left;
@@ -4308,7 +4308,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .office-card__address {
     font-size: 20px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.44;
     color: #364153;
     white-space: pre-line;
@@ -4439,7 +4439,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .location-name {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--color-white);
     margin-bottom: 0;
     line-height: 1.2;
@@ -4447,7 +4447,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .location-time {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: #BABCC9;
 }
 
@@ -4523,7 +4523,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .news-section-description {
     color: var(--color-neutral-darkest);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -4604,7 +4604,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .news-date {
     font-size: 14px;
     color: #AAAAAA;
-    font-weight: 400;
+    font-weight: 300;
     margin-top: auto;
     padding-top: 1rem;
 }
@@ -4681,7 +4681,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .key-initiatives-section__description {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #364153;
     margin-bottom: 0;
@@ -4713,7 +4713,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #364153;
     margin-bottom: 0;
@@ -4753,7 +4753,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 20px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #364153;
     margin-bottom: 0;
@@ -4802,7 +4802,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #6B7280;
     margin-bottom: 24px;
@@ -4824,7 +4824,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     gap: 8px;
     font-family: Mulish;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     color: #364153;
 }
 
@@ -4906,7 +4906,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .job-sidebar__value {
     font-family: Mulish;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #1A2332;
 }
@@ -4953,7 +4953,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .job-content-body {
     font-family: Mulish;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.8;
     color: #364153;
 }
@@ -5078,7 +5078,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .esg-pillars-section__description {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #1A2332;
     margin-bottom: 0;
@@ -5126,7 +5126,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: var(--color-white);
     margin-bottom: 0;
@@ -5245,7 +5245,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-family: Mulish;
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #1A2332;
     margin-bottom: 0;
@@ -5329,7 +5329,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .strategies-overview-description {
     color: var(--color-neutral-darkest);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -5473,7 +5473,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .global-offices-description {
     color: #1A2332;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     text-align: center;
     margin-bottom: 0;
@@ -5654,7 +5654,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 /* Address Text - Normal weight, multi-line support */
 .office-modal-address {
     font-size: 16px;
-    font-weight: 400; /* Normal weight */
+    font-weight: 300; /* Normal weight */
     line-height: 1.5; /* Tighter line height */
     margin-bottom: 0.75rem; /* Reduced spacing */
     white-space: pre-line; /* Preserves line breaks from \n */
@@ -6357,7 +6357,7 @@ html {
 .team-member-bio p {
     font-family: Mulish;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: #1A2332;
     margin-bottom: 1.5rem;
