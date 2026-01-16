@@ -233,8 +233,30 @@ h5 {
     transition: color 0.3s ease;
 }
 
+.navbar-nav .nav-link-text {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-nav .nav-link-text:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    left: 0;
+    background: var(--color-aqua);
+    transition: width 0.2s ease;
+    -webkit-transition: width 0.2s ease;
+}
+
 .navbar-nav .nav-link:hover {
     color: var(--color-aqua) !important;
+}
+
+.navbar-nav .nav-link:hover .nav-link-text:after {
+    width: 100%;
 }
 
 .header-logo {
@@ -310,8 +332,30 @@ h5 {
     transition: color 0.3s ease;
 }
 
+.mega-menu-links li a .nav-link-text {
+    position: relative;
+    display: inline-block;
+}
+
+.mega-menu-links li a .nav-link-text:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    left: 0;
+    background: var(--color-aqua);
+    transition: width 0.2s ease;
+    -webkit-transition: width 0.2s ease;
+}
+
 .mega-menu-links li a:hover {
     color: var(--color-aqua);
+}
+
+.mega-menu-links li a:hover .nav-link-text:after {
+    width: 100%;
 }
 
 .mega-menu-image {
@@ -3332,9 +3376,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     transition: color 0.3s ease;
 }
 
+.article-body a:not([class*="btn"]) {
+    position: relative;
+    display: inline-block;
+}
+
+.article-body a:not([class*="btn"]):after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 2px;
+    left: 0;
+    background: #00D2E3;
+    transition: width 0.2s ease;
+    -webkit-transition: width 0.2s ease;
+}
+
 .article-body a:hover {
     color: #00B8C7;
-    text-decoration: underline;
+}
+
+.article-body a:not([class*="btn"]):hover:after {
+    width: 100%;
 }
 
 .article-body strong {
@@ -4921,6 +4986,38 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-weight: 600;
 }
 
+.job-content-body a {
+    color: #00D2E3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.job-content-body a:not([class*="btn"]) {
+    position: relative;
+    display: inline-block;
+}
+
+.job-content-body a:not([class*="btn"]):after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 2px;
+    left: 0;
+    background: #00D2E3;
+    transition: width 0.2s ease;
+    -webkit-transition: width 0.2s ease;
+}
+
+.job-content-body a:hover {
+    color: #00B8C7;
+}
+
+.job-content-body a:not([class*="btn"]):hover:after {
+    width: 100%;
+}
+
 /* ===================================
    ESG Pillars Section
    =================================== */
@@ -5816,6 +5913,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
         display: block;
     }
 
+    .navbar-nav .nav-link-text:after {
+        display: none;
+    }
+
     .navbar-nav .nav-item:last-child {
         margin-top: 1.5rem;
         border-bottom: none;
@@ -5914,6 +6015,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     .mega-menu-links li a:hover {
         color: var(--color-aqua);
         padding-left: 0.5rem;
+    }
+
+    .mega-menu-links li a .nav-link-text:after {
+        display: none;
     }
 
     .team-section .row {
