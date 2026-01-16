@@ -2029,27 +2029,41 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin: 0;
 }
 
-/* Parallax Image */
-.text-image-block__image--parallax {
-    background-image: url('../img/about-img-1.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    min-height: 600px;
+/* Parallax Image - Container-based approach */
+.parallax-img-container {
+    position: relative;
     overflow: hidden;
+    height: 750px;
+}
+
+.parallax-img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    top: -25%;
+    left: 0;
     will-change: transform;
+    transition: none;
 }
 
 @media (max-width: 991px) {
-    .text-image-block__image--parallax {
-        min-height: 400px;
+    .parallax-img-container {
+        height: 500px;
         margin-top: 2rem;
+    }
+
+    .parallax-img {
+        height: 100%;
+        top: 0;
+        position: relative;
     }
 }
 
 @media (max-width: 575px) {
-    .text-image-block__image--parallax {
-        min-height: 300px;
+    .parallax-img-container {
+        height: 350px;
     }
 }
 

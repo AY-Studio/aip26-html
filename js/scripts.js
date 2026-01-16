@@ -1134,9 +1134,12 @@ function initClickableTableRows() {
  * at a slower rate than the scroll, creating beautiful depth
  */
 function initSmoothParallax() {
-    const parallaxSections = document.querySelectorAll('.connect-section, .team-section, .text-image-block__image--parallax');
+    // Background-based parallax for sections
+    const parallaxSections = document.querySelectorAll('.connect-section, .team-section');
+    // Image-based parallax for contained images
+    const parallaxImages = document.querySelectorAll('.parallax-img');
 
-    if (parallaxSections.length === 0) return;
+    if (parallaxSections.length === 0 && parallaxImages.length === 0) return;
 
     // Only apply parallax on desktop for better performance
     if (window.innerWidth < 992) return;
@@ -1146,6 +1149,7 @@ function initSmoothParallax() {
     function updateParallax() {
         const scrolled = window.pageYOffset;
 
+        // Handle background-based parallax for sections
         parallaxSections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
@@ -1153,12 +1157,21 @@ function initSmoothParallax() {
             // Only apply parallax when section is in viewport
             if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
                 // Calculate the parallax offset
-                // Subtract sectionTop to start the effect when section enters viewport
-                const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed (slower than scroll)
-
-                // Apply the transform with smooth movement
+                const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed
                 section.style.backgroundPosition = `center calc(50% + ${offset}px)`;
             }
+        });
+
+        // Handle transform-based parallax for images
+        parallaxImages.forEach(img => {
+            const container = img.parentElement;
+            const rect = container.getBoundingClientRect();
+            const containerTop = rect.top + scrolled;
+
+            // Simple calculation: as you scroll, move image down
+            const offset = (scrolled - containerTop) * 0.2; // 0.2 = subtle parallax speed
+
+            img.style.transform = `translateY(${offset}px)`;
         });
 
         ticking = false;
