@@ -3960,6 +3960,19 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     padding-right: 60px;
 }
 
+/* Right column with image - full height */
+.contact-form-section .col-lg-6:last-child {
+    display: flex;
+    align-items: stretch;
+}
+
+.contact-form-section .col-lg-6:last-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 /* Contact Form Styling */
 .contact-form {
     margin-bottom: 2rem;
@@ -4239,6 +4252,16 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
         font-size: 16px;
         margin-bottom: 2rem;
     }
+
+    /* Reset image height on tablet/mobile */
+    .contact-form-section .col-lg-6:last-child {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    .contact-form-section .col-lg-6:last-child img {
+        height: auto;
+    }
 }
 
 @media (max-width: 767px) {
@@ -4370,7 +4393,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 /* Office Content */
 .office-card__content {
-    padding: 24px 30px 30px 30px;
+    padding: 24px 0 30px 0;
     text-align: left;
     flex-grow: 1;
     display: flex;
@@ -4417,7 +4440,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     }
 
     .office-card__content {
-        padding: 20px 24px 24px 24px;
+        padding: 20px 0 24px 0;
     }
 
     .office-card__name {
@@ -4449,7 +4472,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     }
 
     .office-card__content {
-        padding: 16px 20px 20px 20px;
+        padding: 16px 0 20px 0;
     }
 
     .office-card__name {
