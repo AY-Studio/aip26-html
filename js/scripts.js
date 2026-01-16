@@ -1103,7 +1103,7 @@ function initClickableTableRows() {
  * at a slower rate than the scroll, creating beautiful depth
  */
 function initSmoothParallax() {
-    const parallaxSections = document.querySelectorAll('.connect-section, .team-section');
+    const parallaxSections = document.querySelectorAll('.connect-section, .team-section, .text-image-block__image--parallax');
 
     if (parallaxSections.length === 0) return;
 

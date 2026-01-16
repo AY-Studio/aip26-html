@@ -2029,6 +2029,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin: 0;
 }
 
+/* Parallax Image */
+.text-image-block__image--parallax {
+    background-image: url('../img/about-img-1.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 600px;
+    overflow: hidden;
+    will-change: transform;
+}
+
+@media (max-width: 991px) {
+    .text-image-block__image--parallax {
+        min-height: 400px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .text-image-block__image--parallax {
+        min-height: 300px;
+    }
+}
+
 /* Light Theme (White background, Dark text) */
 .text-image-block--light {
     background-color: #FFFFFF;
