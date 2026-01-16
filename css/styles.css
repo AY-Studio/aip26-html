@@ -198,13 +198,26 @@ h5 {
 
 /* Navbar */
 .navbar {
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     padding: 0;
     min-height: 88px;
     display: flex;
     align-items: center;
     background-color: var(--color-neutral-darkest);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.navbar-visible {
+    transform: translateY(0);
 }
 
 /* Hide mobile close button on desktop */

@@ -89,21 +89,43 @@ function initSmoothScroll() {
 }
 
 // ===================================
-// Navbar Scroll Effect
+// Navbar Scroll Effect - Hide on scroll down, show on scroll up
 // ===================================
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
     let lastScroll = 0;
+    const scrollThreshold = 100; // Don't hide until scrolled past this point
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
-        // Navbar now has solid background, add subtle shadow on scroll
-        if (currentScroll > 100) {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-            navbar.style.transition = 'all 0.3s ease';
-        } else {
+        // Don't hide navbar if mobile menu is open
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            return;
+        }
+
+        // Don't hide navbar if we're near the top
+        if (currentScroll <= scrollThreshold) {
+            navbar.classList.remove('navbar-hidden');
+            navbar.classList.add('navbar-visible');
             navbar.style.boxShadow = 'none';
+            lastScroll = currentScroll;
+            return;
+        }
+
+        // Add shadow when scrolled
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+
+        // Determine scroll direction
+        if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+            // Scrolling down - hide navbar
+            navbar.classList.add('navbar-hidden');
+            navbar.classList.remove('navbar-visible');
+        } else if (currentScroll < lastScroll) {
+            // Scrolling up - show navbar
+            navbar.classList.remove('navbar-hidden');
+            navbar.classList.add('navbar-visible');
         }
 
         lastScroll = currentScroll;
