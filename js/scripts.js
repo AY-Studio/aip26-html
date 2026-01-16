@@ -1103,9 +1103,9 @@ function initClickableTableRows() {
  * at a slower rate than the scroll, creating beautiful depth
  */
 function initSmoothParallax() {
-    const parallaxSection = document.querySelector('.connect-section');
+    const parallaxSections = document.querySelectorAll('.connect-section, .team-section');
 
-    if (!parallaxSection) return;
+    if (parallaxSections.length === 0) return;
 
     // Only apply parallax on desktop for better performance
     if (window.innerWidth < 992) return;
@@ -1114,18 +1114,21 @@ function initSmoothParallax() {
 
     function updateParallax() {
         const scrolled = window.pageYOffset;
-        const sectionTop = parallaxSection.offsetTop;
-        const sectionHeight = parallaxSection.offsetHeight;
 
-        // Only apply parallax when section is in viewport
-        if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
-            // Calculate the parallax offset
-            // Subtract sectionTop to start the effect when section enters viewport
-            const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed (slower than scroll)
+        parallaxSections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
 
-            // Apply the transform with smooth movement
-            parallaxSection.style.backgroundPosition = `center calc(50% + ${offset}px)`;
-        }
+            // Only apply parallax when section is in viewport
+            if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+                // Calculate the parallax offset
+                // Subtract sectionTop to start the effect when section enters viewport
+                const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed (slower than scroll)
+
+                // Apply the transform with smooth movement
+                section.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+            }
+        });
 
         ticking = false;
     }

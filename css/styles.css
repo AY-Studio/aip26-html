@@ -972,18 +972,25 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-top: 1rem;
 }
 
+.investment-card-link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.investment-card-link:hover {
+    transform: translateY(-8px);
+}
+
 .investment-card {
     background-color: var(--color-neutral-darkest);
     color: var(--color-white);
-    padding: 1.5rem 1.5rem 5rem 1.5rem;
+    padding: 1.5rem 1.5rem 3.5rem 1.5rem;
     border-radius: 0;
     height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.investment-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0, 210, 227, 0.3);
+    position: relative;
 }
 
 .card-logo {
@@ -1013,6 +1020,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-weight: 300;
     line-height: 1.5;
     color: #99A1AF;
+    margin-bottom: 1.5rem;
+}
+
+.investment-card-link-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-aqua);
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
+.investment-card-link:hover .investment-card-link-text {
+    color: #00B8C7;
+}
+
+.investment-card-link-text i {
+    font-size: 14px;
 }
 
 /* ===================================
@@ -1021,9 +1052,11 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .team-section {
     background-image: url('../img/finance-stats-bg.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
+    will-change: transform;
 }
 
 .team-section::before {
