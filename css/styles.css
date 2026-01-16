@@ -1382,6 +1382,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-weight: 300;
     line-height: 1.5;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .team-member-card__link i {
@@ -1397,6 +1398,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .team-member-card:hover .team-member-card__name {
     color: var(--color-aqua);
+}
+
+.team-member-card:hover .team-member-card__link {
+    color: #666;
 }
 
 /* ===================================
