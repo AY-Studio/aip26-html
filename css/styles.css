@@ -48,30 +48,35 @@ h1 {
     font-size: 56px;
     font-weight: 200;
     line-height: 1.2;
+    letter-spacing: 0.25px;
 }
 
 h2 {
     font-size: 48px;
     font-weight: 200;
     line-height: 1.2;
+    letter-spacing: 0.25px;
 }
 
 h3 {
     font-size: 40px;
     font-weight: 200;
     line-height: 1.2;
+    letter-spacing: 0.25px;
 }
 
 h4 {
     font-size: 24px;
     font-weight: 300;
     line-height: 1.4;
+    letter-spacing: 0.25px;
 }
 
 h5 {
     font-size: 20px;
     font-weight: 300;
     line-height: 1.4;
+    letter-spacing: 0.25px;
 }
 
 /* Responsive Typography */
@@ -850,6 +855,19 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-bottom: 1rem;
 }
 
+.tab-content-list {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.tab-content-list li {
+    margin-bottom: 0.5rem;
+}
+
 .tab-learn-more {
     display: inline-flex;
     align-items: center;
@@ -934,10 +952,17 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     justify-content: center;
 }
 
+.investments-section .section-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #364153;
+    margin-top: 1rem;
+}
+
 .investment-card {
     background-color: var(--color-neutral-darkest);
     color: var(--color-white);
-    padding: 2.5rem 2.5rem 8rem 2.5rem;
+    padding: 1.5rem 1.5rem 5rem 1.5rem;
     border-radius: 0;
     height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -3365,7 +3390,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     line-height: 1.4;
     color: #1A2332;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.75px;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
 }
@@ -3958,8 +3983,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: #FFFFFF;
     padding: 12px 40px;
     font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 500;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
@@ -4066,8 +4090,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: #FFFFFF;
     padding: 12px 40px;
     font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 500;
     letter-spacing: 0.5px;
 }
 
