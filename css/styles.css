@@ -4387,22 +4387,38 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
 }
 
-.global-reach-section::before {
-    content: '';
+.global-reach-video-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(12, 22, 44, 0.7);
     z-index: 0;
+}
+
+.global-reach-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.global-reach-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 22, 44, 0.5);
+    z-index: 1;
 }
 
 .global-reach-section .container-custom {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .global-reach-title {
