@@ -531,6 +531,37 @@ function initGlobalOfficesMap() {
      *
      * PLUGIN NOTE: Add analytics tracking here for click events
      */
+    // Helper function to get scrollbar width
+    function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+    }
+
+    // Helper function to prevent page jump when modal opens
+    function lockScroll() {
+        const scrollbarWidth = getScrollbarWidth();
+        const navbar = document.querySelector('.navbar');
+
+        // Add padding to body and navbar to compensate for scrollbar
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = scrollbarWidth + 'px';
+            if (navbar) {
+                navbar.style.paddingRight = scrollbarWidth + 'px';
+            }
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Helper function to restore scroll and remove padding
+    function unlockScroll() {
+        const navbar = document.querySelector('.navbar');
+
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+        if (navbar) {
+            navbar.style.paddingRight = '';
+        }
+    }
+
     markers.forEach(marker => {
         marker.addEventListener('click', function() {
             const officeId = this.getAttribute('data-office');
@@ -542,9 +573,9 @@ function initGlobalOfficesMap() {
                 modalAddress.textContent = office.address; // \n preserved by white-space: pre-line
                 modalTel.textContent = office.tel;
 
-                // Show modal and prevent background scrolling
+                // Show modal and prevent background scrolling without page jump
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                lockScroll();
 
                 // PLUGIN NOTE: Fire custom event for tracking
                 // document.dispatchEvent(new CustomEvent('officeMarkerClicked', { detail: office }));
@@ -559,7 +590,7 @@ function initGlobalOfficesMap() {
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             modal.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockScroll();
         });
     }
 
@@ -570,7 +601,7 @@ function initGlobalOfficesMap() {
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             modal.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockScroll();
         }
     });
 
@@ -581,7 +612,7 @@ function initGlobalOfficesMap() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             modal.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockScroll();
         }
     });
 }
