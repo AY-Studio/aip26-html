@@ -125,6 +125,7 @@ h5 {
     width: 100%;
     height: 100%;
     z-index: 0;
+    overflow: hidden;
 }
 
 .header-video {
@@ -135,10 +136,14 @@ h5 {
 }
 
 .header-image {
+    position: absolute;
+    top: -10%;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     object-fit: cover;
     opacity: 0.4;
+    will-change: transform;
 }
 
 .header-overlay {
@@ -166,6 +171,15 @@ h5 {
 @media (max-width: 991px) {
     .header-section .header-angled-overlay {
         display: none;
+    }
+
+    /* Reset parallax on mobile for better performance */
+    .header-image {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        will-change: auto;
+        transform: none !important;
     }
 }
 

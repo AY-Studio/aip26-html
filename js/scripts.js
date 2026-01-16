@@ -1138,8 +1138,10 @@ function initSmoothParallax() {
     const parallaxSections = document.querySelectorAll('.connect-section, .team-section');
     // Image-based parallax for contained images
     const parallaxImages = document.querySelectorAll('.parallax-img');
+    // Hero images parallax
+    const heroImages = document.querySelectorAll('.header-image');
 
-    if (parallaxSections.length === 0 && parallaxImages.length === 0) return;
+    if (parallaxSections.length === 0 && parallaxImages.length === 0 && heroImages.length === 0) return;
 
     // Only apply parallax on desktop for better performance
     if (window.innerWidth < 992) return;
@@ -1170,6 +1172,18 @@ function initSmoothParallax() {
 
             // Simple calculation: as you scroll, move image down
             const offset = (scrolled - containerTop) * 0.2; // 0.2 = subtle parallax speed
+
+            img.style.transform = `translateY(${offset}px)`;
+        });
+
+        // Handle parallax for hero images
+        heroImages.forEach(img => {
+            const container = img.parentElement;
+            const rect = container.getBoundingClientRect();
+            const containerTop = rect.top + scrolled;
+
+            // Parallax effect for hero - moves slower as you scroll
+            const offset = scrolled * 0.5; // 0.5 = moderate parallax speed for heroes
 
             img.style.transform = `translateY(${offset}px)`;
         });
