@@ -1076,9 +1076,11 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .connect-section {
     background-image: url('../img/paralell.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
+    will-change: transform;
 }
 
 .connect-section::before {

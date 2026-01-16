@@ -327,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initVideoFallback();
     initLazyLoading();
     initMegaMenu();
+    initSmoothParallax();
 
     // Handle window resize
     let resizeTimer;
@@ -1073,6 +1074,55 @@ function initClickableTableRows() {
 }
 
 // ===================================
+// Smooth Parallax Effect
+// ===================================
+/**
+ * Creates an elegant parallax effect where the background moves
+ * at a slower rate than the scroll, creating beautiful depth
+ */
+function initSmoothParallax() {
+    const parallaxSection = document.querySelector('.connect-section');
+
+    if (!parallaxSection) return;
+
+    // Only apply parallax on desktop for better performance
+    if (window.innerWidth < 992) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const sectionTop = parallaxSection.offsetTop;
+        const sectionHeight = parallaxSection.offsetHeight;
+
+        // Only apply parallax when section is in viewport
+        if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+            // Calculate the parallax offset
+            // Subtract sectionTop to start the effect when section enters viewport
+            const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed (slower than scroll)
+
+            // Apply the transform with smooth movement
+            parallaxSection.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+        }
+
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    // Listen to scroll events
+    window.addEventListener('scroll', requestTick);
+
+    // Initial call
+    updateParallax();
+}
+
+// ===================================
 // Back to Top Button
 // ===================================
 /**
@@ -1108,6 +1158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTableFilters();
     initClickableTableRows();
     initBackToTop();
+    initSmoothParallax();
 
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();
