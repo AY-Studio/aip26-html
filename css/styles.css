@@ -2821,7 +2821,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .featured-post-card:hover .featured-post-image {
     filter: brightness(1.2);
-    transform: translateY(-5px);
 }
 
 .featured-post-content {
