@@ -5774,6 +5774,24 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     margin-bottom: 2rem;
 }
 
+.footer-contact {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.footer-email-link {
+    color: var(--color-aqua);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-email-link:hover {
+    color: #00B8C7;
+    text-decoration: underline;
+}
+
 .footer-social-link {
     display: inline-flex;
     align-items: center;

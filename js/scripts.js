@@ -1174,6 +1174,27 @@ function initBackToTop() {
     });
 }
 
+// ===================================
+// Email Obfuscation for Footer
+// ===================================
+function initFooterEmail() {
+    const emailLink = document.getElementById('footerEmailLink');
+
+    if (!emailLink) return;
+
+    // Obfuscated email parts
+    const user = 'info';
+    const domain = 'aipcapital';
+    const tld = 'com';
+
+    // Build email address
+    const email = user + '@' + domain + '.' + tld;
+
+    // Set href and text content
+    emailLink.href = 'mailto:' + email;
+    emailLink.textContent = email;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     initGlobalOfficesMap();
     initTableSorting();
@@ -1181,6 +1202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initClickableTableRows();
     initBackToTop();
     initSmoothParallax();
+    initFooterEmail();
 
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();
