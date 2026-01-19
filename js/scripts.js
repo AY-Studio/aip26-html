@@ -1516,7 +1516,7 @@ function initClickableTableRows() {
  */
 function initSmoothParallax() {
     // Background-based parallax for sections
-    const parallaxSections = document.querySelectorAll('.connect-section, .team-section');
+    const parallaxSections = document.querySelectorAll('.team-section');
     // Image-based parallax for contained images
     const parallaxImages = document.querySelectorAll('.parallax-img');
     // Hero images parallax
@@ -1534,7 +1534,7 @@ function initSmoothParallax() {
 
         // Handle image-based parallax for sections with __media divs
         parallaxSections.forEach(section => {
-            const mediaImg = section.querySelector('.team-section__media img, .connect-section__media img');
+            const mediaImg = section.querySelector('.team-section__media img');
             if (!mediaImg) return;
 
             const sectionTop = section.offsetTop;
