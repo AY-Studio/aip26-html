@@ -2884,7 +2884,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 .featured-post-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -2915,10 +2914,11 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 .featured-post-content {
-    padding: 60px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1.5rem;
     min-height: 400px;
 }
 
@@ -2954,8 +2954,9 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     }
 
     .featured-post-content {
-        padding: 40px;
+        padding: 20px;
         min-height: auto;
+        gap: 1.25rem;
     }
 
     .featured-post-title {
@@ -2969,7 +2970,8 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 @media (max-width: 767px) {
     .featured-post-content {
-        padding: 30px;
+        padding: 15px;
+        gap: 1rem;
     }
 
     .featured-post-title {
