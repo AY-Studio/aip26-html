@@ -232,8 +232,11 @@ html/
 - White background
 - Dark cards (#1A2332) with logo, title, description
 - 3 columns on desktop
-- Logos sized with max-width: 80%
+- Logos sized with max-width: 80% (toggle `.card-logo--wide` modifier when a logo needs extra height/width, expose as CMS boolean)
 - Hover effect (lift + aqua shadow)
+
+**Featured Platform (Asset Management) Notes**:
+- `.featured-platform-block__logo--wide` available for text-heavy logos that need more width/clarity. Surface as a boolean/toggle in the CMS.
 
 ---
 

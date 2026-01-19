@@ -1066,6 +1066,20 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     object-fit: contain;
 }
 
+.card-logo--wide {
+    height: 80px;
+}
+
+.card-logo--wide img {
+    max-height: 80px;
+    max-width: 100%;
+}
+
+/* WP NOTE:
+   Use .card-logo--wide on individual cards when a logo needs extra vertical space (e.g., text-only marks).
+   Expose as a boolean/toggle in the CMS so editors can enable it per partnership card.
+*/
+
 .card-title {
     font-size: 24px;
     font-weight: 300;
@@ -2466,6 +2480,14 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     height: auto;
     margin-bottom: 1.5rem;
 }
+
+.featured-platform-block__logo--wide {
+    max-width: 320px;
+}
+
+/* WP NOTE:
+   Add a toggle for featured-platform logos that need extra width (apply .featured-platform-block__logo--wide).
+*/
 
 .featured-platform-block__label {
     font-family: Mulish;
