@@ -337,7 +337,16 @@ function initMegaMenu() {
 // Sequential Underline Builder
 // ===================================
 function initSequentialUnderlines() {
-    const targets = Array.from(document.querySelectorAll('.news-title > span, .featured-post-title > span'));
+    const selectors = [
+        '.news-title > span',
+        '.featured-post-title > span',
+        '.strategy-title > span',
+        '.charity-card__title > span',
+        '.footer-links a',
+        '.footer-legal-links a',
+        '.footer-email-link'
+    ];
+    const targets = Array.from(document.querySelectorAll(selectors.join(', ')));
     if (!targets.length) return;
 
     const processElement = (element) => {
@@ -400,7 +409,25 @@ function initSequentialUnderlines() {
 
             const lineWrapper = document.createElement('span');
             const isFeatured = element.closest('.featured-post-card');
-            lineWrapper.className = isFeatured ? 'featured-post-title-line' : 'news-title-line';
+            const isStrategy = element.closest('.strategy-card');
+            const isCharity = element.closest('.charity-card');
+            const isFooterLink = element.closest('.footer-links');
+            const isFooterLegal = element.closest('.footer-legal-links');
+            const isFooterEmail = element.classList && element.classList.contains('footer-email-link');
+            const lineClass = isFeatured
+                ? 'featured-post-title-line'
+                : isStrategy
+                    ? 'strategy-title-line'
+                    : isCharity
+                        ? 'charity-card__title-line'
+                        : isFooterLink
+                            ? 'footer-link-line'
+                            : isFooterLegal
+                                ? 'footer-legal-link-line'
+                                : isFooterEmail
+                                    ? 'footer-email-link-line'
+                                    : 'news-title-line';
+            lineWrapper.className = lineClass;
             lineWrapper.style.setProperty('--line-index', lineIndex);
 
             const referenceNode = pieces[startIndex]?.node;

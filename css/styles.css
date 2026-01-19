@@ -949,7 +949,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-weight: 600;
     text-decoration: none;
     margin-top: 1rem;
-    transition: color 0.3s ease;
+    position: relative;
 }
 
 .tab-learn-more:hover {
@@ -4777,6 +4777,9 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 18px;
     text-decoration: none;
     transition: color 0.3s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
 .news-view-all:hover {
@@ -4786,6 +4789,27 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .news-view-all i {
     margin-left: 0.5rem;
     font-size: 14px;
+}
+
+.news-view-all:after,
+.tab-learn-more:after,
+.strategies-contact-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    right: 0;
+    background: var(--color-aqua);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.news-view-all:hover:after,
+.tab-learn-more:hover:after,
+.strategies-contact-link:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 .news-card {
@@ -4878,8 +4902,22 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     transition-delay: calc(var(--line-index, 0) * 0.12s);
 }
 
+.strategy-title-line {
+    display: inline-block;
+    padding-bottom: 4px;
+    background-image: linear-gradient(var(--color-aqua), var(--color-aqua));
+    background-size: 0% 1px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+    transition-delay: calc(var(--line-index, 0) * 0.12s);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
 .news-card:hover .news-title-line,
-.featured-post-card:hover .featured-post-title-line {
+.featured-post-card:hover .featured-post-title-line,
+.strategy-card:hover .strategy-title-line {
     background-size: 100% 1px;
 }
 
@@ -5538,6 +5576,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    align-items: flex-start;
 }
 
 .charity-card__title {
@@ -5548,11 +5587,27 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     line-height: 140%;
     color: #1A2332;
     margin-bottom: 0;
-    transition: color 0.3s ease;
 }
 
-.charity-card:hover .charity-card__title {
-    color: var(--color-aqua);
+.charity-card__title span {
+    display: inline;
+}
+
+.charity-card__title-line {
+    display: inline-block;
+    padding-bottom: 4px;
+    background-image: linear-gradient(var(--color-aqua), var(--color-aqua));
+    background-size: 0% 1px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+    transition-delay: calc(var(--line-index, 0) * 0.12s);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.charity-card:hover .charity-card__title-line {
+    background-size: 100% 1px;
 }
 
 /* ===================================
@@ -5621,6 +5676,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    align-items: flex-start;
 }
 
 .strategy-title {
@@ -5629,11 +5685,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: #1A2332;
     margin-bottom: 0;
     line-height: 1.4;
-    transition: color 0.3s ease;
 }
 
-.strategy-card:hover .strategy-title {
-    color: var(--color-aqua);
+.strategy-title span {
+    display: inline;
 }
 
 .strategies-actions {
@@ -5665,14 +5720,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.strategies-contact-link:hover {
-    color: var(--color-aqua);
+    position: relative;
 }
 
 .strategies-contact-link i {
@@ -6016,27 +6067,8 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: inline-block;
 }
 
-.footer-email-link:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 2px;
-    right: 0;
-    background: var(--color-aqua);
-    transition: width 0.3s ease;
-    -webkit-transition: width 0.3s ease;
-}
-
 .footer-email-link:hover {
     color: #00B8C7;
-}
-
-.footer-email-link:hover:after {
-    width: 100%;
-    left: 0;
-    background: #00B8C7;
 }
 
 .footer-social-link {
@@ -6080,26 +6112,8 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: inline-block;
 }
 
-.footer-links a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    display: block;
-    margin-top: 2px;
-    right: 0;
-    background: var(--color-aqua);
-    transition: width 0.3s ease;
-    -webkit-transition: width 0.3s ease;
-}
-
 .footer-links a:hover {
     color: var(--color-aqua);
-}
-
-.footer-links a:hover:after {
-    width: 100%;
-    left: 0;
 }
 
 .footer-divider {
@@ -6145,26 +6159,29 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: inline-block;
 }
 
-.footer-legal-links a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    display: block;
-    margin-top: 2px;
-    right: 0;
-    background: var(--color-aqua);
-    transition: width 0.3s ease;
-    -webkit-transition: width 0.3s ease;
-}
-
 .footer-legal-links a:hover {
     color: var(--color-aqua);
 }
 
-.footer-legal-links a:hover:after {
-    width: 100%;
-    left: 0;
+.footer-link-line,
+.footer-legal-link-line,
+.footer-email-link-line {
+    display: inline-block;
+    padding-bottom: 2px;
+    background-image: linear-gradient(var(--color-aqua), var(--color-aqua));
+    background-size: 0% 1px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+    transition-delay: calc(var(--line-index, 0) * 0.12s);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.footer-links a:hover .footer-link-line,
+.footer-legal-links a:hover .footer-legal-link-line,
+.footer-email-link:hover .footer-email-link-line {
+    background-size: 100% 1px;
 }
 
 @media (max-width: 991px) {
