@@ -276,13 +276,13 @@ h5 {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px;
     display: block;
-    margin-top: 5px;
-    left: 0;
+    margin-top: 2px;
+    right: 0;
     background: var(--color-aqua);
-    transition: width 0.2s ease;
-    -webkit-transition: width 0.2s ease;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
@@ -291,6 +291,7 @@ h5 {
 
 .navbar-nav .nav-link:hover .nav-link-text:after {
     width: 100%;
+    left: 0;
 }
 
 .header-logo {
@@ -375,13 +376,13 @@ h5 {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px;
     display: block;
-    margin-top: 5px;
-    left: 0;
+    margin-top: 2px;
+    right: 0;
     background: var(--color-aqua);
-    transition: width 0.2s ease;
-    -webkit-transition: width 0.2s ease;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
 }
 
 .mega-menu-links li a:hover {
@@ -390,6 +391,7 @@ h5 {
 
 .mega-menu-links li a:hover .nav-link-text:after {
     width: 100%;
+    left: 0;
 }
 
 .mega-menu-image {
@@ -3579,30 +3581,44 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     transition: color 0.3s ease;
 }
 
-.article-body a:not([class*="btn"]) {
-    position: relative;
-    display: inline-block;
-}
-
-.article-body a:not([class*="btn"]):after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 2px;
-    left: 0;
-    background: #00D2E3;
-    transition: width 0.2s ease;
-    -webkit-transition: width 0.2s ease;
-}
-
 .article-body a:hover {
     color: #00B8C7;
 }
 
-.article-body a:not([class*="btn"]):hover:after {
+.article-body a:not([class*="btn"]),
+.text-link {
+    position: relative;
+    display: inline-block;
+}
+
+.article-body a:not([class*="btn"]):after,
+.text-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: #00D2E3;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.article-body a:not([class*="btn"]):hover:after,
+.text-link:hover:after {
     width: 100%;
+    left: 0;
+}
+
+.text-link {
+    color: #00D2E3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: #00B8C7;
 }
 
 .article-body strong {
