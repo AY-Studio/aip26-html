@@ -334,6 +334,105 @@ function initMegaMenu() {
 }
 
 // ===================================
+// Sequential Underline Builder
+// ===================================
+function initSequentialUnderlines() {
+    const targets = Array.from(document.querySelectorAll('.news-title > span, .featured-post-title > span'));
+    if (!targets.length) return;
+
+    const processElement = (element) => {
+        const originalText = element.dataset.originalText || element.textContent.trim();
+        if (!originalText) return;
+        element.dataset.originalText = originalText;
+        element.textContent = originalText;
+
+        const tokens = originalText.split(/(\s+)/);
+        const pieces = [];
+        element.textContent = '';
+        tokens.forEach(token => {
+            if (!token) return;
+            if (/^\s+$/.test(token)) {
+                const textNode = document.createTextNode(token);
+                element.appendChild(textNode);
+                pieces.push({ node: textNode, isWord: false });
+            } else {
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'underline-word';
+                wordSpan.textContent = token;
+                element.appendChild(wordSpan);
+                pieces.push({ node: wordSpan, isWord: true });
+            }
+        });
+
+        const wordPieces = pieces.filter(piece => piece.isWord);
+        if (!wordPieces.length) return;
+
+        const lineBoundaries = [];
+        let currentTop = null;
+        let lineStart = 0;
+        wordPieces.forEach((piece, index) => {
+            const top = piece.node.offsetTop;
+            if (currentTop === null) {
+                currentTop = top;
+            }
+            if (Math.abs(top - currentTop) > 2) {
+                lineBoundaries.push([lineStart, index - 1]);
+                currentTop = top;
+                lineStart = index;
+            }
+        });
+        lineBoundaries.push([lineStart, wordPieces.length - 1]);
+
+        const nodeIndexMap = new Map();
+        pieces.forEach((piece, idx) => {
+            nodeIndexMap.set(piece.node, idx);
+        });
+
+        // Move tokens into line wrappers
+        lineBoundaries.forEach((boundary, lineIndex) => {
+            const firstWordNode = wordPieces[boundary[0]].node;
+            const nextLineFirstNode = lineIndex < lineBoundaries.length - 1
+                ? wordPieces[lineBoundaries[lineIndex + 1][0]].node
+                : null;
+
+            const startIndex = nodeIndexMap.get(firstWordNode);
+            const endIndex = nextLineFirstNode ? nodeIndexMap.get(nextLineFirstNode) - 1 : pieces.length - 1;
+
+            const lineWrapper = document.createElement('span');
+            const isFeatured = element.closest('.featured-post-card');
+            lineWrapper.className = isFeatured ? 'featured-post-title-line' : 'news-title-line';
+            lineWrapper.style.setProperty('--line-index', lineIndex);
+
+            const referenceNode = pieces[startIndex]?.node;
+            if (!referenceNode) return;
+            element.insertBefore(lineWrapper, referenceNode);
+
+            for (let i = startIndex; i <= endIndex; i++) {
+                if (pieces[i] && pieces[i].node) {
+                    lineWrapper.appendChild(pieces[i].node);
+                }
+            }
+        });
+    };
+
+    const buildAll = () => {
+        targets.forEach(element => processElement(element));
+    };
+
+    buildAll();
+
+    // Rebuild on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildAll, 200);
+    });
+
+    // Re-run after fonts/images load to ensure measurements are correct
+    window.addEventListener('load', buildAll);
+}
+
+// ===================================
 // Initialize All Functions
 // ===================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -350,6 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLazyLoading();
     initMegaMenu();
     initSmoothParallax();
+    initSequentialUnderlines();
 
     // Handle window resize
     let resizeTimer;

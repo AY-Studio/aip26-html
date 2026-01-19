@@ -4849,11 +4849,38 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     line-height: 1.4;
     color: #1A2332;
     margin-bottom: 1rem;
-    transition: color 0.3s ease;
 }
 
-.news-card:hover .news-title {
-    color: var(--color-aqua);
+.news-title span,
+.featured-post-title span {
+    display: inline;
+}
+
+.news-title-line,
+.featured-post-title-line {
+    display: inline-block;
+    background-image: linear-gradient(var(--color-aqua), var(--color-aqua));
+    background-size: 0% 1px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.news-title-line {
+    padding-bottom: 4px;
+    transition-delay: calc(var(--line-index, 0) * 0.12s);
+}
+
+.featured-post-title-line {
+    padding-bottom: 6px;
+    transition-delay: calc(var(--line-index, 0) * 0.12s);
+}
+
+.news-card:hover .news-title-line,
+.featured-post-card:hover .featured-post-title-line {
+    background-size: 100% 1px;
 }
 
 .news-link {
