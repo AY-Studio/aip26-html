@@ -2397,7 +2397,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 .product-card__title {
     font-family: Mulish;
-    font-size: 32px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 200;
     line-height: 1.4;
@@ -5318,27 +5318,23 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .back-to-careers {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.75rem;
     font-family: Mulish;
     font-size: 16px;
     font-weight: 600;
-    color: #00D2E3;
+    color: var(--color-aqua);
     text-decoration: none;
     transition: all 0.3s ease;
     margin-top: 60px;
 }
 
 .back-to-careers:hover {
-    color: #00B8C9;
-    gap: 12px;
+    color: #1A2332;
+    transform: translateX(-5px);
 }
 
 .back-to-careers i {
-    transition: transform 0.3s ease;
-}
-
-.back-to-careers:hover i {
-    transform: translateX(-4px);
+    font-size: 14px;
 }
 
 /* Job Content Body */
