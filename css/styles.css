@@ -5994,13 +5994,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 /* Phone Number - Aqua color for visibility */
-.office-modal-tel {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-aqua);
-    margin-bottom: 0;
-}
-
 .global-offices-cta {
     margin-top: 60px;
 }

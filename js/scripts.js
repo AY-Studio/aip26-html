@@ -599,6 +599,11 @@ const officeData = {
         address: "123 Main Street\nStamford, CT 06901\nUnited States",
         tel: "Tel: +1 (203) 555-0100"
     },
+    "new-york": {
+        name: "AIP Capital - New York",
+        address: "375 Park Avenue\nSuite 3607\nNew York, NY 10152",
+        tel: ""
+    },
     dublin: {
         name: "AIP Capital - Dublin",
         address: "45 St. Stephen's Green\nDublin 2\nIreland",
@@ -641,7 +646,6 @@ function initGlobalOfficesMap() {
     const closeBtn = document.getElementById('closeModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalAddress = document.getElementById('modalAddress');
-    const modalTel = document.getElementById('modalTel');
 
     // Exit if modal doesn't exist on page (allows script to run on all pages)
     if (!modal) return;
@@ -698,7 +702,6 @@ function initGlobalOfficesMap() {
                 // Populate modal content
                 modalTitle.textContent = office.name;
                 modalAddress.textContent = office.address; // \n preserved by white-space: pre-line
-                modalTel.textContent = office.tel;
 
                 // Show modal and prevent background scrolling without page jump
                 modal.classList.add('active');
