@@ -1440,8 +1440,11 @@ function initSmoothParallax() {
     function updateParallax() {
         const scrolled = window.pageYOffset;
 
-        // Handle background-based parallax for sections
+        // Handle image-based parallax for sections with __media divs
         parallaxSections.forEach(section => {
+            const mediaImg = section.querySelector('.team-section__media img, .connect-section__media img');
+            if (!mediaImg) return;
+
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
 
@@ -1449,7 +1452,7 @@ function initSmoothParallax() {
             if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
                 // Calculate the parallax offset
                 const offset = (scrolled - sectionTop) * 0.4; // 0.4 = parallax speed
-                section.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+                mediaImg.style.transform = `translateY(${offset}px)`;
             }
         });
 
