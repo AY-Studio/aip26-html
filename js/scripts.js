@@ -342,9 +342,7 @@ function initSequentialUnderlines() {
         '.featured-post-title > span',
         '.strategy-title > span',
         '.charity-card__title > span',
-        '.footer-links a',
-        '.footer-legal-links a',
-        '.footer-email-link'
+        '.footer-legal-links a'
     ];
     const targets = Array.from(document.querySelectorAll(selectors.join(', ')));
     if (!targets.length) return;
@@ -411,24 +409,116 @@ function initSequentialUnderlines() {
             const isFeatured = element.closest('.featured-post-card');
             const isStrategy = element.closest('.strategy-card');
             const isCharity = element.closest('.charity-card');
-            const isFooterLink = element.closest('.footer-links');
             const isFooterLegal = element.closest('.footer-legal-links');
-            const isFooterEmail = element.classList && element.classList.contains('footer-email-link');
             const lineClass = isFeatured
                 ? 'featured-post-title-line'
                 : isStrategy
                     ? 'strategy-title-line'
                     : isCharity
                         ? 'charity-card__title-line'
-                        : isFooterLink
-                            ? 'footer-link-line'
-                            : isFooterLegal
-                                ? 'footer-legal-link-line'
-                                : isFooterEmail
-                                    ? 'footer-email-link-line'
-                                    : 'news-title-line';
+                        : isFooterLegal
+                            ? 'footer-legal-link-line'
+                            : 'news-title-line';
             lineWrapper.className = lineClass;
             lineWrapper.style.setProperty('--line-index', lineIndex);
+
+            const referenceNode = pieces[startIndex]?.node;
+            if (!referenceNode) return;
+            element.insertBefore(lineWrapper, referenceNode);
+
+            for (let i = startIndex; i <= endIndex; i++) {
+                if (pieces[i] && pieces[i].node) {
+                    lineWrapper.appendChild(pieces[i].node);
+                }
+            }
+        });
+    };
+
+    const buildAll = () => {
+        targets.forEach(element => processElement(element));
+    };
+
+    buildAll();
+
+    // Rebuild on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildAll, 200);
+    });
+
+    // Re-run after fonts/images load to ensure measurements are correct
+    window.addEventListener('load', buildAll);
+}
+
+function initFooterLinkUnderlines() {
+    const selectors = [
+        '.footer-links a',
+        '.footer-email-link'
+    ];
+    const targets = Array.from(document.querySelectorAll(selectors.join(', ')));
+    if (!targets.length) return;
+
+    const processElement = (element) => {
+        const originalText = element.dataset.originalText || element.textContent.trim();
+        if (!originalText) return;
+        element.dataset.originalText = originalText;
+        element.textContent = originalText;
+
+        const tokens = originalText.split(/(\s+)/);
+        const pieces = [];
+        element.textContent = '';
+        tokens.forEach(token => {
+            if (!token) return;
+            if (/^\s+$/.test(token)) {
+                const textNode = document.createTextNode(token);
+                element.appendChild(textNode);
+                pieces.push({ node: textNode, isWord: false });
+            } else {
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'underline-word';
+                wordSpan.textContent = token;
+                element.appendChild(wordSpan);
+                pieces.push({ node: wordSpan, isWord: true });
+            }
+        });
+
+        const wordPieces = pieces.filter(piece => piece.isWord);
+        if (!wordPieces.length) return;
+
+        const lineBoundaries = [];
+        let currentTop = null;
+        let lineStart = 0;
+        wordPieces.forEach((piece, index) => {
+            const top = piece.node.offsetTop;
+            if (currentTop === null) {
+                currentTop = top;
+            }
+            if (Math.abs(top - currentTop) > 2) {
+                lineBoundaries.push([lineStart, index - 1]);
+                currentTop = top;
+                lineStart = index;
+            }
+        });
+        lineBoundaries.push([lineStart, wordPieces.length - 1]);
+
+        const nodeIndexMap = new Map();
+        pieces.forEach((piece, idx) => {
+            nodeIndexMap.set(piece.node, idx);
+        });
+
+        // Move tokens into line wrappers
+        lineBoundaries.forEach((boundary, lineIndex) => {
+            const firstWordNode = wordPieces[boundary[0]].node;
+            const nextLineFirstNode = lineIndex < lineBoundaries.length - 1
+                ? wordPieces[lineBoundaries[lineIndex + 1][0]].node
+                : null;
+
+            const startIndex = nodeIndexMap.get(firstWordNode);
+            const endIndex = nextLineFirstNode ? nodeIndexMap.get(nextLineFirstNode) - 1 : pieces.length - 1;
+
+            const lineWrapper = document.createElement('span');
+            lineWrapper.className = 'footer-link-line';
 
             const referenceNode = pieces[startIndex]?.node;
             if (!referenceNode) return;
@@ -634,6 +724,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initLazyLoading();
     initMegaMenu();
     initSmoothParallax();
+    initFooterEmail();
+    initFooterLinkUnderlines();
     initSequentialUnderlines();
     initGlobalReachVideo();
 
@@ -1555,8 +1647,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initTableFilters();
     initClickableTableRows();
     initBackToTop();
-    initSmoothParallax();
-    initFooterEmail();
 
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();

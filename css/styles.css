@@ -6169,6 +6169,29 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: #00B8C7;
 }
 
+.footer-link-line {
+    display: inline;
+    position: relative;
+}
+
+.footer-link-line:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    right: 0;
+    background: var(--color-aqua);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.footer-links a:hover .footer-link-line:after,
+.footer-email-link:hover .footer-link-line:after {
+    width: 100%;
+    left: 0;
+}
+
 .footer-social-link {
     display: inline-flex;
     align-items: center;
@@ -6261,9 +6284,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: var(--color-aqua);
 }
 
-.footer-link-line,
-.footer-legal-link-line,
-.footer-email-link-line {
+.footer-legal-link-line {
     display: inline-block;
     padding-bottom: 2px;
     background-image: linear-gradient(var(--color-aqua), var(--color-aqua));
@@ -6276,9 +6297,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     -webkit-box-decoration-break: clone;
 }
 
-.footer-links a:hover .footer-link-line,
-.footer-legal-links a:hover .footer-legal-link-line,
-.footer-email-link:hover .footer-email-link-line {
+.footer-legal-links a:hover .footer-legal-link-line {
     background-size: 100% 1px;
 }
 
