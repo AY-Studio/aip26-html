@@ -2345,6 +2345,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 .product-card {
     text-align: center;
     padding: 40px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .product-card__icon {
@@ -2354,6 +2358,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 120px;
 }
 
 .product-card__icon i {
@@ -2379,10 +2384,12 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 @media (max-width: 767px) {
     .product-card {
         padding: 30px 15px;
+        min-height: auto;
     }
 
     .product-card__icon {
         font-size: 36px;
+        min-height: 80px;
     }
 
     .product-card__title {
