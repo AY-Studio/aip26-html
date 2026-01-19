@@ -1205,13 +1205,25 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
    Connect Section
    =================================== */
 .connect-section {
-    background-image: url('../img/paralell.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     will-change: transform;
+}
+
+.connect-section__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.connect-section__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .connect-section::before {
@@ -1222,12 +1234,12 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     width: 100%;
     height: 100%;
     background: rgba(12, 22, 44, 0.7);
-    z-index: 0;
+    z-index: 1;
 }
 
 .connect-section .container-custom {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .connect-title {
@@ -4640,6 +4652,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
    Global Reach Section
    =================================== */
 .global-reach-section {
+    --global-reach-crossfade: 0.6s;
     background-image: url('../img/global-reach.jpg');
     background-size: cover;
     background-position: center;
@@ -4659,6 +4672,30 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 }
 
 .global-reach-video-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.global-reach-video-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--global-reach-crossfade, 0.6s) ease;
+    pointer-events: none;
+}
+
+.global-reach-video-layer.is-active {
+    opacity: 1;
+}
+
+.global-reach-video-placeholder {
     position: absolute;
     top: 0;
     left: 0;

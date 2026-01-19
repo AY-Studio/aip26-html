@@ -459,6 +459,164 @@ function initSequentialUnderlines() {
     window.addEventListener('load', buildAll);
 }
 
+const youTubeAPIState = {
+    requested: false,
+    callbacks: []
+};
+
+let globalReachVideoInstanceCounter = 0;
+
+function loadYouTubeAPI(callback) {
+    if (window.YT && typeof YT.Player === 'function') {
+        callback();
+        return;
+    }
+
+    youTubeAPIState.callbacks.push(callback);
+
+    if (!youTubeAPIState.requested) {
+        youTubeAPIState.requested = true;
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+
+        const previousReady = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function() {
+            if (typeof previousReady === 'function') {
+                previousReady();
+            }
+            youTubeAPIState.callbacks.forEach(cb => cb());
+            youTubeAPIState.callbacks = [];
+        };
+    }
+}
+
+// ===================================
+// Global Reach YouTube Loop
+// ===================================
+function initGlobalReachVideo() {
+    const containers = Array.from(document.querySelectorAll('[data-global-reach-video]'));
+    if (!containers.length) return;
+
+    loadYouTubeAPI(() => {
+        containers.forEach(container => setupGlobalReachVideoInstance(container));
+    });
+}
+
+function setupGlobalReachVideoInstance(container) {
+    const layers = Array.from(container.querySelectorAll('.global-reach-video-layer'));
+    if (layers.length < 2) return;
+
+    const instanceIndex = globalReachVideoInstanceCounter++;
+    const videoId = container.dataset.videoId || '94cc6RqyXYs';
+    const segmentStart = parseFloat(container.dataset.segmentStart || '0') || 0;
+    const segmentLength = parseFloat(container.dataset.segmentLength || '15') || 15;
+    const crossfadeDuration = parseFloat(container.dataset.crossfade || '0.6') || 0.6;
+    const normalizedLength = Math.max(segmentLength, crossfadeDuration + 0.25);
+    const crossfadeTrigger = segmentStart + normalizedLength - crossfadeDuration;
+
+    container.style.setProperty('--global-reach-crossfade', `${crossfadeDuration}s`);
+
+    const playerConfigs = layers.slice(0, 2).map((layer, layerIndex) => {
+        const placeholder = layer.querySelector('[data-player-placeholder]');
+        if (!placeholder) return null;
+
+        if (!placeholder.id) {
+            placeholder.id = `globalReachVideo_${instanceIndex}_${layerIndex}`;
+        }
+
+        return {
+            layer,
+            placeholderId: placeholder.id,
+            player: null,
+            ready: false
+        };
+    }).filter(Boolean);
+
+    if (playerConfigs.length < 2) return;
+
+    let activeIndex = 0;
+    let handoffInProgress = false;
+    let monitorStarted = false;
+
+    const startMonitoring = () => {
+        if (monitorStarted) return;
+        monitorStarted = true;
+        requestAnimationFrame(monitorLoop);
+    };
+
+    const monitorLoop = () => {
+        const activePlayer = playerConfigs[activeIndex].player;
+        if (activePlayer && typeof activePlayer.getCurrentTime === 'function') {
+            const currentTime = activePlayer.getCurrentTime();
+            if (!handoffInProgress && currentTime >= crossfadeTrigger) {
+                handoffInProgress = true;
+                const nextIndex = activeIndex === 0 ? 1 : 0;
+                const nextConfig = playerConfigs[nextIndex];
+                const currentConfig = playerConfigs[activeIndex];
+
+                // Start the hidden player at the loop beginning and crossfade layers
+                nextConfig.player.seekTo(segmentStart, true);
+                nextConfig.player.playVideo();
+
+                nextConfig.layer.classList.add('is-active');
+                requestAnimationFrame(() => currentConfig.layer.classList.remove('is-active'));
+
+                window.setTimeout(() => {
+                    currentConfig.player.pauseVideo();
+                    currentConfig.player.seekTo(segmentStart, true);
+                    activeIndex = nextIndex;
+                    handoffInProgress = false;
+                }, crossfadeDuration * 1000);
+            }
+        }
+
+        requestAnimationFrame(monitorLoop);
+    };
+
+    playerConfigs.forEach((config, index) => {
+        config.player = new YT.Player(config.placeholderId, {
+            videoId,
+            playerVars: {
+                autoplay: 1,
+                mute: 1,
+                controls: 0,
+                rel: 0,
+                showinfo: 0,
+                modestbranding: 1,
+                fs: 0,
+                playsinline: 1,
+                disablekb: 1
+            },
+            events: {
+                onReady: event => {
+                    config.ready = true;
+                    event.target.mute();
+                    event.target.seekTo(segmentStart, true);
+                    event.target.pauseVideo();
+
+                    const iframe = event.target.getIframe();
+                    if (iframe) {
+                        iframe.classList.add('global-reach-video-iframe');
+                    }
+
+                    if (playerConfigs.every(p => p.ready)) {
+                        playerConfigs.forEach((playerConfig, idx) => {
+                            if (idx === 0) {
+                                playerConfig.layer.classList.add('is-active');
+                                playerConfig.player.playVideo();
+                            } else {
+                                playerConfig.layer.classList.remove('is-active');
+                            }
+                        });
+                        startMonitoring();
+                    }
+                }
+            }
+        });
+    });
+}
+
 // ===================================
 // Initialize All Functions
 // ===================================
@@ -477,6 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMegaMenu();
     initSmoothParallax();
     initSequentialUnderlines();
+    initGlobalReachVideo();
 
     // Handle window resize
     let resizeTimer;
