@@ -584,9 +584,10 @@ h5 {
     color: #0C162C;
     padding: 8px 20px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.5px;
     margin-bottom: 2rem;
+    text-transform: uppercase;
 }
 
 .hero-title {
