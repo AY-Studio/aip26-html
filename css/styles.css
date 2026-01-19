@@ -6296,6 +6296,22 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     text-align: left;
 }
 
+.footnote-link {
+    color: var(--color-aqua);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 2px;
+    transition: color 0.3s ease;
+}
+
+.footnote-link:hover {
+    color: #00B8C7;
+}
+
+.footnote-link sup {
+    font-size: 0.75em;
+}
+
 .footer-copyright {
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;

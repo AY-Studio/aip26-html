@@ -123,7 +123,7 @@
                                 <div class="col-6">
                                     <div class="stat-item">
                                         <div class="stat-number" data-count="6.2" data-prefix="$" data-suffix="B+">0</div>
-                                        <div class="stat-label">Assets Under Management</div>
+                                        <div class="stat-label">Assets Under Management<a href="#footnote-aum" class="footnote-link"><sup>1</sup></a></div>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -459,6 +459,123 @@
     <!-- Footer -->
     
 
+    <!--
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║                    AIP CAPITAL COMPONENT LIBRARY                          ║
+    ║                   WordPress ACF Flexible Content                          ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+
+    SENIOR DEVELOPER REFERENCE
+
+    This page contains one instance of every reusable component for the AIP Capital
+    website. These components are designed to be built as ACF Flexible Content
+    layouts for WordPress.
+
+    COMPLETE ACF FIELD DOCUMENTATION:
+    ═════════════════════════════════════════════════════════════════════════════
+    See: ACF-COMPONENT-DOCUMENTATION.md
+
+    This comprehensive guide includes:
+    - Complete ACF field configurations for all 20+ components
+    - Field types, options, and conditional logic
+    - All theme/layout variations and CSS classes
+    - Repeater field structures
+    - Image requirements and sizes
+    - JavaScript integration notes
+    - WordPress template integration examples
+    - Responsive breakpoints
+    - Animation hooks
+
+    COMPONENTS INCLUDED:
+    ═════════════════════════════════════════════════════════════════════════════
+    1.  Text + Image Block (3 themes, 2 layouts, 2 content types)
+    2.  Platform Snapshot (Stats Cards Grid)
+    3.  Values Section (Icon Cards)
+    4.  Strategies Overview Cards
+    5.  Global Offices Interactive Map
+    6.  Featured Platform Block (2 bg variations, 2 logo sizes)
+    7.  Value Framework Section (2 themes)
+    8.  Product Offerings Section
+    9.  Asset Types Section
+    10. ESG Pillars Section
+    11. Key Initiatives Section
+    12. Stats Section (Left-Aligned variant)
+    13. Charities Section
+    14. Contact Form Section
+    15. Global Offices Cards
+    16. Connect With Us CTA
+    17. Global Reach Video Section
+    18. Community Logos Section
+    19. Team Member Cards Grid
+    20. Staff Directory Table
+
+    EXCLUDED FROM LIBRARY:
+    ═════════════════════════════════════════════════════════════════════════════
+    The following are NOT included as they use custom post types:
+    - News listing/single pages (custom post type: news)
+    - Careers listing/single pages (custom post type: jobs)
+
+    WORDPRESS INTEGRATION NOTES:
+    ═════════════════════════════════════════════════════════════════════════════
+    Required Plugins:
+    - Advanced Custom Fields Pro
+    - Gravity Forms
+
+    Optional:
+    - ACF Extended (enhanced layout options)
+
+    Each component should be:
+    1. Built as Flexible Content layout in ACF
+    2. Created as PHP partial in /template-parts/components/
+    3. Registered in functions.php
+
+    STYLING & JAVASCRIPT:
+    ═════════════════════════════════════════════════════════════════════════════
+    CSS: css/styles.css (all component styles documented with BEM methodology)
+    JS:  js/scripts.js (animations, interactivity, map functionality)
+
+    Key JavaScript functions to integrate:
+    - initCountUpAnimation() - Number count-up on scroll
+    - initSequentialUnderlines() - Animated underlines on hover
+    - initSmoothParallax() - Parallax background effects
+    - initGlobalOfficesMap() - Interactive office map with modal
+    - initGlobalReachVideo() - YouTube video segments with crossfade
+    - initTableSorting(), initTableFilters() - Staff directory functionality
+
+    RESPONSIVE BREAKPOINTS:
+    ═════════════════════════════════════════════════════════════════════════════
+    - Mobile: < 768px
+    - Tablet: 768px - 991px
+    - Desktop: 992px - 1199px
+    - Large Desktop: ≥ 1200px
+
+    Bootstrap 5.3.2 grid system used throughout
+
+    FILE STRUCTURE FOR WORDPRESS:
+    ═════════════════════════════════════════════════════════════════════════════
+    /wp-content/themes/aipcapital/
+    ├── template-parts/
+    │   └── components/
+    │       ├── text-image-block.php
+    │       ├── platform-snapshot.php
+    │       ├── values-section.php
+    │       ├── strategies-overview.php
+    │       └── ... (all other components)
+    ├── inc/
+    │   ├── acf-fields.php (field group registrations)
+    │   └── component-loader.php (flexible content rendering)
+    └── page-templates/
+        └── page-builder.php (main flexible content template)
+
+    VERSION CONTROL:
+    ═════════════════════════════════════════════════════════════════════════════
+    HTML Version: 1.0
+    Last Updated: 2026-01-19
+    ACF Documentation: See ACF-COMPONENT-DOCUMENTATION.md v1.0
+
+    ═════════════════════════════════════════════════════════════════════════════
+    -->
+
     <!-- Component Library Intro -->
     <section class="component-library-intro padding-section-large">
         <div class="container-custom">
@@ -472,7 +589,104 @@
         </div>
     </section>
 
-    <!-- About: Light Text + Image Block -->
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    ACF COMPONENT: Text + Image Block
+    ═══════════════════════════════════════════════════════════════════════════
+
+    DESCRIPTION:
+    Two-column layout with text content on one side and image on the other.
+    Supports multiple themes, layouts, and content types.
+
+    ACF FIELD GROUP: "Text + Image Block"
+    ────────────────────────────────────────────────────────────────────────
+
+    FIELDS:
+    1. theme (Button Group) - REQUIRED
+       Options:
+       - light: Light grey background (#EEEEEE), dark text, aqua accent
+       - dark: Dark blue background (#0C162C), white text
+       - grey: Grey background (#EEEEEE), dark text, aqua accent
+       Default: light
+       CSS Classes: .text-image-block--light, .text-image-block--dark, .text-image-block--grey
+
+    2. layout (Button Group) - REQUIRED
+       Options:
+       - text-left: Text on left, image on right (default)
+       - text-right: Text on right, image on left
+       Default: text-left
+       CSS Classes: .text-image-block--text-right (add when text-right selected)
+       Bootstrap: Add .order-lg-1 to image, .order-lg-2 to content when text-right
+
+    3. title (Text) - REQUIRED
+       Max characters: 100
+       Outputs to: <h2 class="text-image-block__title text-image-block__title--accent">
+
+    4. content_type (Button Group) - REQUIRED
+       Options:
+       - intro_list: Intro paragraph + bulleted list
+       - paragraph: Simple paragraph text
+       Default: paragraph
+       Conditional Logic: Shows different fields based on selection
+
+    5. intro_text (Textarea) - CONDITIONAL
+       Show if: content_type == intro_list
+       Rows: 3
+       Outputs to: <div class="text-image-block__intro">
+
+    6. list_items (Repeater) - CONDITIONAL
+       Show if: content_type == intro_list
+       Min: 0, Max: 10
+       Button Label: "Add List Item"
+       Layout: Block
+       Sub-fields:
+         - text (Textarea)
+           Rows: 3
+           Outputs to: <li class="text-image-block__list-item">
+       Outputs to: <ul class="text-image-block__list">
+       Note: Bullet icon img/asset-bullet.svg is hardcoded in template
+
+    7. description (WYSIWYG) - CONDITIONAL
+       Show if: content_type == paragraph
+       Toolbar: Basic (bold, italic, link, lists)
+       Media Upload: No
+       Outputs to: <div class="text-image-block__description">
+
+    8. image (Image) - REQUIRED
+       Return Format: Array
+       Preview Size: Medium
+       Library: All
+       Required Sizes: 1200x800px minimum
+       Outputs to: <img> with class .img-fluid or .parallax-img
+       Note: Use .parallax-img class for parallax effect on light theme
+
+    9. buttons (Group) - OPTIONAL
+       Sub-fields:
+         - enable_buttons (True/False)
+         - button_1_text (Text)
+         - button_1_link (Link)
+         - button_1_style (Select: btn-aqua, btn-white-ghost, btn-aqua-ghost)
+         - button_2_text (Text) - Optional
+         - button_2_link (Link) - Optional
+         - button_2_style (Select: btn-aqua, btn-white-ghost, btn-aqua-ghost)
+       Outputs to: <div class="text-image-block__buttons">
+
+    VARIATIONS & CSS CLASSES:
+    ────────────────────────────────────────────────────────────────────────
+    Base: .text-image-block
+    Themes: --light, --dark, --grey
+    Layout: --text-right (when image on left)
+    Accent: .text-image-block__title--accent (always on title)
+
+    EXAMPLES ON SITE:
+    ────────────────────────────────────────────────────────────────────────
+    - about.html: Light theme with intro + list
+    - strategies.html: Dark theme with paragraph
+    - private-credit.html: Grey theme with text-right layout
+    - real-assets.html: Grey theme with text-right layout
+
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
     <section class="text-image-block text-image-block--light padding-section-large">
         <div class="container-custom">
             <div class="row align-items-start">
@@ -499,7 +713,78 @@
         </div>
     </section>
 
-    <!-- About: Platform Snapshot -->
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    ACF COMPONENT: Platform Snapshot (Stats Cards Grid)
+    ═══════════════════════════════════════════════════════════════════════════
+
+    DESCRIPTION:
+    Grid of statistic cards displaying key metrics with count-up animation.
+    Flexible number of cards (typically 4-6), responsive 3-column layout.
+
+    ACF FIELD GROUP: "Platform Snapshot"
+    ────────────────────────────────────────────────────────────────────────
+
+    FIELDS:
+    1. title (Text) - REQUIRED
+       Max characters: 60
+       Outputs to: <h2 class="snapshot-title snapshot-title-with-accent">
+
+    2. stats_cards (Repeater) - REQUIRED
+       Min: 1, Max: 12
+       Button Label: "Add Stat Card"
+       Layout: Block
+       Sub-fields:
+         a. title (Text) - REQUIRED
+            Label: "Stat Label"
+            Max characters: 40
+            Example: "Assets Under Management"
+            Outputs to: <h4 class="snapshot-card-title">
+
+         b. stat_value (Number) - REQUIRED
+            Label: "Numeric Value"
+            Example: 6.2
+            Note: Supports decimals
+            Outputs to: data-count attribute for count-up animation
+
+         c. prefix (Text) - OPTIONAL
+            Label: "Prefix (e.g. $)"
+            Max characters: 5
+            Example: "$"
+            Outputs before stat value
+
+         d. suffix (Text) - OPTIONAL
+            Label: "Suffix (e.g. b+, +, %)"
+            Max characters: 10
+            Example: "b+", "+", "%"
+            Outputs after stat value
+
+    LAYOUT & STYLING:
+    ────────────────────────────────────────────────────────────────────────
+    - Cards display in 3 columns (Bootstrap: .col-lg-4 .col-md-6)
+    - Dark background cards (#1A2332)
+    - Aqua accent color for numbers (#00D2E3)
+    - White text for labels
+    - Count-up animation on scroll (see js/scripts.js initCountUpAnimation)
+
+    JAVASCRIPT INTEGRATION:
+    ────────────────────────────────────────────────────────────────────────
+    - Add data-count="{value}" to .stat-number element
+    - Script automatically animates on scroll into view
+    - Supports decimals and whole numbers
+
+    RESPONSIVE:
+    ────────────────────────────────────────────────────────────────────────
+    Desktop (lg): 3 columns
+    Tablet (md): 2 columns
+    Mobile: 1 column
+
+    EXAMPLES ON SITE:
+    ────────────────────────────────────────────────────────────────────────
+    - about.html: 6 cards showcasing firm stats
+
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
     <section class="platform-snapshot-section py-5">
         <div class="container-custom">
             <h2 class="snapshot-title snapshot-title-with-accent">Platform Snapshot</h2>
@@ -507,7 +792,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="snapshot-card">
-                        <h4 class="snapshot-card-title">Assets Under Management</h4>
+                        <h4 class="snapshot-card-title">Assets Under Management<a href="#footnote-aum" class="footnote-link"><sup>1</sup></a></h4>
                         <div class="snapshot-card-stat">$<span class="stat-number" data-count="6.2">0</span>b+</div>
                     </div>
                 </div>
@@ -562,6 +847,74 @@
         </div>
     </section>
 
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    ACF COMPONENT: Values Section (Icon Cards)
+    ═══════════════════════════════════════════════════════════════════════════
+
+    DESCRIPTION:
+    Centered title/description with 3-column grid of icon cards.
+    Each card has an icon, title, and description text.
+
+    ACF FIELD GROUP: "Values Section"
+    ────────────────────────────────────────────────────────────────────────
+
+    FIELDS:
+    1. title (Text) - REQUIRED
+       Max characters: 60
+       Example: "Our Values"
+       Outputs to: <h2 class="values-section__title">
+
+    2. description (Textarea) - REQUIRED
+       Rows: 5
+       Max characters: 500
+       Outputs to: <p class="values-section__description">
+
+    3. value_cards (Repeater) - REQUIRED
+       Min: 3, Max: 6
+       Button Label: "Add Value Card"
+       Layout: Block
+       Recommended: 3 cards for optimal layout
+       Sub-fields:
+         a. icon (Image) - REQUIRED
+            Label: "Icon Image"
+            Return Format: URL
+            Preview Size: Thumbnail
+            Recommended: SVG or PNG, 200x200px
+            Outputs to: <img class="icon-card__icon">
+
+         b. title (Text) - REQUIRED
+            Label: "Value Title"
+            Max characters: 40
+            Example: "We are Committed"
+            Outputs to: <h3 class="icon-card__title">
+
+         c. description (Textarea) - REQUIRED
+            Label: "Value Description"
+            Rows: 4
+            Max characters: 300
+            Outputs to: <p class="icon-card__description">
+
+    LAYOUT & STYLING:
+    ────────────────────────────────────────────────────────────────────────
+    - White background
+    - Centered title and description (col-lg-7)
+    - 3 cards per row (Bootstrap: .col-lg-4 .col-md-6)
+    - Cards: White with border, hover shadow effect
+    - Icon displayed at top of card
+
+    RESPONSIVE:
+    ────────────────────────────────────────────────────────────────────────
+    Desktop (lg): 3 columns
+    Tablet (md): 2 columns
+    Mobile: 1 column
+
+    EXAMPLES ON SITE:
+    ────────────────────────────────────────────────────────────────────────
+    - about.html: "Our Values" with 3 cards
+
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
     <!-- About: Values Icon Cards -->
     <section class="values-section padding-section-large">
         <div class="container-custom">
@@ -721,7 +1074,7 @@
                     <div class="featured-platform-block__stats">
                         <div class="stat-item">
                             <div class="stat-number">$1.5B+</div>
-                            <div class="stat-label">Assets Under Management</div>
+                            <div class="stat-label">Assets Under Management<a href="#footnote-aum" class="footnote-link"><sup>1</sup></a></div>
                         </div>
                     </div>
                     <div class="featured-platform-block__buttons">
@@ -1620,7 +1973,7 @@ Tokyo 100-0005, Japan</div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="footer-disclaimer"></p>
+                    <p class="footer-disclaimer" id="footnote-aum"><sup>1</sup> Assets under management ("AUM") means all equity and debt across all private market funds, accounts and vehicles, including lending vehicles, managed by AIP Capital as of December 31, 2025, including uncalled capital commitments (including capital for which investors have no obligation to authorize deployment) and holdings of third parties. AUM as used herein is not the equivalent of "regulatory assets under management."</p>
                 </div>
             </div>
             <hr class="footer-divider">
