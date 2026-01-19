@@ -31,7 +31,7 @@ html/
 │   ├── asset-bullet.svg    # Custom bullet icon
 │   ├── news-*.png          # News card images
 │   ├── logo-*.png/svg      # Partner/investment logos
-│   ├── paralell.png        # Connect section background
+│   ├── paralell.jpg        # Connect section background
 │   ├── global-reach.jpg    # Global reach background
 │   └── menu-placeholder*.png # Mega menu images
 └── mp4/
@@ -567,7 +567,7 @@ Footer also includes:
 - [x] Asset bullet icon (img/asset-bullet.svg)
 - [x] Partner logos (8 logos in various formats)
 - [x] News images (news-1.png, news-2.png, news-3.png)
-- [x] Background images (paralell.png, global-reach.jpg, finance-stats-bg.png)
+- [x] Background images (paralell.jpg, global-reach.jpg, finance-stats-bg.png)
 - [x] Mega menu placeholders (menu-placeholder.png, menu-placeholder-2.png)
 - [x] Sample content image (jet-sample.png)
 - [x] Header/Footer logos (assets/logo-header.svg, assets/logo-footer.png)
