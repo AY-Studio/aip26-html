@@ -1544,6 +1544,7 @@ function initFooterEmail() {
     const email = user + '@' + domain + '.' + tld;
 
     // Set href and text content
+    // The sequential underlines function will wrap this text later
     emailLink.href = 'mailto:' + email;
     emailLink.textContent = email;
 }

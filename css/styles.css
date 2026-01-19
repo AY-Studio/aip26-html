@@ -2858,12 +2858,6 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.snapshot-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0, 210, 227, 0.3);
 }
 
 .snapshot-card-title {
@@ -5281,7 +5275,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     top: 100px;
     background-color: #FAFAFA;
     padding: 40px;
-    border-left: 4px solid #00D2E3;
+    border-left: 2px solid #00D2E3;
 }
 
 .job-sidebar__item {
@@ -5363,6 +5357,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     color: #1A2332;
     margin-top: 48px;
     margin-bottom: 24px;
+}
+
+.job-content-body h2:first-child {
+    margin-top: 0;
 }
 
 .job-content-body h3 {
@@ -5826,6 +5824,11 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     align-items: center;
     gap: 0.5rem;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+.strategies-contact-link:hover {
+    color: var(--color-aqua);
 }
 
 .strategies-contact-link i {
