@@ -1641,13 +1641,49 @@ function initFooterEmail() {
     emailLink.textContent = email;
 }
 
+/**
+ * Match heights of all investment cards across all rows
+ */
+function matchInvestmentCardHeights() {
+    const cards = document.querySelectorAll('.investment-card');
+    if (cards.length === 0) return;
+
+    // Reset heights first
+    cards.forEach(card => {
+        card.style.minHeight = '';
+    });
+
+    // Only apply on desktop
+    if (window.innerWidth < 992) return;
+
+    // Find the tallest card
+    let maxHeight = 0;
+    cards.forEach(card => {
+        const height = card.offsetHeight;
+        if (height > maxHeight) {
+            maxHeight = height;
+        }
+    });
+
+    // Apply max height to all cards
+    cards.forEach(card => {
+        card.style.minHeight = maxHeight + 'px';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     initGlobalOfficesMap();
     initTableSorting();
     initTableFilters();
     initClickableTableRows();
     initBackToTop();
+    matchInvestmentCardHeights();
 
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();
+});
+
+// Recalculate card heights on window resize
+window.addEventListener('resize', function() {
+    matchInvestmentCardHeights();
 });
