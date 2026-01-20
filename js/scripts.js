@@ -1679,6 +1679,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     matchInvestmentCardHeights();
 
+    // Initialize AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+
     // Initialize pagination and store reference
     window.tablePagination = initTablePagination();
 });
