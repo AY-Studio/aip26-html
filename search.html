@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - Alternative Investment Partners</title>
+    <title>Search Results - Alternative Investment Partners</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="404">
+<body data-page="search">
 
     <!-- Header -->
     <header class="header-section about-header page-hero">
         <div class="header-video-wrapper">
-            <img src="img/hero-contact.jpg" alt="Page Not Found" class="header-image">
+            <img src="img/hero-contact.jpg" alt="Search" class="header-image">
             <div class="header-overlay"></div>
         </div>
 
@@ -100,107 +100,139 @@
             <div class="container-custom">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="hero-title">404</h1>
+                        <h1 class="hero-title">Search</h1>
+                        <p class="hero-description">Find information across our site</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- 404 Content Section -->
-    <section class="error-404-section padding-section-large">
+    <!-- Search Results Section -->
+    <section class="search-results-section padding-section-large">
         <div class="container-custom">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title section-title-with-accent mb-4">Page Not Found</h2>
-                    <p class="section-description mb-5">We're sorry, but the page you're looking for doesn't exist or has been moved. Please check the URL or use the navigation to find what you need.</p>
-
-                    <div class="error-404-actions">
-                        <a href="index.html" class="btn btn-aqua me-3 mb-3">Return to Homepage <i class="fas fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn btn-aqua-ghost mb-3">Contact Us <i class="fas fa-arrow-right"></i></a>
+            <!-- Search Summary -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="search-summary">
+                        <p class="search-summary__text">Showing <strong>24 results</strong> for "<strong>aviation finance</strong>"</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Quick Links -->
-            <div class="row justify-content-center mt-5 pt-5">
-                <div class="col-lg-10">
-                    <h3 class="text-center mb-5" style="font-size: 24px; font-weight: 300; color: #1A2332;">You might be looking for:</h3>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <a href="about.html" class="error-404-link-card">
-                                <div class="error-404-link-card-inner">
-                                    <i class="fas fa-building mb-3" style="font-size: 32px;"></i>
-                                    <h4 class="mb-2" style="font-size: 20px; font-weight: 600;">About Us</h4>
-                                    <p style="font-size: 16px; margin: 0;">Learn about our firm and mission</p>
-                                </div>
-                            </a>
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="search-filters">
+                        <h3 class="search-filters__title">Filters</h3>
+
+                        <!-- Search Input -->
+                        <div class="search-filter-group">
+                            <label for="searchText" class="search-filter-label">Search Text</label>
+                            <input type="text" id="searchText" class="search-filter-input" placeholder="Enter search term...">
                         </div>
-                        <div class="col-md-4">
-                            <a href="strategies.html" class="error-404-link-card">
-                                <div class="error-404-link-card-inner">
-                                    <i class="fas fa-chart-line mb-3" style="font-size: 32px;"></i>
-                                    <h4 class="mb-2" style="font-size: 20px; font-weight: 600;">Our Strategies</h4>
-                                    <p style="font-size: 16px; margin: 0;">Explore our investment approaches</p>
-                                </div>
-                            </a>
+
+                        <!-- Content Type Filter -->
+                        <div class="search-filter-group">
+                            <label for="contentType" class="search-filter-label">Content Type</label>
+                            <select id="contentType" class="search-filter-select">
+                                <option value="">All Types</option>
+                                <option value="page">Pages</option>
+                                <option value="news">News & Insights</option>
+                                <option value="team">Team Members</option>
+                                <option value="careers">Careers</option>
+                            </select>
                         </div>
-                        <div class="col-md-4">
-                            <a href="team.html" class="error-404-link-card">
-                                <div class="error-404-link-card-inner">
-                                    <i class="fas fa-users mb-3" style="font-size: 32px;"></i>
-                                    <h4 class="mb-2" style="font-size: 20px; font-weight: 600;">Our Team</h4>
-                                    <p style="font-size: 16px; margin: 0;">Meet our leadership and experts</p>
-                                </div>
-                            </a>
+
+                        <!-- Date Range Filter -->
+                        <div class="search-filter-group">
+                            <label for="dateRange" class="search-filter-label">Date Range</label>
+                            <select id="dateRange" class="search-filter-select">
+                                <option value="">All Dates</option>
+                                <option value="last-week">Last Week</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="last-year">Last Year</option>
+                            </select>
                         </div>
+
+                        <!-- Apply Filters Button -->
+                        <button class="btn btn-aqua w-100">Apply Filters <i class="fas fa-arrow-right"></i></button>
+
+                        <!-- Clear Filters -->
+                        <button class="search-clear-filters">Clear All Filters</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Our Global Reach -->
-    <section id="global-reach" class="global-reach-section padding-section-large">
-        <div class="global-reach-video-wrapper">
-            <div class="global-reach-video-embed" aria-hidden="true" data-global-reach-video data-video-id="durrAAgumQo" data-segment-start="0" data-segment-length="15" data-crossfade="0.6">
-                <div class="global-reach-video-layer is-active">
-                    <div class="global-reach-video-placeholder" data-player-placeholder></div>
-                </div>
-                <div class="global-reach-video-layer">
-                    <div class="global-reach-video-placeholder" data-player-placeholder></div>
-                </div>
-            </div>
-            <div class="global-reach-overlay"></div>
-        </div>
+                <!-- Search Results -->
+                <div class="col-lg-9">
 
-        <div class="container-custom">
-            <h2 class="global-reach-title global-reach-title-with-accent">Our Global Reach</h2>
+                    <!-- Results Grid -->
+                    <div class="search-results-grid">
+                        <!-- Result Card 1 -->
+                        <a href="real-assets.html" class="search-result-card">
+                            <div class="search-result-card__category">Strategies</div>
+                            <h3 class="search-result-card__title">Real Assets Investment Strategy</h3>
+                            <p class="search-result-card__excerpt">Acquiring and servicing commercial aircraft and engines to drive attractive risk-adjusted returns, investing via various co-investment, fund vehicles and other structures...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
 
-            <div class="global-reach-grid">
-                <div class="location-item">
-                    <div class="location-name">Stamford</div>
-                    <div class="location-time" data-timezone="stamford">09:31am</div>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">New York</div>
-                    <div class="location-time" data-timezone="new-york">09:31am</div>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">Dublin</div>
-                    <div class="location-time" data-timezone="dublin">3:31pm</div>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">Singapore</div>
-                    <div class="location-time" data-timezone="singapore">10:31pm</div>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">Seoul</div>
-                    <div class="location-time" data-timezone="seoul">11:31pm</div>
-                </div>
-                <div class="location-item">
-                    <div class="location-name">Tokyo</div>
-                    <div class="location-time" data-timezone="tokyo">12:31am</div>
+                        <!-- Result Card 2 -->
+                        <a href="private-credit.html" class="search-result-card">
+                            <div class="search-result-card__category">Strategies</div>
+                            <h3 class="search-result-card__title">Private Credit Solutions</h3>
+                            <p class="search-result-card__excerpt">Direct origination with airlines providing bespoke credit solutions including secured aircraft and engine financing, esoteric assets, and pre-delivery payment financing...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
+
+                        <!-- Result Card 3 -->
+                        <a href="about.html" class="search-result-card">
+                            <div class="search-result-card__category">Our Firm</div>
+                            <h3 class="search-result-card__title">About AIP Capital</h3>
+                            <p class="search-result-card__excerpt">AIP Capital is a multi-strategy investment manager focused on opportunities in asset-based finance. With offices in Stamford, New York City, Dublin, Tokyo, Seoul and Singapore...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
+
+                        <!-- Result Card 4 -->
+                        <a href="news-single.html" class="search-result-card">
+                            <div class="search-result-card__category">News & Insights</div>
+                            <h3 class="search-result-card__title">AIP Capital Announces Strategic Partnership</h3>
+                            <p class="search-result-card__excerpt">AIP Capital has formed a strategic partnership to originate aircraft and engine investment opportunities for global investors, expanding our reach in the aviation finance sector...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
+
+                        <!-- Result Card 5 -->
+                        <a href="strategic-partnerships.html" class="search-result-card">
+                            <div class="search-result-card__category">Partnerships</div>
+                            <h3 class="search-result-card__title">Strategic Partnerships & Control Investments</h3>
+                            <p class="search-result-card__excerpt">AIP Capital and its affiliates is comprised of industry leading professionals creating value through operational excellence and strategic growth initiatives...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
+
+                        <!-- Result Card 6 -->
+                        <a href="team.html" class="search-result-card">
+                            <div class="search-result-card__category">Our Team</div>
+                            <h3 class="search-result-card__title">An Experienced Investment Team</h3>
+                            <p class="search-result-card__excerpt">Our team of seasoned professionals brings decades of experience in aviation finance, asset management, and alternative investments...</p>
+                            <div class="search-result-card__link">View Page <i class="fas fa-chevron-right"></i></div>
+                        </a>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="search-pagination">
+                        <div class="search-pagination__info">You're on page 1</div>
+                        <div class="search-pagination__controls">
+                            <button class="search-pagination__button search-pagination__button--disabled" disabled>
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <button class="search-pagination__button search-pagination__button--active">1</button>
+                            <button class="search-pagination__button">2</button>
+                            <button class="search-pagination__button">3</button>
+                            <button class="search-pagination__button">4</button>
+                            <button class="search-pagination__button">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
