@@ -1087,6 +1087,10 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     transform: translateY(-8px);
 }
 
+.investment-card-link:hover .investment-card {
+    background-color: #232E40;
+}
+
 .investment-card {
     background-color: var(--color-neutral-darkest);
     color: var(--color-white);
@@ -1094,6 +1098,7 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
     border-radius: 0;
     height: 100%;
     position: relative;
+    transition: background-color 0.3s ease;
 }
 
 .card-logo {
