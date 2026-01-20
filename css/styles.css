@@ -7348,3 +7348,59 @@ html {
         font-size: 16px;
     }
 }
+
+/* ===================================
+   404 Page
+   =================================== */
+.error-404-section {
+    background-color: #FFFFFF;
+}
+
+.error-404-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.error-404-link-card {
+    display: block;
+    text-decoration: none;
+    background-color: #F8F8F8;
+    padding: 2.5rem 2rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.error-404-link-card-inner {
+    text-align: center;
+}
+
+.error-404-link-card:hover {
+    background-color: var(--color-neutral-darkest);
+    transform: translateY(-8px);
+}
+
+.error-404-link-card:hover i {
+    color: var(--color-aqua);
+}
+
+.error-404-link-card:hover h4 {
+    color: var(--color-white);
+}
+
+.error-404-link-card:hover p {
+    color: #CCCCCC;
+}
+
+@media (max-width: 767px) {
+    .error-404-actions {
+        flex-direction: column;
+    }
+
+    .error-404-actions .btn {
+        width: 100%;
+        margin: 0 0 1rem 0 !important;
+    }
+}
