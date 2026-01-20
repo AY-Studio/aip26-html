@@ -165,6 +165,20 @@ h5 {
     width: auto;
     min-height: 100vh;
     z-index: 2;
+    opacity: 0;
+    transform: translateX(100px) scale(0.95);
+    animation: angleSlideIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes angleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
 /* Hide angled overlay on mobile */
