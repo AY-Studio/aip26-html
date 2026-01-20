@@ -4761,8 +4761,19 @@ body[data-page="sustainability"] .stats-section .stat-item:nth-child(4) .stat-nu
 
 @media (max-width: 991px) {
     .global-reach-video-iframe {
-        width: 100vw;
-        height: 177.78vw;
+        width: 300%;
+        height: 300%;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .global-reach-video-iframe {
+        width: 400%;
+        height: 400%;
+        min-width: 100%;
+        min-height: 100%;
     }
 }
 
